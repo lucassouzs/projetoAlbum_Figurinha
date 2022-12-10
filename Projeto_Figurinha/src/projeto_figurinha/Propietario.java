@@ -43,7 +43,6 @@ public class Propietario {
 	
 	//outros metodos
 
-	public void cadastrarAlbum_Figurinha(Album_Figurinhas albumFigurinhas){
-		albumFigurinhas.add(albumFigurinhas);
+
 	}
 }
