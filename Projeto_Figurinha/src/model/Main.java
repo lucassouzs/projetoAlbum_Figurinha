@@ -18,7 +18,7 @@ public class Main {
 		
 		// cadastros
 		
-		proprietario1.cadastrarAlbum_Figurinha(albumFigurinha);
+		proprietario1.cadastrarAlbum_Figurinha(albumFigurinha); 
 		
 		albumFigurinha.cadastrarFigurinha_Seleção(figurinhaSeleção);
 		
