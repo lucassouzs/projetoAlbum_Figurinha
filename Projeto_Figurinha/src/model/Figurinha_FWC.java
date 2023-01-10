@@ -13,31 +13,31 @@ public class Figurinha_FWC extends Figurinha {
 	
 	// atributos
 	
-	private String itensLimitados;
+	private String descricaoItens;
 	private int nivelRaridade;
 		
 	// construtor
 	
 	public Figurinha_FWC(String sigla, int codigo, String itensLimitados, int nivelRaridade) {
 		super(sigla, codigo);
-		this.itensLimitados = itensLimitados;
+		this.descricaoItens = itensLimitados;
 		this.nivelRaridade = nivelRaridade;
 	}
 	
 	//
 	
 	public String toString() {
-		return itensLimitados;
+		return descricaoItens;
 	}
 	
 	// gets e sets
 	
 	public String getItensLimitados () {
-		return itensLimitados;
+		return descricaoItens;
 	}
 	
 	public void setItensLimitados (String itensLimitados){
-		this.itensLimitados = itensLimitados;	
+		this.descricaoItens = itensLimitados;	
 	}
 	
 	public int getNivelRaridade() {
