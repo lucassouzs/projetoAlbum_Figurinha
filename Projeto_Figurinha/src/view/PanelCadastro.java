@@ -6,16 +6,21 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
-public class PanelCadastro extends JFrame{
+import controler.ControleProprietario;
+
+public class PanelCadastro extends JFrame implements ActionListener{
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -24,99 +29,86 @@ public class PanelCadastro extends JFrame{
 	GridBagConstraints gbc = null;
 	
 	private JLabel jlbCadastro;
-	private JPanel jpnPropietario;
-	private JLabel jlbNomePropietario;
-	private JTextField jtfNomePropietario;
-	private JLabel jlbIdadePropietario;
-	private JTextField jtfIdadePropietario;
-	private JLabel jlbSexoPropietario;
-	private JRadioButton jrbSexoMasculino;
-	private JRadioButton jrbSexoFeminino;
-	private JRadioButton jrbSexoOutros;
+	private JPanel jpnProprietario;
+	private JLabel jlbNomeProprietario;
+	private JTextField jtfNomeProprietario;
+	private JLabel jlbIdadeProprietario;
+	private JTextField jtfIdadeProprietario;
+	private JLabel jlbSexoProprietario;
+	private JTextField jtfSexoProprietario;
 	private JButton jbtCadastrar;
 
 	public PanelCadastro(){
 		super();
 		this.configurarFrame();
 		this.configurarPainelPropietario();
-		this.add(this.jpnPropietario);
+		this.add(this.jpnProprietario);
 	}
 	
 	private void configurarPainelPropietario() {
-		this.jpnPropietario = new JPanel(new GridBagLayout());	
-		this.jpnPropietario.setPreferredSize(new Dimension(1166, 568));  
-		this.jpnPropietario.setBackground(new Color(104, 15, 49)); 
+		this.jpnProprietario = new JPanel(new GridBagLayout());	
+		this.jpnProprietario.setPreferredSize(new Dimension(1166, 568));  
+		this.jpnProprietario.setBackground(new Color(104, 15, 49)); 
 		
 		this.configurarDadosPropietario();
-		this.jpnPropietario.add((this.jlbCadastro), gbc); 
+		this.jpnProprietario.add((this.jlbCadastro), gbc); 
 		configurarGBC(NOVA_LINHA);
 		
-		this.jpnPropietario.add((this.jlbNomePropietario), gbc);
+		this.jpnProprietario.add((this.jlbNomeProprietario), gbc);
 		configurarGBC(NOVA_LINHA);
 		
-		this.jpnPropietario.add((this.jtfNomePropietario), gbc);
+		this.jpnProprietario.add((this.jtfNomeProprietario), gbc);
 		configurarGBC(NOVA_LINHA);
 		
-		this.jpnPropietario.add((this.jlbIdadePropietario), gbc);
+		this.jpnProprietario.add((this.jlbIdadeProprietario), gbc);
 		configurarGBC(NOVA_LINHA);
 		
-		this.jpnPropietario.add((this.jtfIdadePropietario), gbc);
+		this.jpnProprietario.add((this.jtfIdadeProprietario), gbc);
 		configurarGBC(NOVA_LINHA);
 		
-		this.jpnPropietario.add((this.jlbSexoPropietario), gbc);
+		this.jpnProprietario.add((this.jlbSexoProprietario), gbc);
 		configurarGBC(NOVA_LINHA);
 		
-		this.jpnPropietario.add((this.jrbSexoMasculino), gbc);
+		this.jpnProprietario.add((this.jtfSexoProprietario), gbc);
 		configurarGBC(NOVA_LINHA);
 		
-		this.jpnPropietario.add((this.jrbSexoFeminino), gbc);
-		configurarGBC(NOVA_LINHA);
-		
-		this.jpnPropietario.add((this.jrbSexoOutros), gbc);
-		configurarGBC(NOVA_LINHA);
-		
-		this.jpnPropietario.add((this.jbtCadastrar), gbc);
+		this.jpnProprietario.add((this.jbtCadastrar), gbc);
 		configurarGBC(NOVA_LINHA);
 	}
 	
 	private void configurarDadosPropietario() {
-		this.jlbCadastro = new JLabel("Cadastro");
+		this.jlbCadastro = new JLabel("MyCup");
 		this.jlbCadastro.setForeground(Color.white);
-		this.jlbCadastro.setFont(new Font("Verdana",Font.BOLD,30));
+		this.jlbCadastro.setFont(new Font("Verdana",Font.BOLD,36));
 		
-		this.jlbNomePropietario = new JLabel("Nome:");
-		this.jlbNomePropietario.setForeground(Color.white);
-		this.jlbNomePropietario.setFont(new Font("Arial",Font.BOLD,15));
-		this.jtfNomePropietario = new JTextField();
-		this.jtfNomePropietario.setPreferredSize(new Dimension(306, 40));
-		this.jtfNomePropietario.setBorder(new LineBorder(Color.white));
+		this.jlbNomeProprietario = new JLabel("Nome:");
+		this.jlbNomeProprietario.setForeground(Color.white);
+		this.jlbNomeProprietario.setFont(new Font("Arial",Font.BOLD,15));
+		this.jtfNomeProprietario = new JTextField();
+		this.jtfNomeProprietario.setPreferredSize(new Dimension(306, 40));
+		this.jtfNomeProprietario.setBorder(new LineBorder(Color.white));
 		
-		this.jlbIdadePropietario = new JLabel("Idade:");
-		this.jlbIdadePropietario.setForeground(Color.white);
-		this.jlbIdadePropietario.setFont(new Font("Arial",Font.BOLD,15));
-		this.jtfIdadePropietario = new JTextField();
-		this.jtfIdadePropietario.setPreferredSize(new Dimension(306, 40));
-		this.jtfIdadePropietario.setBorder(new LineBorder(Color.white));
+		this.jlbIdadeProprietario = new JLabel("Idade:");
+		this.jlbIdadeProprietario.setForeground(Color.white);
+		this.jlbIdadeProprietario.setFont(new Font("Arial",Font.BOLD,15));
+		this.jtfIdadeProprietario = new JTextField();
+		this.jtfIdadeProprietario.setPreferredSize(new Dimension(306, 40));
+		this.jtfIdadeProprietario.setBorder(new LineBorder(Color.white));
 		
-		this.jlbSexoPropietario = new JLabel("Sexo:");
-		this.jlbSexoPropietario.setForeground(Color.white);
-		this.jlbSexoPropietario.setFont(new Font("Arial",Font.BOLD,15));
+		this.jlbSexoProprietario = new JLabel("Sexo:");
+		this.jlbSexoProprietario.setForeground(Color.white);
+		this.jlbSexoProprietario.setFont(new Font("Arial",Font.BOLD,15));
 		
-		this.jrbSexoMasculino = new JRadioButton("Masculino");
-		this.jrbSexoMasculino.setForeground(Color.white);
-		this.jrbSexoMasculino.setBackground(new Color(104, 15, 49)); 
-		this.jrbSexoFeminino = new JRadioButton("Feminino");
-		this.jrbSexoFeminino.setForeground(Color.white);
-		this.jrbSexoFeminino.setBackground(new Color(104, 15, 49)); 
-		this.jrbSexoOutros = new JRadioButton("Outros");
-		this.jrbSexoOutros.setForeground(Color.white);
-		this.jrbSexoOutros.setBackground(new Color(104, 15, 49));
+		this.jtfSexoProprietario = new JTextField();
+		this.jtfSexoProprietario.setPreferredSize(new Dimension(306, 40));
+		this.jtfSexoProprietario.setBorder(new LineBorder(Color.white));
 		
 		this.jbtCadastrar = new JButton("Cadastrar");
 		this.jbtCadastrar.setForeground(Color.white);
 		this.jbtCadastrar.setBackground(new Color(58, 6, 36));
 		this.jbtCadastrar.setPreferredSize(new Dimension(306, 40));
 		this.jbtCadastrar.setBorder(new LineBorder(new Color(104, 15, 49)));
+		this.jbtCadastrar.addActionListener(this);
 	}
 	
 	private void configurarFrame() {
@@ -126,8 +118,7 @@ public class PanelCadastro extends JFrame{
 		this.setSize(1366, 768); 
 		this.getContentPane().setBackground(new Color(136, 22, 55)); 
 		this.setLayout(new GridBagLayout());
-		this.setLocationRelativeTo(null);
-		
+				
 		gbc = new GridBagConstraints();
 		
 		gbc.insets = new Insets(10, 10, 0, 10);
@@ -148,5 +139,16 @@ public class PanelCadastro extends JFrame{
 			gbc.gridx = gbc.gridx +1;
 		}
 	}
-
+	
+	public void actionPerformed(ActionEvent e) {
+		String nome = this.jtfNomeProprietario.getText();
+		String idade = this.jtfIdadeProprietario.getText();
+		String sexo = this.jtfSexoProprietario.getText();
+		
+		int id = Integer.parseInt(idade);
+		
+		ControleProprietario controleProprietario = new ControleProprietario();
+		
+		controleProprietario.cadastrarProprietario(nome, id, sexo);
+	}
 }

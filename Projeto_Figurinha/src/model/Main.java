@@ -8,7 +8,7 @@ public class Main {
 		
 		// instancias
 		
-		Proprietario proprietario1 = new Proprietario("Lucas", 20, "Masculino");
+		Proprietario proprietario1 = new Proprietario("Lucas Victor", 19, "Masculino");
 		
 		Album_Figurinha albumFigurinha = new Album_Figurinha("Meu album 2022", "Copa do Mundo 2022");
 		
@@ -31,7 +31,7 @@ public class Main {
 		+ albumFigurinha.getFigurinhaSeleção() + " e " + figurinhaFWC.getSigla() + " " 
 		+ figurinhaFWC.getCodigo() + " " + albumFigurinha.getFigurinhaFWC() + ", no Album " 
 		+ proprietario1.getAlbumFigurinha());
-		
+		 
 	}
 
 }
