@@ -79,7 +79,7 @@ public class PanelCadastro extends JFrame implements ActionListener{
 	private void configurarDadosPropietario() {
 		this.jlbCadastro = new JLabel("MyCup");
 		this.jlbCadastro.setForeground(Color.white);
-		this.jlbCadastro.setFont(new Font("Verdana",Font.BOLD,36));
+		this.jlbCadastro.setFont(new Font("Verdana",Font.BOLD,35));
 		
 		this.jlbNomeProprietario = new JLabel("Nome:");
 		this.jlbNomeProprietario.setForeground(Color.white);
