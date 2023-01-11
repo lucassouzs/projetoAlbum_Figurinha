@@ -8,16 +8,13 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
-
 import controler.ControleProprietario;
 
 public class PanelCadastro extends JFrame implements ActionListener{
@@ -46,7 +43,7 @@ public class PanelCadastro extends JFrame implements ActionListener{
 	}
 	
 	private void configurarPainelPropietario() {
-		this.jpnProprietario = new JPanel(new GridBagLayout());	
+		this.jpnProprietario = new JPanel(new GridBagLayout());
 		this.jpnProprietario.setPreferredSize(new Dimension(1166, 568));  
 		this.jpnProprietario.setBackground(new Color(104, 15, 49)); 
 		
@@ -150,5 +147,7 @@ public class PanelCadastro extends JFrame implements ActionListener{
 		ControleProprietario controleProprietario = new ControleProprietario();
 		
 		controleProprietario.cadastrarProprietario(nome, id, sexo);
+		
+		PanelCadastro.this.dispose();
 	}
 }
