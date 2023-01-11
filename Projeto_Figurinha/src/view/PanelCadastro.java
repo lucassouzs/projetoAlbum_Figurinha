@@ -76,7 +76,7 @@ public class PanelCadastro extends JFrame implements ActionListener{
 		configurarGBC(NOVA_LINHA);
 	}
 	
-	private void configurarDadosPropietario() {
+	private void configurarDadosPropietario() { 
 		this.jlbCadastro = new JLabel("MyCup");
 		this.jlbCadastro.setForeground(Color.white);
 		this.jlbCadastro.setFont(new Font("Verdana",Font.BOLD,35));
