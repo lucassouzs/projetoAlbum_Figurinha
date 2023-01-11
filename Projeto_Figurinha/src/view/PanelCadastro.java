@@ -27,7 +27,7 @@ public class PanelCadastro extends JFrame implements ActionListener{
 	
 	private JLabel jlbCadastro;
 	private JPanel jpnProprietario;
-	private JLabel jlbNomeProprietario;
+	private JLabel jlbNomeProprietario; 
 	private JTextField jtfNomeProprietario;
 	private JLabel jlbIdadeProprietario;
 	private JTextField jtfIdadeProprietario;
