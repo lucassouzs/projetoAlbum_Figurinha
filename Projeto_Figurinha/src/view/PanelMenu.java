@@ -7,17 +7,15 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import controler.ControleProprietario;
-
 public class PanelMenu extends JFrame{
 	
 	private static final long serialVersionUID = 1L;
 
 	private JPanel jpnBranco;
+	private JLabel jlbPerfil;
 	private JLabel jlbProprietario;
 	private JLabel jlbIdade;
 	private JLabel jlbSexo;
-
 
 	public PanelMenu(){
 		super();
@@ -32,6 +30,7 @@ public class PanelMenu extends JFrame{
 		this.jpnBranco.setBounds(0, 0, 429, 768);
 		
 		this.configurarDadosMenu();
+		this.jpnBranco.add(this.jlbPerfil);
 		this.jpnBranco.add(this.jlbProprietario); 
 		this.jpnBranco.add(this.jlbIdade); 
 		this.jpnBranco.add(this.jlbSexo); 
@@ -39,22 +38,27 @@ public class PanelMenu extends JFrame{
 	
 	private void configurarDadosMenu() {
 		
-		this.jlbProprietario = new JLabel("Idade");
-		this.jlbProprietario.setForeground(new Color(92, 92, 92));
-		this.jlbProprietario.setFont(new Font("Verdana",Font.BOLD,30));
-		this.jlbProprietario.setBounds(160, 61, 168, 59);
+		ImageIcon perfil = new ImageIcon("perfil.png");
+		this.jlbPerfil = new JLabel();
+		this.jlbPerfil.setIcon(perfil);
+		this.jlbPerfil.setBounds(150, 30, 400, 180);
 		
-		this.jlbIdade = new JLabel("Idade");
+		this.jlbProprietario = new JLabel("Nome: ");
+		this.jlbProprietario.setForeground(new Color(92, 92, 92));
+		this.jlbProprietario.setFont(new Font("Verdana", Font.BOLD, 25));
+		this.jlbProprietario.setBounds(30, 215, 168, 59);
+		
+		this.jlbIdade = new JLabel("Idade: ");
 		this.jlbIdade.setForeground(new Color(92, 92, 92));
-		this.jlbIdade.setFont(new Font("Verdana",Font.BOLD,30));
-		this.jlbIdade.setBounds(160, 155, 168, 59);
+		this.jlbIdade.setFont(new Font("Verdana", Font.BOLD, 25));
+		this.jlbIdade.setBounds(30, 315, 168, 59);
 
-		this.jlbSexo = new JLabel("Sexo");
+		this.jlbSexo = new JLabel("Sexo: ");
 		this.jlbSexo.setForeground(new Color(92, 92, 92));
-		this.jlbSexo.setFont(new Font("Verdana",Font.BOLD,30));
-		this.jlbSexo.setBounds(170, 250, 168, 59);
+		this.jlbSexo.setFont(new Font("Verdana", Font.BOLD, 25));
+		this.jlbSexo.setBounds(30, 415, 168, 59);
 	}
-	
+
 	private void configurarFrame() {
 		this.setTitle("Meu Album de Figurinha"); 
 		this.setResizable(false); 

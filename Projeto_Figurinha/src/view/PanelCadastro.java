@@ -12,6 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
@@ -138,11 +139,20 @@ public class PanelCadastro extends JFrame implements ActionListener{
 	}
 	
 	public void actionPerformed(ActionEvent e) {
+		
+		if(jtfNomeProprietario.getText().equals("") 
+			&& jtfIdadeProprietario.getText().equals("") 
+			&& jtfSexoProprietario.getText().equals("")) {
+			JOptionPane.showMessageDialog(null, "Preencha os campos para prosseguir!");	
+		} else {
+			JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!");	
+		}
+		
 		String nome = this.jtfNomeProprietario.getText();
 		String idade = this.jtfIdadeProprietario.getText();
 		String sexo = this.jtfSexoProprietario.getText();
 		
-		int id = Integer.parseInt(idade);
+		int id = Integer.parseInt(idade);	
 		
 		ControleProprietario controleProprietario = new ControleProprietario();
 		

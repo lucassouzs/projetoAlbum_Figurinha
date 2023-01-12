@@ -56,7 +56,13 @@ public class PanelMeusAlbuns extends JFrame implements ActionListener{
 		this.jbtMenu.setBackground(new Color(136, 22, 55));
 		this.jbtMenu.setBorder(new LineBorder(new Color(136, 22, 55)));
 		this.jbtMenu.setBounds(85, 51, 50, 50);
-		this.jbtMenu.addActionListener(this);
+		this.jbtMenu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == jbtMenu) {
+					menu();
+				}
+				}
+				});
 
 		this.jlbMeusAlbuns = new JLabel("Meus Albuns");
 		this.jlbMeusAlbuns.setForeground(Color.white);
@@ -74,6 +80,13 @@ public class PanelMeusAlbuns extends JFrame implements ActionListener{
 		this.jbtAdd.setBackground(new Color(136, 22, 55));
 		this.jbtAdd.setBorder(new LineBorder(new Color(136, 22, 55)));
 		this.jbtAdd.setBounds(1247, 51, 50, 50);
+		this.jbtAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == jbtAdd) {
+					add();
+				}
+				}
+				});
 	}
 	
 	private void configurarFrame() {
@@ -88,8 +101,18 @@ public class PanelMeusAlbuns extends JFrame implements ActionListener{
 		this.setIconImage(logo.getImage());
 	}
 	
-	public void actionPerformed(ActionEvent e) {
+	public void menu() {	
 		ControleProprietario controlePerfil= new ControleProprietario();
 		controlePerfil.controlePerfil();
+	}	
+	
+	public void add() {
+		ControleProprietario controleCriarAlbum= new ControleProprietario();
+		controleCriarAlbum.controleCriarAlbum();
+		
+		PanelMeusAlbuns.this.dispose();
+	}
+
+	public void actionPerformed(ActionEvent e) {
 	}
 }
