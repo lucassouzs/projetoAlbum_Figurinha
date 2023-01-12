@@ -1,12 +1,12 @@
 package controler;
 
 import model.Proprietario;
+import view.PanelMenu;
 import view.PanelMeusAlbuns;
 
 public class ControleProprietario {
 	
 	public static Proprietario proprietario;
-	
 	public void cadastrarProprietario(String nome, int idade, String sexo) {
 		
 		proprietario = new Proprietario(nome, idade, sexo);
@@ -16,5 +16,10 @@ public class ControleProprietario {
 		System.out.println("Sexo: " + proprietario.getSexo());
 		
 		new PanelMeusAlbuns().setVisible(true);
+	}
+	
+	public void controlePerfil() {
+
+		new PanelMenu().setVisible(true);
 	}
 }

@@ -6,6 +6,7 @@ public class Main {
 		
 		new PanelCadastro().setVisible(true); 
 		//new PanelMeusAlbuns().setVisible(true);
+		//new PanelMenu().setVisible(true);
 	}
 
 }
