@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -18,6 +19,7 @@ public class PanelMeusAlbuns extends JFrame implements ActionListener{
 
 	private JPanel jpnVermelho;
 	private JPanel jpnBranco;
+	private JPanel jpnLista;
 	private JButton jbtMenu;
 	private JLabel jlbMeusAlbuns;
 	private JButton jbtAdd;
@@ -27,6 +29,7 @@ public class PanelMeusAlbuns extends JFrame implements ActionListener{
 		this.configurarFrame();
 		this.configurarPainelVermelho();
 		this.configurarPainelBranco();
+		this.configurarPainelLista();
 		this.add(this.jpnVermelho);
 		this.add(this.jpnBranco);
 	}
@@ -46,6 +49,12 @@ public class PanelMeusAlbuns extends JFrame implements ActionListener{
 		this.jpnBranco = new JPanel(null);	 
 		this.jpnBranco.setBackground(Color.white); 
 		this.jpnBranco.setBounds(0, 155, 1366, 613);
+	}
+
+	private void configurarPainelLista() {
+		this.jpnLista = new JPanel(new BorderLayout());
+		this.jpnLista.setBackground(Color.white); 
+		this.jpnLista.setBounds(0, 155, 1366, 613);
 	}
 	
 	private void configurarDadosMenu() {
@@ -88,6 +97,7 @@ public class PanelMeusAlbuns extends JFrame implements ActionListener{
 		this.setSize(1366, 768); 
 		this.getContentPane().setBackground(Color.white); 
 		this.setLayout(null);
+		this.setLayout(new BorderLayout());
 		
 		ImageIcon logo = new ImageIcon("logo.png"); 
 		this.setIconImage(logo.getImage());

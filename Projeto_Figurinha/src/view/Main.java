@@ -9,5 +9,4 @@ public class Main {
 		//new PanelMenu().setVisible(true);
 		//new PanelCriarAlbum().setVisible(true);
 	}
-
 }

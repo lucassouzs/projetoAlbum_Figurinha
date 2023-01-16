@@ -39,4 +39,11 @@ public class ControleProprietario {
 	public void controleCriarAlbum() {
 		new PanelCriarAlbum().setVisible(true);
 	}
+	
+	public static boolean checkIdade(String valor) {
+		if(valor.matches("[0-9]+"))
+			return true ;
+		else
+			return false ;
+	}
 }

@@ -141,24 +141,22 @@ public class PanelCadastro extends JFrame implements ActionListener{
 	
 	public void actionPerformed(ActionEvent e) {
 		
-		if(jtfNomeProprietario.getText().equals("") 
-			&& jtfIdadeProprietario.getText().equals("") 
-			&& jtfSexoProprietario.getText().equals("")) {
-			JOptionPane.showMessageDialog(null, "Preencha os campos para prosseguir!");	
-		} else {
-			JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!");	
-		}
-		
-		String nome = this.jtfNomeProprietario.getText();
-		String idade = this.jtfIdadeProprietario.getText();
-		String sexo = this.jtfSexoProprietario.getText();
-		
-		int id = Integer.parseInt(idade);	
-		
-		ControleProprietario controleProprietario = new ControleProprietario();
-		
-		controleProprietario.cadastrarProprietario(nome, id, sexo);
-		
-		PanelCadastro.this.dispose();
+		if(jtfNomeProprietario.getText().isEmpty() || jtfSexoProprietario.getText().isEmpty()) {
+				JOptionPane.showMessageDialog(null, "Preencha os campos para prosseguir!");	
+			} else {
+				JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!");	
+			}
+			
+			String nome = this.jtfNomeProprietario.getText();
+			String idade = this.jtfIdadeProprietario.getText();
+			String sexo = this.jtfSexoProprietario.getText();
+			
+			int id = Integer.parseInt(idade);	
+			
+			ControleProprietario controleProprietario = new ControleProprietario();
+			
+			controleProprietario.cadastrarProprietario(nome, id, sexo);
+			
+			PanelCadastro.this.dispose();
 	}
 }
