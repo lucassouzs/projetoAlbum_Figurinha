@@ -6,22 +6,22 @@ public class Album_Figurinha {
 	
 	// atributos
 	
-	private String nome;
 	private String copaMundo;
+	private String nome;
 	private ArrayList<Figurinha_FWC> figurinhaFWC;
 	private ArrayList<Figurinha_Seleção> figurinhaSeleção;
 	
 	// construtor
 	
 	public Album_Figurinha(String nome, String copaMundo) {
-		this.nome = nome;
 		this.copaMundo = copaMundo;
+		this.nome = nome;
 		this.figurinhaFWC = new ArrayList<>();
 		this.figurinhaSeleção = new ArrayList<>();
 	}
 	
 	// metodos
-	
+
 	public void cadastrarFigurinha_Seleção(Figurinha_Seleção figurinhaSeleção1) {
 		figurinhaSeleção.add(figurinhaSeleção1);
 	}
@@ -48,8 +48,8 @@ public class Album_Figurinha {
 		return copaMundo;
 	}
 	
-	public void setCopaMundo (String copaMundo){
-		this.copaMundo = copaMundo;
+	public void setCopaMundo (String CopaMundo){
+		this.copaMundo = CopaMundo;
 	}
 	
 	public ArrayList<Figurinha_Seleção> getFigurinhaSeleção(){

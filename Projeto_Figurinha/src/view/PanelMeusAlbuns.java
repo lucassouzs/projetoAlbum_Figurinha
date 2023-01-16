@@ -20,7 +20,6 @@ public class PanelMeusAlbuns extends JFrame implements ActionListener{
 	private JPanel jpnBranco;
 	private JButton jbtMenu;
 	private JLabel jlbMeusAlbuns;
-	private JButton jbtSearch;
 	private JButton jbtAdd;
 
 	public PanelMeusAlbuns(){
@@ -40,7 +39,6 @@ public class PanelMeusAlbuns extends JFrame implements ActionListener{
 		this.configurarDadosMenu();
 		this.jpnVermelho.add(this.jbtMenu);
 		this.jpnVermelho.add(this.jlbMeusAlbuns); 
-		this.jpnVermelho.add(this.jbtSearch);
 		this.jpnVermelho.add(this.jbtAdd);
 	}
 	
@@ -68,12 +66,6 @@ public class PanelMeusAlbuns extends JFrame implements ActionListener{
 		this.jlbMeusAlbuns.setForeground(Color.white);
 		this.jlbMeusAlbuns.setFont(new Font("Verdana",Font.BOLD,35));
 		this.jlbMeusAlbuns.setBounds(296, 51, 296,51);
-		
-		this.jbtSearch = new JButton(new ImageIcon("search.png"));
-		this.jbtSearch.setFont(new Font("Arial", Font.BOLD, 12));
-		this.jbtSearch.setBackground(new Color(136, 22, 55));
-		this.jbtSearch.setBorder(new LineBorder(new Color(136, 22, 55)));
-		this.jbtSearch.setBounds(1090, 51, 50, 50);
 
 		this.jbtAdd = new JButton(new ImageIcon("add.png"));
 		this.jbtAdd.setFont(new Font("Arial", Font.BOLD, 12));
@@ -109,8 +101,6 @@ public class PanelMeusAlbuns extends JFrame implements ActionListener{
 	public void add() {
 		ControleProprietario controleCriarAlbum= new ControleProprietario();
 		controleCriarAlbum.controleCriarAlbum();
-		
-		PanelMeusAlbuns.this.dispose();
 	}
 
 	public void actionPerformed(ActionEvent e) {

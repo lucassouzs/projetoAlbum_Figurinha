@@ -23,17 +23,16 @@ public class PanelCadastro extends JFrame implements ActionListener{
 	private static final long serialVersionUID = 1L;
 	
 	private int NOVA_LINHA = 0;
-	private int NOVA_COLUNA = 1;
 	GridBagConstraints gbc = null;
 	
 	private JLabel jlbCadastro;
 	private JPanel jpnProprietario;
 	private JLabel jlbNomeProprietario; 
-	private JTextField jtfNomeProprietario;
+	public JTextField jtfNomeProprietario;
 	private JLabel jlbIdadeProprietario;
-	private JTextField jtfIdadeProprietario;
+	public JTextField jtfIdadeProprietario;
 	private JLabel jlbSexoProprietario;
-	private JTextField jtfSexoProprietario;
+	public JTextField jtfSexoProprietario;
 	private JButton jbtCadastrar;
 
 	public PanelCadastro(){
@@ -82,6 +81,7 @@ public class PanelCadastro extends JFrame implements ActionListener{
 		this.jlbNomeProprietario = new JLabel("Nome:");
 		this.jlbNomeProprietario.setForeground(Color.white);
 		this.jlbNomeProprietario.setFont(new Font("Arial",Font.BOLD,15));
+		
 		this.jtfNomeProprietario = new JTextField();
 		this.jtfNomeProprietario.setPreferredSize(new Dimension(306, 40));
 		this.jtfNomeProprietario.setBorder(new LineBorder(Color.white));
@@ -89,6 +89,7 @@ public class PanelCadastro extends JFrame implements ActionListener{
 		this.jlbIdadeProprietario = new JLabel("Idade:");
 		this.jlbIdadeProprietario.setForeground(Color.white);
 		this.jlbIdadeProprietario.setFont(new Font("Arial",Font.BOLD,15));
+		
 		this.jtfIdadeProprietario = new JTextField();
 		this.jtfIdadeProprietario.setPreferredSize(new Dimension(306, 40));
 		this.jtfIdadeProprietario.setBorder(new LineBorder(Color.white));
@@ -101,7 +102,7 @@ public class PanelCadastro extends JFrame implements ActionListener{
 		this.jtfSexoProprietario.setPreferredSize(new Dimension(306, 40));
 		this.jtfSexoProprietario.setBorder(new LineBorder(Color.white));
 		
-		this.jbtCadastrar = new JButton("Cadastrar");
+		this.jbtCadastrar = new JButton("Entrar");
 		this.jbtCadastrar.setForeground(Color.white);
 		this.jbtCadastrar.setBackground(new Color(58, 6, 36));
 		this.jbtCadastrar.setPreferredSize(new Dimension(306, 40));
