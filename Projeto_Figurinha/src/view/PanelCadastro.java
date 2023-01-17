@@ -111,7 +111,7 @@ public class PanelCadastro extends JFrame implements ActionListener{
 	}
 	
 	private void configurarFrame() {
-		this.setTitle("Meu Album de Figurinha"); 
+		this.setTitle("O sucesso não acontece por acaso..."); 
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false); 
 		this.setSize(1366, 768); 

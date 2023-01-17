@@ -98,7 +98,7 @@ public class PanelCriarAlbum extends JFrame implements ActionListener{
 	}
 	
 	private void configurarFrame() {
-		this.setTitle("Meu Album de Figurinha"); 
+		this.setTitle("estudo, sacrifício"); 
 		this.setResizable(false); 
 		this.setSize(700, 400); 
 		this.getContentPane().setBackground(Color.white); 

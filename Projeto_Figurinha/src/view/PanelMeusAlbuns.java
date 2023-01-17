@@ -108,14 +108,15 @@ public class PanelMeusAlbuns extends JFrame implements ActionListener, ListSelec
 		
 		this.jltLista = new JList<String>();
 		this.jltLista.setBackground(new Color(240, 240, 240));
-		this.jltLista.setForeground(new Color(136, 22, 55));
 		this.jltLista.setBorder(new LineBorder(new Color(240, 240, 240)));
 		this.jltLista.setModel(controle.listarAlbum_Figurinha());
 		this.jltLista.addListSelectionListener(this);
+		this.jltLista.setForeground(new Color(136, 22, 55));
+
 	}
 	
 	private void configurarFrame() {
-		this.setTitle("Meu Album de Figurinha"); 
+		this.setTitle("É trabalho duro,"); 
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false); 
 		this.setSize(1366, 768); 

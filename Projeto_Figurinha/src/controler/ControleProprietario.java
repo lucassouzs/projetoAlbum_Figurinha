@@ -4,6 +4,7 @@ import javax.swing.DefaultListModel;
 
 import model.Album_Figurinha;
 import model.Proprietario;
+import view.PanelAlbumQatar;
 import view.PanelCriarAlbum;
 import view.PanelMenu;
 import view.PanelMeusAlbuns;
@@ -38,11 +39,9 @@ public class ControleProprietario {
 	public DefaultListModel<String> listarAlbum_Figurinha(){
 		DefaultListModel<String> nomes = new DefaultListModel<>();
 		int size = proprietario.getAlbumFigurinha().size();
-		
 		for(int i = 0; i < size ; i++) {
-			String copaMundo = proprietario.getAlbumFigurinha().get(i).getCopaMundo();
 			String nome = proprietario.getAlbumFigurinha().get(i).getNome();
-			nomes.addElement("Nome do Album: " + nome + "   |   Copa do Mundo: " + copaMundo);
+			nomes.addElement(nome);
 			}
 		return nomes;
 	}
@@ -50,9 +49,8 @@ public class ControleProprietario {
 	public void abrirAlbum(String nome) {
 		for(i = 0; i < proprietario.getAlbumFigurinha().size(); i++) {
 			if(proprietario.getAlbumFigurinha().get(i).getNome().equals(nome)) {
-				System.out.println(proprietario.getAlbumFigurinha().get(i).getNome());
 				
-				new PanelMeusAlbuns().setVisible(true);;
+			new PanelAlbumQatar().setVisible(true);;
 			}
 			}
 			}
