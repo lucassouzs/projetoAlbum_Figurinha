@@ -8,5 +8,6 @@ public class Main {
 		//new PanelMeusAlbuns().setVisible(true);
 		//new PanelMenu().setVisible(true);
 		//new PanelCriarAlbum().setVisible(true);
+		//new PanelAlbumFigurinha().setVisible(true);
 	}
 }

@@ -10,6 +10,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
+
+import controler.ControleProprietario;
 import model.Proprietario;
 
 public class PanelMenu extends JFrame{
@@ -59,7 +61,7 @@ public class PanelMenu extends JFrame{
 		this.jlbPerfil.setIcon(perfil);
 		this.jlbPerfil.setBounds(150, 30, 400, 180);
 		
-		this.jlbProprietario = new JLabel("Nome: " );
+		this.jlbProprietario = new JLabel("Nome: ");
 		this.jlbProprietario.setForeground(new Color(92, 92, 92));
 		this.jlbProprietario.setFont(new Font("Verdana", Font.BOLD, 25));
 		this.jlbProprietario.setBounds(30, 215, 168, 59);
@@ -132,10 +134,15 @@ public class PanelMenu extends JFrame{
 	}
 	
 	public void meusAlbuns() {
+		ControleProprietario voltarMeusAlbuns = new ControleProprietario();
+		
+		voltarMeusAlbuns.voltarMeusAlbuns();
+		
 		PanelMenu.this.dispose();
 	}
 	
 	public void sair() {
+		
 		System.exit(0);
 	}
 }

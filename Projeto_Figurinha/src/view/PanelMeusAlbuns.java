@@ -9,8 +9,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.LineBorder;
+
 import controler.ControleProprietario;
 
 public class PanelMeusAlbuns extends JFrame implements ActionListener{
@@ -23,6 +26,8 @@ public class PanelMeusAlbuns extends JFrame implements ActionListener{
 	private JButton jbtMenu;
 	private JLabel jlbMeusAlbuns;
 	private JButton jbtAdd;
+	private JList<String> jltLista;
+	private ControleProprietario controle = new ControleProprietario() ;
 
 	public PanelMeusAlbuns(){
 		super();
@@ -46,15 +51,23 @@ public class PanelMeusAlbuns extends JFrame implements ActionListener{
 	}
 	
 	private void configurarPainelBranco() {
-		this.jpnBranco = new JPanel(null);	 
+		this.jpnBranco = new JPanel();	 
 		this.jpnBranco.setBackground(Color.white); 
 		this.jpnBranco.setBounds(0, 155, 1366, 613);
+		this.jpnBranco.setLayout(null);		
 	}
 
 	private void configurarPainelLista() {
-		this.jpnLista = new JPanel(new BorderLayout());
-		this.jpnLista.setBackground(Color.white); 
-		this.jpnLista.setBounds(0, 155, 1366, 613);
+		
+		this.jpnLista = new JPanel();
+		this.jpnLista.setBounds(133, 240, 1100, 402);
+		this.jpnLista.setLayout(new BorderLayout());		
+		this.jpnLista.add(this.jltLista);
+		JScrollPane scrollPane1 = new JScrollPane(this.jltLista);
+		this.jpnLista.add(scrollPane1, BorderLayout.CENTER);
+		this.jpnLista.add(new JScrollPane(this.jltLista));
+		
+		this.jpnBranco.add(this.jpnLista);
 	}
 	
 	private void configurarDadosMenu() {
@@ -88,6 +101,9 @@ public class PanelMeusAlbuns extends JFrame implements ActionListener{
 				}
 				}
 				});
+		
+		this.jltLista = new JList<String>();
+		this.jltLista.setModel(controle.listarAlbum_Figurinha());
 	}
 	
 	private void configurarFrame() {
@@ -106,11 +122,15 @@ public class PanelMeusAlbuns extends JFrame implements ActionListener{
 	public void menu() {	
 		ControleProprietario controlePerfil= new ControleProprietario();
 		controlePerfil.controlePerfil();
+		
+		PanelMeusAlbuns.this.dispose();
 	}	
 	
 	public void add() {
 		ControleProprietario controleCriarAlbum= new ControleProprietario();
 		controleCriarAlbum.controleCriarAlbum();
+		
+		PanelMeusAlbuns.this.dispose();
 	}
 
 	public void actionPerformed(ActionEvent e) {

@@ -118,6 +118,10 @@ public class PanelCriarAlbum extends JFrame implements ActionListener{
 		ControleProprietario cadastrarAlbum= new ControleProprietario();
 		cadastrarAlbum.cadastrarAlbum(nome, copaMundo);
 		
+		ControleProprietario voltarMeusAlbuns = new ControleProprietario();
+		
+		voltarMeusAlbuns.voltarMeusAlbuns();
+		
 		PanelCriarAlbum.this.dispose();
 	}
 }

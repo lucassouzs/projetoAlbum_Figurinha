@@ -1,5 +1,7 @@
 package controler;
 
+import javax.swing.DefaultListModel;
+
 import model.Album_Figurinha;
 import model.Proprietario;
 import view.PanelCriarAlbum;
@@ -32,6 +34,18 @@ public class ControleProprietario {
 		System.out.println("Nome do Album: " + albumFigurinha.getNome());
 	}
 	
+	public DefaultListModel<String> listarAlbum_Figurinha(){
+		DefaultListModel<String> nomes = new DefaultListModel<>();
+		int size = proprietario.getAlbumFigurinha().size();
+		
+		for(int i = 0; i < size ; i++) {
+			String copaMundo = proprietario.getAlbumFigurinha().get(i).getCopaMundo();
+			String nome = proprietario.getAlbumFigurinha().get(i).getNome();
+			nomes.addElement("Nome do Album: " + nome + "   |   Copa do Mundo: " + copaMundo);
+			}
+		return nomes;
+	}
+	
 	public void controlePerfil() {
 		new PanelMenu().setVisible(true);
 	}
@@ -40,10 +54,7 @@ public class ControleProprietario {
 		new PanelCriarAlbum().setVisible(true);
 	}
 	
-	public static boolean checkIdade(String valor) {
-		if(valor.matches("[0-9]+"))
-			return true ;
-		else
-			return false ;
+	public void voltarMeusAlbuns() {
+		new PanelMeusAlbuns().setVisible(true);
 	}
 }
