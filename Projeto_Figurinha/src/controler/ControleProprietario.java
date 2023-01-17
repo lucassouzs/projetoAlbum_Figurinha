@@ -12,6 +12,7 @@ public class ControleProprietario {
 	
 	public static Proprietario proprietario;
 	public static Album_Figurinha albumFigurinha;
+	public int i;
 	
 	public void cadastrarProprietario(String nome, int idade, String sexo) {
 		
@@ -45,6 +46,16 @@ public class ControleProprietario {
 			}
 		return nomes;
 	}
+	
+	public void abrirAlbum(String nome) {
+		for(i = 0; i < proprietario.getAlbumFigurinha().size(); i++) {
+			if(proprietario.getAlbumFigurinha().get(i).getNome().equals(nome)) {
+				System.out.println(proprietario.getAlbumFigurinha().get(i).getNome());
+				
+				new PanelMeusAlbuns().setVisible(true);;
+			}
+			}
+			}
 	
 	public void controlePerfil() {
 		new PanelMenu().setVisible(true);

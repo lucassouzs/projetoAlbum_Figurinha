@@ -13,10 +13,12 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.LineBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import controler.ControleProprietario;
 
-public class PanelMeusAlbuns extends JFrame implements ActionListener{
+public class PanelMeusAlbuns extends JFrame implements ActionListener, ListSelectionListener{
 	
 	private static final long serialVersionUID = 1L;
 
@@ -52,18 +54,20 @@ public class PanelMeusAlbuns extends JFrame implements ActionListener{
 	
 	private void configurarPainelBranco() {
 		this.jpnBranco = new JPanel();	 
-		this.jpnBranco.setBackground(Color.white); 
+		this.jpnBranco.setBackground(new Color(240, 240, 240)); 
 		this.jpnBranco.setBounds(0, 155, 1366, 613);
 		this.jpnBranco.setLayout(null);		
 	}
 
 	private void configurarPainelLista() {
 		
+		JScrollPane scrollPane1 = new JScrollPane(this.jltLista);
+		
 		this.jpnLista = new JPanel();
 		this.jpnLista.setBounds(133, 240, 1100, 402);
 		this.jpnLista.setLayout(new BorderLayout());		
 		this.jpnLista.add(this.jltLista);
-		JScrollPane scrollPane1 = new JScrollPane(this.jltLista);
+		this.jpnLista.setBorder(new LineBorder(new Color(240, 240, 240)));
 		this.jpnLista.add(scrollPane1, BorderLayout.CENTER);
 		this.jpnLista.add(new JScrollPane(this.jltLista));
 		
@@ -103,7 +107,11 @@ public class PanelMeusAlbuns extends JFrame implements ActionListener{
 				});
 		
 		this.jltLista = new JList<String>();
+		this.jltLista.setBackground(new Color(240, 240, 240));
+		this.jltLista.setForeground(new Color(136, 22, 55));
+		this.jltLista.setBorder(new LineBorder(new Color(240, 240, 240)));
 		this.jltLista.setModel(controle.listarAlbum_Figurinha());
+		this.jltLista.addListSelectionListener(this);
 	}
 	
 	private void configurarFrame() {
@@ -134,5 +142,16 @@ public class PanelMeusAlbuns extends JFrame implements ActionListener{
 	}
 
 	public void actionPerformed(ActionEvent e) {
+	}
+
+	@Override
+	public void valueChanged(ListSelectionEvent e) {
+		Object src = e.getSource();
+		
+		if(e.getValueIsAdjusting() && src == this.jltLista) {
+			controle.abrirAlbum(this.jltLista.getSelectedValue().toString());
+			
+			dispose();
+		}
 	}
 }
