@@ -15,7 +15,6 @@ import javax.swing.JScrollPane;
 import javax.swing.border.LineBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-
 import controler.ControleProprietario;
 
 public class PanelMeusAlbuns extends JFrame implements ActionListener, ListSelectionListener{
@@ -29,7 +28,8 @@ public class PanelMeusAlbuns extends JFrame implements ActionListener, ListSelec
 	private JLabel jlbMeusAlbuns;
 	private JButton jbtAdd;
 	private JList<String> jltLista;
-	private ControleProprietario controle = new ControleProprietario() ;
+	private ControleProprietario controle = new ControleProprietario();
+	public int i;
 
 	public PanelMeusAlbuns(){
 		super();
@@ -112,8 +112,15 @@ public class PanelMeusAlbuns extends JFrame implements ActionListener, ListSelec
 		this.jltLista.setModel(controle.listarAlbum_Figurinha());
 		this.jltLista.addListSelectionListener(this);
 		this.jltLista.setForeground(new Color(136, 22, 55));
-
-	}
+		
+			/*if(ControleProprietario.getAlbumFigurinha().get(i).getNome().equals(nome)) {
+				if(ControleProprietario.getAlbumFigurinha().get(i).getCopaMundo() == "Qatar 2022") {
+					this.jltLista.setForeground(new Color(136, 22, 55));
+				} else if (ControleProprietario.getAlbumFigurinha().get(i).getCopaMundo() == "Russia 2018") {
+					this.jltLista.setForeground(new Color(10, 86, 152));
+				}
+			}*/
+		}
 	
 	private void configurarFrame() {
 		this.setTitle("É trabalho duro,"); 

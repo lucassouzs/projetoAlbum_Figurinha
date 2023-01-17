@@ -75,7 +75,7 @@ public class PanelAlbumRussia extends JFrame implements ActionListener{
 				}
 				});
 
-		this.jlbMeusAlbuns = new JLabel("FIFA World Cup Russia 2022");
+		this.jlbMeusAlbuns = new JLabel("FIFA World Cup Russia 2018");
 		this.jlbMeusAlbuns.setForeground(Color.white);
 		this.jlbMeusAlbuns.setFont(new Font("Verdana",Font.BOLD,35));
 		this.jlbMeusAlbuns.setBounds(296, 51, 800, 51);

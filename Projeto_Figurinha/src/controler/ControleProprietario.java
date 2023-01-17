@@ -1,10 +1,10 @@
 package controler;
 
 import javax.swing.DefaultListModel;
-
 import model.Album_Figurinha;
 import model.Proprietario;
 import view.PanelAlbumQatar;
+import view.PanelAlbumRussia;
 import view.PanelCriarAlbum;
 import view.PanelMenu;
 import view.PanelMeusAlbuns;
@@ -49,11 +49,14 @@ public class ControleProprietario {
 	public void abrirAlbum(String nome) {
 		for(i = 0; i < proprietario.getAlbumFigurinha().size(); i++) {
 			if(proprietario.getAlbumFigurinha().get(i).getNome().equals(nome)) {
-				
-			new PanelAlbumQatar().setVisible(true);;
+				if(proprietario.getAlbumFigurinha().get(i).getCopaMundo() == "Qatar 2022") {
+					new PanelAlbumQatar().setVisible(true);
+				} else if (proprietario.getAlbumFigurinha().get(i).getCopaMundo() == "Russia 2018") {
+					new PanelAlbumRussia().setVisible(true);
+				}
 			}
-			}
-			}
+		}
+	}
 	
 	public void controlePerfil() {
 		new PanelMenu().setVisible(true);
