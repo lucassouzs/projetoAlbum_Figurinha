@@ -111,10 +111,10 @@ public class PanelMeusAlbuns extends JFrame implements ActionListener, ListSelec
 		this.jltLista.setBorder(new LineBorder(new Color(240, 240, 240)));
 		this.jltLista.setModel(controle.listarAlbum_Figurinha());
 		this.jltLista.addListSelectionListener(this);
-		this.jltLista.setForeground(new Color(136, 22, 55));
+		this.jltLista.setForeground(Color.black);
 	}
 			
-	/*public void editarCores(String nome) {
+	public void editarCores(String nome) {
 		for(i = 0; i < ControleProprietario.proprietario.getAlbumFigurinha().size(); i++) {
 			if(ControleProprietario.proprietario.getAlbumFigurinha().get(i).getNome().equals(nome)) {
 				if(ControleProprietario.proprietario.getAlbumFigurinha().get(i).getCopaMundo() == "Qatar 2022") {
@@ -124,7 +124,7 @@ public class PanelMeusAlbuns extends JFrame implements ActionListener, ListSelec
 				}
 			}
 		}
-	}*/
+	}
 	
 	private void configurarFrame() {
 		this.setTitle("É trabalho duro,"); 
@@ -142,8 +142,6 @@ public class PanelMeusAlbuns extends JFrame implements ActionListener, ListSelec
 	public void menu() {	
 		ControleProprietario controlePerfil= new ControleProprietario();
 		controlePerfil.controlePerfil();
-		
-		PanelMeusAlbuns.this.dispose();
 	}	
 	
 	public void add() {

@@ -5,6 +5,7 @@ import model.Album_Figurinha;
 import model.Proprietario;
 import view.PanelAlbumQatar;
 import view.PanelAlbumRussia;
+import view.PanelCadastro;
 import view.PanelCriarAlbum;
 import view.PanelMenu;
 import view.PanelMeusAlbuns;
@@ -50,9 +51,9 @@ public class ControleProprietario {
 		for(i = 0; i < proprietario.getAlbumFigurinha().size(); i++) {
 			if(proprietario.getAlbumFigurinha().get(i).getNome().equals(nome)) {
 				if(proprietario.getAlbumFigurinha().get(i).getCopaMundo() == "Qatar 2022") {
-					new PanelAlbumQatar().setVisible(true);
+					new PanelAlbumQatar(i).setVisible(true);
 				} else if (proprietario.getAlbumFigurinha().get(i).getCopaMundo() == "Russia 2018") {
-					new PanelAlbumRussia().setVisible(true);
+					new PanelAlbumRussia(i).setVisible(true);
 				}
 			}
 		}
@@ -68,8 +69,20 @@ public class ControleProprietario {
 		}
 	}
 	
+	public void editarAlbum(String nome, int k) {
+		proprietario.getAlbumFigurinha().get(k).setNome(nome);
+	}
+	
+	public void deletarAlbum(Album_Figurinha nome) {
+		proprietario.excluirAlbum_Figurinha(nome);
+	}
+	
 	public void controlePerfil() {
 		new PanelMenu().setVisible(true);
+	}
+	
+	public void abrirCadastro() {
+		new PanelCadastro().setVisible(true);
 	}
 	
 	public void controleCriarAlbum() {

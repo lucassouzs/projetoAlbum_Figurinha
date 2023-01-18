@@ -23,11 +23,8 @@ public class PanelMenu extends JFrame{
 	private JPanel jpnBranco;
 	private JLabel jlbPerfil;
 	private JLabel jlbProprietario;
-	//private JLabel jlbProprietarioResposta;
 	private JLabel jlbIdade;
-	//private JLabel jlbIdadeResposta;
 	private JLabel jlbSexo;
-	//private JLabel jlbSexoResposta;
 	private JButton jbtMeusAlbuns;
 	private JButton jbtSair;
 
@@ -46,11 +43,8 @@ public class PanelMenu extends JFrame{
 		this.configurarDadosMenu();
 		this.jpnBranco.add(this.jlbPerfil);
 		this.jpnBranco.add(this.jlbProprietario); 
-		//this.jpnBranco.add(this.jlbProprietarioResposta); 
 		this.jpnBranco.add(this.jlbIdade); 
-		//this.jpnBranco.add(this.jlbIdadeResposta); 
 		this.jpnBranco.add(this.jlbSexo); 
-		//this.jpnBranco.add(this.jlbSexoResposta); 
 		this.jpnBranco.add(this.jbtMeusAlbuns);
 		this.jpnBranco.add(this.jbtSair);
 	}
@@ -62,37 +56,20 @@ public class PanelMenu extends JFrame{
 		this.jlbPerfil.setIcon(perfil);
 		this.jlbPerfil.setBounds(150, 30, 400, 180);
 		
-		this.jlbProprietario = new JLabel("Nome: ");
+		this.jlbProprietario = new JLabel("Nome: " + ControleProprietario.proprietario.getNome());
 		this.jlbProprietario.setForeground(new Color(92, 92, 92));
-		this.jlbProprietario.setFont(new Font("Verdana", Font.BOLD, 25));
-		this.jlbProprietario.setBounds(30, 215, 168, 59);
+		this.jlbProprietario.setFont(new Font("Verdana", Font.PLAIN, 25));
+		this.jlbProprietario.setBounds(30, 215, 400, 59);
 		
-		/*this.jlbProprietarioResposta = new JLabel();
-		this.jlbProprietarioResposta.setForeground(new Color(92, 92, 92));
-		this.jlbProprietarioResposta.setFont(new Font("Verdana", Font.BOLD, 25));
-		this.jlbProprietarioResposta.setBounds(60, 215, 168, 59);*/
-		
-		this.jlbIdade = new JLabel("Idade: ");
+		this.jlbIdade = new JLabel("Idade: " + ControleProprietario.proprietario.getIdade() );
 		this.jlbIdade.setForeground(new Color(92, 92, 92));
-		this.jlbIdade.setFont(new Font("Verdana", Font.BOLD, 25));
+		this.jlbIdade.setFont(new Font("Verdana", Font.PLAIN, 25));
 		this.jlbIdade.setBounds(30, 315, 168, 59);
-		
-		/*this.jlbIdadeResposta = new JLabel();
-		this.jlbIdadeResposta.setText();
-		this.jlbIdadeResposta.setForeground(new Color(92, 92, 92));
-		this.jlbIdadeResposta.setFont(new Font("Verdana", Font.BOLD, 25));
-		this.jlbIdadeResposta.setBounds(60, 215, 168, 59);*/
 
-		this.jlbSexo = new JLabel("Sexo: ");
+		this.jlbSexo = new JLabel("Sexo: " + ControleProprietario.proprietario.getSexo());
 		this.jlbSexo.setForeground(new Color(92, 92, 92));
-		this.jlbSexo.setFont(new Font("Verdana", Font.BOLD, 25));
-		this.jlbSexo.setBounds(30, 415, 168, 59);
-		
-		/*this.jlbSexoResposta = new JLabel();
-		this.jlbSexoResposta.setText();
-		this.jlbSexoResposta.setForeground(new Color(92, 92, 92));
-		this.jlbSexoResposta.setFont(new Font("Verdana", Font.BOLD, 25));
-		this.jlbSexoResposta.setBounds(60, 215, 168, 59);*/
+		this.jlbSexo.setFont(new Font("Verdana", Font.PLAIN, 25));
+		this.jlbSexo.setBounds(30, 415, 400, 59);
 		
 		this.jbtMeusAlbuns = new JButton("Meus Albuns");
 		this.jbtMeusAlbuns.setForeground(new Color(92, 92, 92));
@@ -135,15 +112,11 @@ public class PanelMenu extends JFrame{
 	}
 	
 	public void meusAlbuns() {
-		ControleProprietario voltarMeusAlbuns = new ControleProprietario();
-		
-		voltarMeusAlbuns.voltarMeusAlbuns();
-		
 		PanelMenu.this.dispose();
 	}
 	
 	public void sair() {
-		int r = JOptionPane.showConfirmDialog(null, "Desejar realmente sair?", "Sair", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+		int r = JOptionPane.showConfirmDialog(null, "Desejar realmente sair?", "Atenção!", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
 		if(r == JOptionPane.YES_OPTION){
 			System.exit(0);
 		} else if (r == JOptionPane.NO_OPTION) {

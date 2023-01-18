@@ -26,6 +26,10 @@ public class Proprietario {
 		albumFigurinha.add(album1);
 	}
 	
+	public void excluirAlbum_Figurinha(Album_Figurinha nome) {
+		albumFigurinha.remove(nome);
+	}
+	
 	// gets e sets 
 	
 	public String getNome() {
