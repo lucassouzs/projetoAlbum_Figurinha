@@ -22,6 +22,7 @@ public class PanelCriarAlbum extends JFrame implements ActionListener{
 	
 	private JPanel jpnVermelho;
 	private JPanel jpnBranco;
+	private JButton jbtBack;
 	private JLabel jlbCriarAlbum;
 	private JLabel jlbCopa;
 	private JComboBox<Object> jcbCopaMundo;
@@ -45,6 +46,7 @@ public class PanelCriarAlbum extends JFrame implements ActionListener{
 		
 		this.configurarDadosMenu();
 		this.jpnVermelho.add(this.jlbCriarAlbum); 
+		this.jpnVermelho.add(this.jbtBack);
 		}
 	
 	private void configurarPainelBranco() {
@@ -96,11 +98,27 @@ public class PanelCriarAlbum extends JFrame implements ActionListener{
 		this.jbtCriar.setBorder(new LineBorder(new Color(136, 22, 55)));
 		this.jbtCriar.setBounds(190, 195, 306, 40);
 		this.jbtCriar.addActionListener(this);
+		
+		this.jbtBack = new JButton(new ImageIcon("backmenor.png"));
+		this.jbtBack.setFont(new Font("Arial", Font.BOLD, 12));
+		this.jbtBack.setBackground(new Color(136, 22, 55));
+		this.jbtBack.setBorder(new LineBorder(new Color(136, 22, 55)));
+		this.jbtBack.setBounds(75, 32, 40, 40);
+		this.jbtBack.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent evt) {
+				ControleProprietario voltarMeusAlbuns= new ControleProprietario();
+				voltarMeusAlbuns.voltarMeusAlbuns();
+				
+				PanelCriarAlbum.this.dispose();
+			}	
+		});
 	}
 	
 	private void configurarFrame() {
 		this.setTitle("estudo, sacrifício"); 
 		this.setResizable(false); 
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(700, 400); 
 		this.getContentPane().setBackground(Color.white); 
 		this.setLayout(null);
