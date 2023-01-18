@@ -84,6 +84,7 @@ public class PanelCriarAlbum extends JFrame implements ActionListener{
 		this.jlbNomeAlbum.setBounds(190, 95, 500, 40);
 		
 		this.jtfNomeAlbum = new JTextField();
+		this.jtfNomeAlbum.setToolTipText("Insira um nome para o album");
 		this.jtfNomeAlbum.setPreferredSize(new Dimension(306, 40));
 		this.jtfNomeAlbum.setBorder(new LineBorder(Color.white));
 		this.jtfNomeAlbum.setBounds(190, 135, 306, 40);
@@ -110,19 +111,23 @@ public class PanelCriarAlbum extends JFrame implements ActionListener{
 	
 	public void actionPerformed(ActionEvent e) {
 		
-		JOptionPane.showMessageDialog(null, "Album criado com sucesso!");	
+		if(this.jtfNomeAlbum.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Coloque um nome no album!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+		} else {
+			JOptionPane.showMessageDialog(null, "Album criado com sucesso!", "Parabéns!", JOptionPane.DEFAULT_OPTION);	
 		
-		String copaMundo = (String) this.jcbCopaMundo.getSelectedItem();
-		String nome = this.jtfNomeAlbum.getText();
+			String copaMundo = (String) this.jcbCopaMundo.getSelectedItem();
+			String nome = this.jtfNomeAlbum.getText();
 		
-		ControleProprietario cadastrarAlbum= new ControleProprietario();
-		cadastrarAlbum.cadastrarAlbum(nome, copaMundo);
+			ControleProprietario cadastrarAlbum= new ControleProprietario();
+			cadastrarAlbum.cadastrarAlbum(nome, copaMundo);
 		
-		ControleProprietario voltarMeusAlbuns = new ControleProprietario();
+			ControleProprietario voltarMeusAlbuns = new ControleProprietario();
 		
-		voltarMeusAlbuns.voltarMeusAlbuns();
+			voltarMeusAlbuns.voltarMeusAlbuns();
 		
-		PanelCriarAlbum.this.dispose();
+			PanelCriarAlbum.this.dispose();
+		}
 	}
 }
 

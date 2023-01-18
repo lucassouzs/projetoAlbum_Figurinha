@@ -27,7 +27,7 @@ public class PanelMeusAlbuns extends JFrame implements ActionListener, ListSelec
 	private JButton jbtMenu;
 	private JLabel jlbMeusAlbuns;
 	private JButton jbtAdd;
-	private JList<String> jltLista;
+	public JList<String> jltLista;
 	private ControleProprietario controle = new ControleProprietario();
 	public int i;
 
@@ -125,7 +125,6 @@ public class PanelMeusAlbuns extends JFrame implements ActionListener, ListSelec
 			}
 		}
 	}*/
-	
 	
 	private void configurarFrame() {
 		this.setTitle("É trabalho duro,"); 

@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import controler.ControleProprietario;
+import controler.ControleProprietario.ControleInformacoesPessoais;
 
 public class PanelCadastro extends JFrame implements ActionListener{
 	
@@ -83,6 +84,7 @@ public class PanelCadastro extends JFrame implements ActionListener{
 		this.jlbNomeProprietario.setFont(new Font("Arial",Font.BOLD,15));
 		
 		this.jtfNomeProprietario = new JTextField();
+		this.jtfNomeProprietario.setToolTipText("Insira seu nome");
 		this.jtfNomeProprietario.setPreferredSize(new Dimension(306, 40));
 		this.jtfNomeProprietario.setBorder(new LineBorder(Color.white));
 		
@@ -91,6 +93,7 @@ public class PanelCadastro extends JFrame implements ActionListener{
 		this.jlbIdadeProprietario.setFont(new Font("Arial",Font.BOLD,15));
 		
 		this.jtfIdadeProprietario = new JTextField();
+		this.jtfIdadeProprietario.setToolTipText("Insira sua idade");
 		this.jtfIdadeProprietario.setPreferredSize(new Dimension(306, 40));
 		this.jtfIdadeProprietario.setBorder(new LineBorder(Color.white));
 		
@@ -99,6 +102,7 @@ public class PanelCadastro extends JFrame implements ActionListener{
 		this.jlbSexoProprietario.setFont(new Font("Arial",Font.BOLD,15));
 		
 		this.jtfSexoProprietario = new JTextField();
+		this.jtfSexoProprietario.setToolTipText("Insira seu sexo");
 		this.jtfSexoProprietario.setPreferredSize(new Dimension(306, 40));
 		this.jtfSexoProprietario.setBorder(new LineBorder(Color.white));
 		
@@ -141,22 +145,36 @@ public class PanelCadastro extends JFrame implements ActionListener{
 	
 	public void actionPerformed(ActionEvent e) {
 		
-		if(jtfNomeProprietario.getText().isEmpty() || jtfSexoProprietario.getText().isEmpty()) {
-				JOptionPane.showMessageDialog(null, "Preencha os campos para prosseguir!");	
+		if(jtfNomeProprietario.getText().isEmpty() && jtfIdadeProprietario.getText().isEmpty() 
+				&& jtfSexoProprietario.getText().isEmpty()) {
+				JOptionPane.showMessageDialog(null, "Preencha os dados para prosseguir!", "Atenção!", JOptionPane.ERROR_MESSAGE);	
+			} else if (jtfIdadeProprietario.getText().isEmpty() && jtfSexoProprietario.getText().isEmpty()){
+				JOptionPane.showMessageDialog(null, "Preencha a idade e o sexo para prosseguir!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+			} else if (jtfNomeProprietario.getText().isEmpty() && jtfIdadeProprietario.getText().isEmpty()){
+				JOptionPane.showMessageDialog(null, "Preencha o nome e a idade para prosseguir!", "Atenção!", JOptionPane.ERROR_MESSAGE);	
+			} else if (jtfNomeProprietario.getText().isEmpty() && jtfSexoProprietario.getText().isEmpty()){
+				JOptionPane.showMessageDialog(null, "Preencha o nome e o sexo para prosseguir!", "Atenção!", JOptionPane.ERROR_MESSAGE);	
+			} else if (jtfNomeProprietario.getText().isEmpty()){
+				JOptionPane.showMessageDialog(null, "Preencha o nome para prosseguir!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+			} else if (jtfIdadeProprietario.getText().isEmpty()) {
+				JOptionPane.showMessageDialog(null, "Preencha a idade para prosseguir!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+			} else if (jtfSexoProprietario.getText().isEmpty()) {
+				JOptionPane.showMessageDialog(null, "Preencha o sexo para prosseguir!", "Atenção!", JOptionPane.ERROR_MESSAGE);
 			} else {
-				JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!");	
+				if(ControleInformacoesPessoais.checkIdade(jtfIdadeProprietario.getText())) {
+					JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!", "Parabéns!", JOptionPane.DEFAULT_OPTION);	
+				
+					String nome = this.jtfNomeProprietario.getText();
+					String idade = this.jtfIdadeProprietario.getText();
+					String sexo = this.jtfSexoProprietario.getText();
+					int id = Integer.parseInt(idade);	
+					
+					ControleProprietario controleProprietario = new ControleProprietario();
+					controleProprietario.cadastrarProprietario(nome, id, sexo);
+					PanelCadastro.this.dispose();					
+			} else {
+					JOptionPane.showMessageDialog(null, "Digite apenas numeros em Idade!", "Atenção!", JOptionPane.ERROR_MESSAGE);
 			}
-			
-			String nome = this.jtfNomeProprietario.getText();
-			String idade = this.jtfIdadeProprietario.getText();
-			String sexo = this.jtfSexoProprietario.getText();
-			
-			int id = Integer.parseInt(idade);	
-			
-			ControleProprietario controleProprietario = new ControleProprietario();
-			
-			controleProprietario.cadastrarProprietario(nome, id, sexo);
-			
-			PanelCadastro.this.dispose();
+		}
 	}
 }

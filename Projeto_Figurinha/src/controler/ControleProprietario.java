@@ -58,6 +58,16 @@ public class ControleProprietario {
 		}
 	}
 	
+	public class ControleInformacoesPessoais {
+		
+		public static boolean checkIdade(String valor) {
+			if(valor.matches("[0-2]+"))
+				return true ;
+			else
+				return false ;
+		}
+	}
+	
 	public void controlePerfil() {
 		new PanelMenu().setVisible(true);
 	}
