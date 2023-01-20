@@ -113,18 +113,6 @@ public class PanelMeusAlbuns extends JFrame implements ActionListener, ListSelec
 		this.jltLista.addListSelectionListener(this);
 		this.jltLista.setForeground(Color.black);
 	}
-			
-	public void editarCores(String nome) {
-		for(i = 0; i < ControleProprietario.proprietario.getAlbumFigurinha().size(); i++) {
-			if(ControleProprietario.proprietario.getAlbumFigurinha().get(i).getNome().equals(nome)) {
-				if(ControleProprietario.proprietario.getAlbumFigurinha().get(i).getCopaMundo() == "Qatar 2022") {
-					this.jltLista.setForeground(new Color(136, 22, 55));
-				} else if (ControleProprietario.proprietario.getAlbumFigurinha().get(i).getCopaMundo() == "Russia 2018") {
-					this.jltLista.setForeground(new Color(10, 86, 152));
-				}
-			}
-		}
-	}
 	
 	private void configurarFrame() {
 		this.setTitle("É trabalho duro,"); 

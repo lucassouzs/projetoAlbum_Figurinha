@@ -118,6 +118,7 @@ public class PanelAlbumRussia extends JFrame implements ActionListener{
 		this.jtfNome.setText(ControleProprietario.proprietario.getAlbumFigurinha().get(i).getNome());
 		this.jtfNome.setBackground(new Color(10, 86, 152));
 		this.jtfNome.setForeground(Color.white);
+		this.jtfNome.setToolTipText("Nome do Album (Se quiser altera-lo, digite um novo e aperte no botao 'Edit' ao lado)");
 		this.jtfNome.setFont(new Font("Verdana", Font.BOLD, 25));
 		this.jtfNome.setBorder(new LineBorder(new Color(10, 86, 152)));
 		this.jtfNome.setBounds(296, 90, 800, 30);
@@ -145,7 +146,7 @@ public class PanelAlbumRussia extends JFrame implements ActionListener{
 		int r = JOptionPane.showConfirmDialog(null, "Deseja realmente excluir o album?", "Atenção!", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
 		if(r == JOptionPane.YES_OPTION){
 			ControleProprietario excluir = new ControleProprietario();
-			excluir.deletarAlbum(excluir.proprietario.getAlbumFigurinha().get(i));
+			excluir.deletarAlbum(ControleProprietario.proprietario.getAlbumFigurinha().get(i));
 			ControleProprietario voltarMeusAlbuns = new ControleProprietario();
 			voltarMeusAlbuns.voltarMeusAlbuns();
 			
@@ -155,10 +156,10 @@ public class PanelAlbumRussia extends JFrame implements ActionListener{
 	}	
 	
 	public void edit(int i) {	
+		JOptionPane.showMessageDialog(null, "Nome alterado com sucesso!");	
 		ControleProprietario proprietario = new ControleProprietario();
 	    String nome = this.jtfNome.getText().toString();
 	    proprietario.editarAlbum(nome, i);
-	    new PanelMeusAlbuns().setVisible(true);
 	}	
 
 	public void actionPerformed(ActionEvent e) {
