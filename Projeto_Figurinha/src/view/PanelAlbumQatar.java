@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JSpinner;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
@@ -28,7 +29,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 	private JButton jbtDell;
 	private JButton jbtEdit;
 	
-	// Figurinhas
+	// Atributos das Figurinhas
 	
 	private JPanel jpnFigurinha1;
 	private JPanel jpnFigurinha2;
@@ -51,6 +52,10 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 	private JLabel jlbFigurinha8;
 	private JLabel jlbFigurinha9;
 	private JLabel jlbFigurinha10;
+	
+	private JButton jbtPlus1;
+	private JTextField jtfContador1;
+	private JButton jbtMinus1;
 	
 	public PanelAlbumQatar(int i){
 		super();
@@ -103,6 +108,10 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 		Todas.add(this.jpnFigurinha10);
 		
 		this.jpnFigurinha1.add(jlbFigurinha1);
+		this.jpnFigurinha1.add(jbtMinus1);
+		this.jpnFigurinha1.add(jtfContador1);
+		this.jpnFigurinha1.add(jbtPlus1);
+		
 		this.jpnFigurinha2.add(jlbFigurinha2);
 		this.jpnFigurinha3.add(jlbFigurinha3);
 		this.jpnFigurinha4.add(jlbFigurinha4);
@@ -171,105 +180,138 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 		this.jtfNome.setBorder(new LineBorder(new Color(136, 22, 55)));
 		this.jtfNome.setBounds(296, 90, 800, 30);
 
-		// JPanel
+		// Figurinha 1
 		
 		this.jpnFigurinha1 = new JPanel(null);
 		this.jpnFigurinha1.setToolTipText("Figurinha: " + Database.getFWC00().getItensLimitados() + "; Nível de Raridade: " + Database.getFWC00().getNivelRaridade());
 		this.jpnFigurinha1.setBounds(94, 50, 200, 200);
 		this.jpnFigurinha1.setBackground(new Color(175, 175, 175));
 		
-		this.jpnFigurinha2 = new JPanel(null);
-		this.jpnFigurinha2.setToolTipText("Figurinha: " + Database.getFWC01().getItensLimitados() + "; Nível de Raridade: " + Database.getFWC01().getNivelRaridade());
-		this.jpnFigurinha2.setBounds(337, 50, 200, 200);
-		this.jpnFigurinha2.setBackground(new Color(175, 175, 175));
-		
-		this.jpnFigurinha3 = new JPanel(null);
-		this.jpnFigurinha3.setToolTipText("Figurinha: " + Database.getFWC02().getItensLimitados() + "; Nível de Raridade: " + Database.getFWC02().getNivelRaridade());
-		this.jpnFigurinha3.setBounds(580, 50, 200, 200);
-		this.jpnFigurinha3.setBackground(new Color(175, 175, 175));
-		
-		this.jpnFigurinha4 = new JPanel(null);
-		this.jpnFigurinha4.setToolTipText("Figurinha: " + Database.getFWC03().getItensLimitados() + "; Nível de Raridade: " + Database.getFWC03().getNivelRaridade());
-		this.jpnFigurinha4.setBounds(824, 50, 200, 200);
-		this.jpnFigurinha4.setBackground(new Color(175, 175, 175));
-		
-		this.jpnFigurinha5 = new JPanel(null);
-		this.jpnFigurinha5.setToolTipText("Figurinha: " + Database.getFWC04().getItensLimitados() + "; Nível de Raridade: " + Database.getFWC04().getNivelRaridade());
-		this.jpnFigurinha5.setBounds(1068, 50, 200, 200);
-		this.jpnFigurinha5.setBackground(new Color(175, 175, 175));
-		
-		this.jpnFigurinha6 = new JPanel(null);
-		this.jpnFigurinha6.setToolTipText("Seleção: " + Database.getQAT1().getSeleção() + "; Figurinha: " + Database.getQAT1().getJogador());
-		this.jpnFigurinha6.setBounds(94, 294, 200, 200);
-		this.jpnFigurinha6.setBackground(new Color(175, 175, 175));
-		
-		this.jpnFigurinha7 = new JPanel(null);
-		this.jpnFigurinha7.setToolTipText("Seleção: " + Database.getQAT2().getSeleção() + "; Figurinha: " + Database.getQAT2().getJogador());
-		this.jpnFigurinha7.setBounds(337, 294, 200, 200);
-		this.jpnFigurinha7.setBackground(new Color(175, 175, 175));
-		
-		this.jpnFigurinha8 = new JPanel(null);
-		this.jpnFigurinha8.setToolTipText("Seleção: " + Database.getQAT3().getSeleção() + "; Figurinha: " + Database.getQAT3().getJogador());
-		this.jpnFigurinha8.setBounds(580, 294, 200, 200);
-		this.jpnFigurinha8.setBackground(new Color(175, 175, 175));
-		
-		this.jpnFigurinha9 = new JPanel(null);
-		this.jpnFigurinha9.setToolTipText("Seleção: " + Database.getQAT4().getSeleção() + "; Figurinha: " + Database.getQAT4().getJogador());
-		this.jpnFigurinha9.setBounds(824, 294, 200, 200);
-		this.jpnFigurinha9.setBackground(new Color(175, 175, 175));
-		
-		this.jpnFigurinha10 = new JPanel(null);
-		this.jpnFigurinha10.setToolTipText("Seleção: " + Database.getQAT5().getSeleção() + "; Figurinha: " + Database.getQAT5().getJogador());
-		this.jpnFigurinha10.setBounds(1068, 294, 200, 200);
-		this.jpnFigurinha10.setBackground(new Color(175, 175, 175));
-		
-		// JLabel
-		
 		this.jlbFigurinha1 = new JLabel(Database.getFWC00().getSigla() + " " + Database.getFWC00().getCodigo());
 		this.jlbFigurinha1.setFont(new Font("Verdana", Font.BOLD, 25));
 		this.jlbFigurinha1.setForeground(Color.white);
 		this.jlbFigurinha1.setBounds(57, 25, 150, 48);
+		
+		this.jbtMinus1 = new JButton(new ImageIcon("minus.png"));
+		this.jbtMinus1.setBackground(new Color(175, 175, 175));
+		this.jbtMinus1.setBorder(new LineBorder(new Color(175, 175, 175)));
+		this.jbtMinus1.setBounds(44, 130, 28, 28);
+		
+		this.jtfContador1 = new JTextField();
+		this.jtfContador1.setBounds(91, 118, 30, 30);
+		this.jtfContador1.setFont(new Font("Verdana", Font.BOLD, 25));
+		this.jtfContador1.setBackground(new Color(175, 175, 175));
+		this.jtfContador1.setBorder(new LineBorder(new Color(175, 175, 175)));
+		this.jtfContador1.setForeground(Color.white);
+		
+		this.jbtPlus1 = new JButton(new ImageIcon("plus.png"));
+		this.jbtPlus1.setBackground(new Color(175, 175, 175));
+		this.jbtPlus1.setBorder(new LineBorder(new Color(175, 175, 175)));
+		this.jbtPlus1.setBounds(130, 130, 28, 28);
+		
+		// Figurinha 2
+		
+		this.jpnFigurinha2 = new JPanel(null);
+		this.jpnFigurinha2.setToolTipText("Figurinha: " + Database.getFWC01().getItensLimitados() + "; Nível de Raridade: " + Database.getFWC01().getNivelRaridade());
+		this.jpnFigurinha2.setBounds(337, 50, 200, 200);
+		this.jpnFigurinha2.setBackground(new Color(175, 175, 175));
 		
 		this.jlbFigurinha2 = new JLabel(Database.getFWC01().getSigla() + " " + Database.getFWC01().getCodigo());
 		this.jlbFigurinha2.setFont(new Font("Verdana", Font.BOLD, 25));
 		this.jlbFigurinha2.setForeground(Color.white);
 		this.jlbFigurinha2.setBounds(57, 25, 150, 48);
 		
+		// Figurinha 3
+		
+		this.jpnFigurinha3 = new JPanel(null);
+		this.jpnFigurinha3.setToolTipText("Figurinha: " + Database.getFWC02().getItensLimitados() + "; Nível de Raridade: " + Database.getFWC02().getNivelRaridade());
+		this.jpnFigurinha3.setBounds(580, 50, 200, 200);
+		this.jpnFigurinha3.setBackground(new Color(175, 175, 175));
+		
 		this.jlbFigurinha3 = new JLabel(Database.getFWC02().getSigla() + " " + Database.getFWC02().getCodigo());
 		this.jlbFigurinha3.setFont(new Font("Verdana", Font.BOLD, 25));
 		this.jlbFigurinha3.setForeground(Color.white);
 		this.jlbFigurinha3.setBounds(57, 25, 150, 48);
+		
+		// Figurinha 4
+		
+		this.jpnFigurinha4 = new JPanel(null);
+		this.jpnFigurinha4.setToolTipText("Figurinha: " + Database.getFWC03().getItensLimitados() + "; Nível de Raridade: " + Database.getFWC03().getNivelRaridade());
+		this.jpnFigurinha4.setBounds(824, 50, 200, 200);
+		this.jpnFigurinha4.setBackground(new Color(175, 175, 175));
 		
 		this.jlbFigurinha4 = new JLabel(Database.getFWC03().getSigla() + " " + Database.getFWC03().getCodigo());
 		this.jlbFigurinha4.setFont(new Font("Verdana", Font.BOLD, 25));
 		this.jlbFigurinha4.setForeground(Color.white);
 		this.jlbFigurinha4.setBounds(57, 25, 150, 48);
 		
+		// Figurinha 5
+		
+		this.jpnFigurinha5 = new JPanel(null);
+		this.jpnFigurinha5.setToolTipText("Figurinha: " + Database.getFWC04().getItensLimitados() + "; Nível de Raridade: " + Database.getFWC04().getNivelRaridade());
+		this.jpnFigurinha5.setBounds(1068, 50, 200, 200);
+		this.jpnFigurinha5.setBackground(new Color(175, 175, 175));
+		
 		this.jlbFigurinha5 = new JLabel(Database.getFWC04().getSigla() + " " + Database.getFWC04().getCodigo());
 		this.jlbFigurinha5.setFont(new Font("Verdana", Font.BOLD, 25));
 		this.jlbFigurinha5.setForeground(Color.white);
 		this.jlbFigurinha5.setBounds(57, 25, 150, 48);
+		
+		// Figurinha 6
+		
+		this.jpnFigurinha6 = new JPanel(null);
+		this.jpnFigurinha6.setToolTipText("Seleção: " + Database.getQAT1().getSeleção() + "; Figurinha: " + Database.getQAT1().getJogador());
+		this.jpnFigurinha6.setBounds(94, 294, 200, 200);
+		this.jpnFigurinha6.setBackground(new Color(175, 175, 175));
 		
 		this.jlbFigurinha6 = new JLabel(Database.getQAT1().getSigla() + " " + Database.getQAT1().getCodigo());
 		this.jlbFigurinha6.setFont(new Font("Verdana", Font.BOLD, 25));
 		this.jlbFigurinha6.setForeground(Color.white);
 		this.jlbFigurinha6.setBounds(57, 25, 150, 48);
 		
+		// Figurinha 7
+		
+		this.jpnFigurinha7 = new JPanel(null);
+		this.jpnFigurinha7.setToolTipText("Seleção: " + Database.getQAT2().getSeleção() + "; Figurinha: " + Database.getQAT2().getJogador());
+		this.jpnFigurinha7.setBounds(337, 294, 200, 200);
+		this.jpnFigurinha7.setBackground(new Color(175, 175, 175));
+		
 		this.jlbFigurinha7 = new JLabel(Database.getQAT2().getSigla() + " " + Database.getQAT2().getCodigo());
 		this.jlbFigurinha7.setFont(new Font("Verdana", Font.BOLD, 25));
 		this.jlbFigurinha7.setForeground(Color.white);
 		this.jlbFigurinha7.setBounds(57, 25, 150, 48);
-
+		
+		// Figurinha 8
+		
+		this.jpnFigurinha8 = new JPanel(null);
+		this.jpnFigurinha8.setToolTipText("Seleção: " + Database.getQAT3().getSeleção() + "; Figurinha: " + Database.getQAT3().getJogador());
+		this.jpnFigurinha8.setBounds(580, 294, 200, 200);
+		this.jpnFigurinha8.setBackground(new Color(175, 175, 175));
+		
 		this.jlbFigurinha8 = new JLabel(Database.getQAT3().getSigla() + " " + Database.getQAT3().getCodigo());
 		this.jlbFigurinha8.setFont(new Font("Verdana", Font.BOLD, 25));
 		this.jlbFigurinha8.setForeground(Color.white);
 		this.jlbFigurinha8.setBounds(57, 25, 150, 48);
 		
+		// Figurinha 9
+		
+		this.jpnFigurinha9 = new JPanel(null);
+		this.jpnFigurinha9.setToolTipText("Seleção: " + Database.getQAT4().getSeleção() + "; Figurinha: " + Database.getQAT4().getJogador());
+		this.jpnFigurinha9.setBounds(824, 294, 200, 200);
+		this.jpnFigurinha9.setBackground(new Color(175, 175, 175));
+		
 		this.jlbFigurinha9 = new JLabel(Database.getQAT4().getSigla() + " " + Database.getQAT4().getCodigo());
 		this.jlbFigurinha9.setFont(new Font("Verdana", Font.BOLD, 25));
 		this.jlbFigurinha9.setForeground(Color.white);
 		this.jlbFigurinha9.setBounds(57, 25, 150, 48);
-
+		
+		// Figurinha 10
+		
+		this.jpnFigurinha10 = new JPanel(null);
+		this.jpnFigurinha10.setToolTipText("Seleção: " + Database.getQAT5().getSeleção() + "; Figurinha: " + Database.getQAT5().getJogador());
+		this.jpnFigurinha10.setBounds(1068, 294, 200, 200);
+		this.jpnFigurinha10.setBackground(new Color(175, 175, 175));
+		
 		this.jlbFigurinha10 = new JLabel(Database.getQAT5().getSigla() + " " + Database.getQAT5().getCodigo());
 		this.jlbFigurinha10.setFont(new Font("Verdana", Font.BOLD, 25));
 		this.jlbFigurinha10.setForeground(Color.white);
