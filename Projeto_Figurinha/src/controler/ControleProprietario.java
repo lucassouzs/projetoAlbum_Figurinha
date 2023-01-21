@@ -52,6 +52,7 @@ public class ControleProprietario {
 			if(proprietario.getAlbumFigurinha().get(i).getNome().equals(nome)) {
 				if(proprietario.getAlbumFigurinha().get(i).getCopaMundo() == "Qatar 2022") {
 					new PanelAlbumQatar(i).setVisible(true);
+
 				} else if (proprietario.getAlbumFigurinha().get(i).getCopaMundo() == "Russia 2018") {
 					new PanelAlbumRussia(i).setVisible(true);
 				}

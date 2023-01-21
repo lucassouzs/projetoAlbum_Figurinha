@@ -87,7 +87,7 @@ public class PanelAlbumRussia extends JFrame implements ActionListener{
 		this.jbtDell.setFont(new Font("Arial", Font.BOLD, 12));
 		this.jbtDell.setBackground(new Color(10, 86, 152));
 		this.jbtDell.setBorder(new LineBorder(new Color(10, 86, 152)));
-		this.jbtDell.setBounds(250, 55, 20, 20);
+		this.jbtDell.setBounds(250, 50, 20, 20);
 		this.jbtDell.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource() == jbtDell) {
@@ -109,10 +109,10 @@ public class PanelAlbumRussia extends JFrame implements ActionListener{
 				}
 				});
 
-		this.jlbCopaMundo = new JLabel("FIFA World Cup Russia 2018");
+		this.jlbCopaMundo = new JLabel("FIFA WORLD CUP RUSSIA 2018");
 		this.jlbCopaMundo.setForeground(Color.white);
 		this.jlbCopaMundo.setFont(new Font("Verdana",Font.BOLD,35));
-		this.jlbCopaMundo.setBounds(296, 40, 800, 51);
+		this.jlbCopaMundo.setBounds(296, 35, 800, 51);
 		
 		this.jtfNome = new JTextField();
 		this.jtfNome.setText(ControleProprietario.proprietario.getAlbumFigurinha().get(i).getNome());
