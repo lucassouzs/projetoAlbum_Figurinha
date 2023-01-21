@@ -27,6 +27,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 	private JTextField jtfNome;
 	private JButton jbtDell;
 	private JButton jbtEdit;
+	
 	int number1 = 0;
 	int number2 = 0;
 	int number3 = 0;
@@ -37,9 +38,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 	int number8 = 0;
 	int number9 = 0;
 	int number10 = 0;
-	
-	// Atributos das Figurinhas
-	
+		
 	private JPanel jpnFigurinha1;
 	private JLabel jlbFigurinha1;
 	private JButton jbtPlus1;
@@ -283,6 +282,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 				});
 		
 		this.jtfContador1 = new JTextField("0");
+		this.jtfContador1.setEditable(false);
 		this.jtfContador1.setBounds(91, 127, 30, 30);
 		this.jtfContador1.setFont(new Font("Verdana", Font.BOLD, 25));
 		this.jtfContador1.setBackground(new Color(175, 175, 175));
@@ -326,6 +326,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 				});
 		
 		this.jtfContador2 = new JTextField("0");
+		this.jtfContador2.setEditable(false);
 		this.jtfContador2.setBounds(91, 127, 30, 30);
 		this.jtfContador2.setFont(new Font("Verdana", Font.BOLD, 25));
 		this.jtfContador2.setBackground(new Color(175, 175, 175));
@@ -369,6 +370,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 				});
 		
 		this.jtfContador3 = new JTextField("0");
+		this.jtfContador3.setEditable(false);
 		this.jtfContador3.setBounds(91, 127, 30, 30);
 		this.jtfContador3.setFont(new Font("Verdana", Font.BOLD, 25));
 		this.jtfContador3.setBackground(new Color(175, 175, 175));
@@ -412,6 +414,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 				});
 		
 		this.jtfContador4 = new JTextField("0");
+		this.jtfContador4.setEditable(false);
 		this.jtfContador4.setBounds(91, 127, 30, 30);
 		this.jtfContador4.setFont(new Font("Verdana", Font.BOLD, 25));
 		this.jtfContador4.setBackground(new Color(175, 175, 175));
@@ -455,6 +458,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 				});
 		
 		this.jtfContador5 = new JTextField("0");
+		this.jtfContador5.setEditable(false);
 		this.jtfContador5.setBounds(91, 127, 30, 30);
 		this.jtfContador5.setFont(new Font("Verdana", Font.BOLD, 25));
 		this.jtfContador5.setBackground(new Color(175, 175, 175));
@@ -498,6 +502,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 				});
 		
 		this.jtfContador6 = new JTextField("0");
+		this.jtfContador6.setEditable(false);
 		this.jtfContador6.setBounds(91, 127, 30, 30);
 		this.jtfContador6.setFont(new Font("Verdana", Font.BOLD, 25));
 		this.jtfContador6.setBackground(new Color(175, 175, 175));
@@ -541,6 +546,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 				});
 		
 		this.jtfContador7 = new JTextField("0");
+		this.jtfContador7.setEditable(false);
 		this.jtfContador7.setBounds(91, 127, 30, 30);
 		this.jtfContador7.setFont(new Font("Verdana", Font.BOLD, 25));
 		this.jtfContador7.setBackground(new Color(175, 175, 175));
@@ -584,6 +590,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 				});
 		
 		this.jtfContador8 = new JTextField("0");
+		this.jtfContador8.setEditable(false);
 		this.jtfContador8.setBounds(91, 127, 30, 30);
 		this.jtfContador8.setFont(new Font("Verdana", Font.BOLD, 25));
 		this.jtfContador8.setBackground(new Color(175, 175, 175));
@@ -627,6 +634,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 				});
 		
 		this.jtfContador9 = new JTextField("0");
+		this.jtfContador9.setEditable(false);
 		this.jtfContador9.setBounds(91, 127, 30, 30);
 		this.jtfContador9.setFont(new Font("Verdana", Font.BOLD, 25));
 		this.jtfContador9.setBackground(new Color(175, 175, 175));
@@ -670,6 +678,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 				});
 		
 		this.jtfContador10 = new JTextField("0");
+		this.jtfContador10.setEditable(false);
 		this.jtfContador10.setBounds(91, 127, 30, 30);
 		this.jtfContador10.setFont(new Font("Verdana", Font.BOLD, 25));
 		this.jtfContador10.setBackground(new Color(175, 175, 175));
@@ -708,11 +717,10 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 	}	
 	
 	public void minus1(int i) {
+		
 		--number1;
 		
 		this.jtfContador1.setText("" + number1);
-		System.out.println("");
-		System.out.println("Voce removeu a figurinha: " + Database.getFWC00().getSigla() + " " + Database.getFWC00().getCodigo() + ", do Album: " + ControleProprietario.proprietario.getAlbumFigurinha().get(i).getNome());
 		
 		if(number1 == 0){
 			this.jpnFigurinha1.setBackground(new Color(175, 175, 175));
@@ -722,7 +730,9 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 			this.jbtMinus1.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jbtPlus1.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jtfContador1.setBorder(new LineBorder(new Color(175, 175, 175)));
-		} else if (number1 >= 1) {
+			System.out.println("");
+			System.out.println("Voce removeu a figurinha: " + Database.getFWC00().getSigla() + " " + Database.getFWC00().getCodigo() + ", do Album: " + ControleProprietario.proprietario.getAlbumFigurinha().get(i).getNome());
+		} else if (number1 > 0) {
 			this.jpnFigurinha1.setBackground(new Color(113, 204, 122));
 			this.jbtMinus1.setBackground(new Color(113, 204, 122));
 			this.jbtPlus1.setBackground(new Color(113, 204, 122));
@@ -730,10 +740,16 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 			this.jbtMinus1.setBorder(new LineBorder(new Color(113, 204, 122)));
 			this.jbtPlus1.setBorder(new LineBorder(new Color(113, 204, 122)));
 			this.jtfContador1.setBorder(new LineBorder(new Color(113, 204, 122)));
+			System.out.println("");
+			System.out.println("Voce removeu a figurinha: " + Database.getFWC00().getSigla() + " " + Database.getFWC00().getCodigo() + ", do Album: " + ControleProprietario.proprietario.getAlbumFigurinha().get(i).getNome());
+		} else if (number1 < 0) {
+			number1 = 0;
+			this.jtfContador1.setText("0");
 		}
 	}
 	
 	public void plus1(int i) {
+		
 		++number1;
 		
 		this.jtfContador1.setText("" + number1);
@@ -748,7 +764,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 			this.jbtMinus1.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jbtPlus1.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jtfContador1.setBorder(new LineBorder(new Color(175, 175, 175)));
-		} else if (number1 >= 1) {
+		} else if (number1 > 0) {
 			this.jpnFigurinha1.setBackground(new Color(113, 204, 122));
 			this.jbtMinus1.setBackground(new Color(113, 204, 122));
 			this.jbtPlus1.setBackground(new Color(113, 204, 122));
@@ -756,15 +772,13 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 			this.jbtMinus1.setBorder(new LineBorder(new Color(113, 204, 122)));
 			this.jbtPlus1.setBorder(new LineBorder(new Color(113, 204, 122)));
 			this.jtfContador1.setBorder(new LineBorder(new Color(113, 204, 122)));
-		}
+		} 
 	}
 	
 	public void minus2(int i) {
 		--number2;
 		
 		this.jtfContador2.setText("" + number2);
-		System.out.println("");
-		System.out.println("Voce removeu a figurinha: " + Database.getFWC01().getSigla() + " " + Database.getFWC01().getCodigo() + ", do Album: " + ControleProprietario.proprietario.getAlbumFigurinha().get(i).getNome());
 		
 		if(number2 == 0){
 			this.jpnFigurinha2.setBackground(new Color(175, 175, 175));
@@ -774,7 +788,9 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 			this.jbtMinus2.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jbtPlus2.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jtfContador2.setBorder(new LineBorder(new Color(175, 175, 175)));
-		} else if (number2 >= 1) {
+			System.out.println("");
+			System.out.println("Voce removeu a figurinha: " + Database.getFWC01().getSigla() + " " + Database.getFWC01().getCodigo() + ", do Album: " + ControleProprietario.proprietario.getAlbumFigurinha().get(i).getNome());
+		} else if (number2 > 0) {
 			this.jpnFigurinha2.setBackground(new Color(113, 204, 122));
 			this.jbtMinus2.setBackground(new Color(113, 204, 122));
 			this.jbtPlus2.setBackground(new Color(113, 204, 122));
@@ -782,6 +798,11 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 			this.jbtMinus2.setBorder(new LineBorder(new Color(113, 204, 122)));
 			this.jbtPlus2.setBorder(new LineBorder(new Color(113, 204, 122)));
 			this.jtfContador2.setBorder(new LineBorder(new Color(113, 204, 122)));
+			System.out.println("");
+			System.out.println("Voce removeu a figurinha: " + Database.getFWC01().getSigla() + " " + Database.getFWC01().getCodigo() + ", do Album: " + ControleProprietario.proprietario.getAlbumFigurinha().get(i).getNome());
+		} else if (number2 < 0) {
+			number2 = 0;
+			this.jtfContador2.setText("0");
 		}
 	}
 	
@@ -800,7 +821,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 			this.jbtMinus2.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jbtPlus2.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jtfContador2.setBorder(new LineBorder(new Color(175, 175, 175)));
-		} else if (number2 >= 1) {
+		} else if (number2 > 0) {
 			this.jpnFigurinha2.setBackground(new Color(113, 204, 122));
 			this.jbtMinus2.setBackground(new Color(113, 204, 122));
 			this.jbtPlus2.setBackground(new Color(113, 204, 122));
@@ -815,9 +836,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 		--number3;
 		
 		this.jtfContador3.setText("" + number3);
-		System.out.println("");
-		System.out.println("Voce removeu a figurinha: " + Database.getFWC02().getSigla() + " " + Database.getFWC02().getCodigo() + ", do Album: " + ControleProprietario.proprietario.getAlbumFigurinha().get(i).getNome());
-		
+
 		if(number3 == 0){
 			this.jpnFigurinha3.setBackground(new Color(175, 175, 175));
 			this.jbtMinus3.setBackground(new Color(175, 175, 175));
@@ -826,7 +845,9 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 			this.jbtMinus3.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jbtPlus3.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jtfContador3.setBorder(new LineBorder(new Color(175, 175, 175)));
-		} else if (number3 >= 1) {
+			System.out.println("");
+			System.out.println("Voce removeu a figurinha: " + Database.getFWC02().getSigla() + " " + Database.getFWC02().getCodigo() + ", do Album: " + ControleProprietario.proprietario.getAlbumFigurinha().get(i).getNome());
+		} else if (number3 > 0) {
 			this.jpnFigurinha3.setBackground(new Color(113, 204, 122));
 			this.jbtMinus3.setBackground(new Color(113, 204, 122));
 			this.jbtPlus3.setBackground(new Color(113, 204, 122));
@@ -834,6 +855,11 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 			this.jbtMinus3.setBorder(new LineBorder(new Color(113, 204, 122)));
 			this.jbtPlus3.setBorder(new LineBorder(new Color(113, 204, 122)));
 			this.jtfContador3.setBorder(new LineBorder(new Color(113, 204, 122)));
+			System.out.println("");
+			System.out.println("Voce removeu a figurinha: " + Database.getFWC02().getSigla() + " " + Database.getFWC02().getCodigo() + ", do Album: " + ControleProprietario.proprietario.getAlbumFigurinha().get(i).getNome());
+		} else if (number3 < 0) {
+			number3 = 0;
+			this.jtfContador3.setText("0");
 		}
 	}
 	
@@ -852,7 +878,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 			this.jbtMinus3.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jbtPlus3.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jtfContador3.setBorder(new LineBorder(new Color(175, 175, 175)));
-		} else if (number3 >= 1) {
+		} else if (number3 > 0) {
 			this.jpnFigurinha3.setBackground(new Color(113, 204, 122));
 			this.jbtMinus3.setBackground(new Color(113, 204, 122));
 			this.jbtPlus3.setBackground(new Color(113, 204, 122));
@@ -860,16 +886,14 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 			this.jbtMinus3.setBorder(new LineBorder(new Color(113, 204, 122)));
 			this.jbtPlus3.setBorder(new LineBorder(new Color(113, 204, 122)));
 			this.jtfContador3.setBorder(new LineBorder(new Color(113, 204, 122)));
-		}
+		} 
 	}
 	
 	public void minus4(int i) {
 		--number4;
 		
 		this.jtfContador4.setText("" + number4);
-		System.out.println("");
-		System.out.println("Voce removeu a figurinha: " + Database.getFWC03().getSigla() + " " + Database.getFWC03().getCodigo() + ", do Album: " + ControleProprietario.proprietario.getAlbumFigurinha().get(i).getNome());
-		
+
 		if(number4 == 0){
 			this.jpnFigurinha4.setBackground(new Color(175, 175, 175));
 			this.jbtMinus4.setBackground(new Color(175, 175, 175));
@@ -878,7 +902,9 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 			this.jbtMinus4.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jbtPlus4.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jtfContador4.setBorder(new LineBorder(new Color(175, 175, 175)));
-		} else if (number4 >= 1) {
+			System.out.println("");
+			System.out.println("Voce removeu a figurinha: " + Database.getFWC03().getSigla() + " " + Database.getFWC03().getCodigo() + ", do Album: " + ControleProprietario.proprietario.getAlbumFigurinha().get(i).getNome());
+		} else if (number4 > 0) {
 			this.jpnFigurinha4.setBackground(new Color(113, 204, 122));
 			this.jbtMinus4.setBackground(new Color(113, 204, 122));
 			this.jbtPlus4.setBackground(new Color(113, 204, 122));
@@ -886,6 +912,11 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 			this.jbtMinus4.setBorder(new LineBorder(new Color(113, 204, 122)));
 			this.jbtPlus4.setBorder(new LineBorder(new Color(113, 204, 122)));
 			this.jtfContador4.setBorder(new LineBorder(new Color(113, 204, 122)));
+			System.out.println("");
+			System.out.println("Voce removeu a figurinha: " + Database.getFWC03().getSigla() + " " + Database.getFWC03().getCodigo() + ", do Album: " + ControleProprietario.proprietario.getAlbumFigurinha().get(i).getNome());
+		} else if (number4 < 0) {
+			number4 = 0;
+			this.jtfContador4.setText("0");
 		}
 	}
 	
@@ -904,7 +935,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 			this.jbtMinus4.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jbtPlus4.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jtfContador4.setBorder(new LineBorder(new Color(175, 175, 175)));
-		} else if (number4 >= 1) {
+		} else if (number4 > 0) {
 			this.jpnFigurinha4.setBackground(new Color(113, 204, 122));
 			this.jbtMinus4.setBackground(new Color(113, 204, 122));
 			this.jbtPlus4.setBackground(new Color(113, 204, 122));
@@ -919,9 +950,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 		--number5;
 		
 		this.jtfContador5.setText("" + number5);
-		System.out.println("");
-		System.out.println("Voce removeu a figurinha: " + Database.getFWC04().getSigla() + " " + Database.getFWC04().getCodigo() + ", do Album: " + ControleProprietario.proprietario.getAlbumFigurinha().get(i).getNome());
-		
+
 		if(number5 == 0){
 			this.jpnFigurinha5.setBackground(new Color(175, 175, 175));
 			this.jbtMinus5.setBackground(new Color(175, 175, 175));
@@ -930,7 +959,9 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 			this.jbtMinus5.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jbtPlus5.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jtfContador5.setBorder(new LineBorder(new Color(175, 175, 175)));
-		} else if (number5 >= 1) {
+			System.out.println("");
+			System.out.println("Voce removeu a figurinha: " + Database.getFWC04().getSigla() + " " + Database.getFWC04().getCodigo() + ", do Album: " + ControleProprietario.proprietario.getAlbumFigurinha().get(i).getNome());
+		} else if (number5 > 0) {
 			this.jpnFigurinha5.setBackground(new Color(113, 204, 122));
 			this.jbtMinus5.setBackground(new Color(113, 204, 122));
 			this.jbtPlus5.setBackground(new Color(113, 204, 122));
@@ -938,6 +969,11 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 			this.jbtMinus5.setBorder(new LineBorder(new Color(113, 204, 122)));
 			this.jbtPlus5.setBorder(new LineBorder(new Color(113, 204, 122)));
 			this.jtfContador5.setBorder(new LineBorder(new Color(113, 204, 122)));
+			System.out.println("");
+			System.out.println("Voce removeu a figurinha: " + Database.getFWC04().getSigla() + " " + Database.getFWC04().getCodigo() + ", do Album: " + ControleProprietario.proprietario.getAlbumFigurinha().get(i).getNome());
+		} else if (number5 < 0) {
+			number5 = 0;
+			this.jtfContador5.setText("0");
 		}
 	}
 	
@@ -956,7 +992,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 			this.jbtMinus5.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jbtPlus5.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jtfContador5.setBorder(new LineBorder(new Color(175, 175, 175)));
-		} else if (number5 >= 1) {
+		} else if (number5 > 0) {
 			this.jpnFigurinha5.setBackground(new Color(113, 204, 122));
 			this.jbtMinus5.setBackground(new Color(113, 204, 122));
 			this.jbtPlus5.setBackground(new Color(113, 204, 122));
@@ -971,9 +1007,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 		--number6;
 		
 		this.jtfContador6.setText("" + number6);
-		System.out.println("");
-		System.out.println("Voce removeu a figurinha: " + Database.getQAT1().getSigla() + " " + Database.getQAT1().getCodigo() + ", do Album: " + ControleProprietario.proprietario.getAlbumFigurinha().get(i).getNome());
-		
+
 		if(number6 == 0){
 			this.jpnFigurinha6.setBackground(new Color(175, 175, 175));
 			this.jbtMinus6.setBackground(new Color(175, 175, 175));
@@ -982,7 +1016,9 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 			this.jbtMinus6.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jbtPlus6.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jtfContador6.setBorder(new LineBorder(new Color(175, 175, 175)));
-		} else if (number6 >= 1) {
+			System.out.println("");
+			System.out.println("Voce removeu a figurinha: " + Database.getQAT1().getSigla() + " " + Database.getQAT1().getCodigo() + ", do Album: " + ControleProprietario.proprietario.getAlbumFigurinha().get(i).getNome());
+		} else if (number6 > 0) {
 			this.jpnFigurinha6.setBackground(new Color(113, 204, 122));
 			this.jbtMinus6.setBackground(new Color(113, 204, 122));
 			this.jbtPlus6.setBackground(new Color(113, 204, 122));
@@ -990,6 +1026,11 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 			this.jbtMinus6.setBorder(new LineBorder(new Color(113, 204, 122)));
 			this.jbtPlus6.setBorder(new LineBorder(new Color(113, 204, 122)));
 			this.jtfContador6.setBorder(new LineBorder(new Color(113, 204, 122)));
+			System.out.println("");
+			System.out.println("Voce removeu a figurinha: " + Database.getQAT1().getSigla() + " " + Database.getQAT1().getCodigo() + ", do Album: " + ControleProprietario.proprietario.getAlbumFigurinha().get(i).getNome());
+		} else if (number6 < 0) {
+			number6 = 0;
+			this.jtfContador6.setText("0");
 		}
 	}
 	
@@ -1008,7 +1049,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 			this.jbtMinus6.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jbtPlus6.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jtfContador6.setBorder(new LineBorder(new Color(175, 175, 175)));
-		} else if (number6 >= 1) {
+		} else if (number6 > 0) {
 			this.jpnFigurinha6.setBackground(new Color(113, 204, 122));
 			this.jbtMinus6.setBackground(new Color(113, 204, 122));
 			this.jbtPlus6.setBackground(new Color(113, 204, 122));
@@ -1023,9 +1064,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 		--number7;
 		
 		this.jtfContador7.setText("" + number7);
-		System.out.println("");
-		System.out.println("Voce removeu a figurinha: " + Database.getQAT2().getSigla() + " " + Database.getQAT2().getCodigo() + ", do Album: " + ControleProprietario.proprietario.getAlbumFigurinha().get(i).getNome());
-		
+
 		if(number7 == 0){
 			this.jpnFigurinha7.setBackground(new Color(175, 175, 175));
 			this.jbtMinus7.setBackground(new Color(175, 175, 175));
@@ -1034,7 +1073,9 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 			this.jbtMinus7.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jbtPlus7.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jtfContador7.setBorder(new LineBorder(new Color(175, 175, 175)));
-		} else if (number7 >= 1) {
+			System.out.println("");
+			System.out.println("Voce removeu a figurinha: " + Database.getQAT2().getSigla() + " " + Database.getQAT2().getCodigo() + ", do Album: " + ControleProprietario.proprietario.getAlbumFigurinha().get(i).getNome());
+		} else if (number7 > 0) {
 			this.jpnFigurinha7.setBackground(new Color(113, 204, 122));
 			this.jbtMinus7.setBackground(new Color(113, 204, 122));
 			this.jbtPlus7.setBackground(new Color(113, 204, 122));
@@ -1042,6 +1083,11 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 			this.jbtMinus7.setBorder(new LineBorder(new Color(113, 204, 122)));
 			this.jbtPlus7.setBorder(new LineBorder(new Color(113, 204, 122)));
 			this.jtfContador7.setBorder(new LineBorder(new Color(113, 204, 122)));
+			System.out.println("");
+			System.out.println("Voce removeu a figurinha: " + Database.getQAT2().getSigla() + " " + Database.getQAT2().getCodigo() + ", do Album: " + ControleProprietario.proprietario.getAlbumFigurinha().get(i).getNome());
+		} else if (number7 < 0) {
+			number7 = 0;
+			this.jtfContador7.setText("0");
 		}
 	}
 	
@@ -1060,7 +1106,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 			this.jbtMinus7.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jbtPlus7.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jtfContador7.setBorder(new LineBorder(new Color(175, 175, 175)));
-		} else if (number7 >= 1) {
+		} else if (number7 > 0) {
 			this.jpnFigurinha7.setBackground(new Color(113, 204, 122));
 			this.jbtMinus7.setBackground(new Color(113, 204, 122));
 			this.jbtPlus7.setBackground(new Color(113, 204, 122));
@@ -1068,16 +1114,14 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 			this.jbtMinus7.setBorder(new LineBorder(new Color(113, 204, 122)));
 			this.jbtPlus7.setBorder(new LineBorder(new Color(113, 204, 122)));
 			this.jtfContador7.setBorder(new LineBorder(new Color(113, 204, 122)));
-		}
-	}
+		} 
+	} 
 	
 	public void minus8(int i) {
 		--number8;
 		
 		this.jtfContador8.setText("" + number8);
-		System.out.println("");
-		System.out.println("Voce removeu a figurinha: " + Database.getQAT3().getSigla() + " " + Database.getQAT3().getCodigo() + ", do Album: " + ControleProprietario.proprietario.getAlbumFigurinha().get(i).getNome());
-		
+
 		if(number8 == 0){
 			this.jpnFigurinha8.setBackground(new Color(175, 175, 175));
 			this.jbtMinus8.setBackground(new Color(175, 175, 175));
@@ -1086,7 +1130,9 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 			this.jbtMinus8.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jbtPlus8.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jtfContador8.setBorder(new LineBorder(new Color(175, 175, 175)));
-		} else if (number8 >= 1) {
+			System.out.println("");
+			System.out.println("Voce removeu a figurinha: " + Database.getQAT3().getSigla() + " " + Database.getQAT3().getCodigo() + ", do Album: " + ControleProprietario.proprietario.getAlbumFigurinha().get(i).getNome());
+		} else if (number8 > 0) {
 			this.jpnFigurinha8.setBackground(new Color(113, 204, 122));
 			this.jbtMinus8.setBackground(new Color(113, 204, 122));
 			this.jbtPlus8.setBackground(new Color(113, 204, 122));
@@ -1094,6 +1140,11 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 			this.jbtMinus8.setBorder(new LineBorder(new Color(113, 204, 122)));
 			this.jbtPlus8.setBorder(new LineBorder(new Color(113, 204, 122)));
 			this.jtfContador8.setBorder(new LineBorder(new Color(113, 204, 122)));
+			System.out.println("");
+			System.out.println("Voce removeu a figurinha: " + Database.getQAT3().getSigla() + " " + Database.getQAT3().getCodigo() + ", do Album: " + ControleProprietario.proprietario.getAlbumFigurinha().get(i).getNome());
+		} else if (number8 < 0) {
+			number8 = 0;
+			this.jtfContador8.setText("0");
 		}
 	}
 	
@@ -1112,7 +1163,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 			this.jbtMinus8.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jbtPlus8.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jtfContador8.setBorder(new LineBorder(new Color(175, 175, 175)));
-		} else if (number8 >= 1) {
+		} else if (number8 > 0) {
 			this.jpnFigurinha8.setBackground(new Color(113, 204, 122));
 			this.jbtMinus8.setBackground(new Color(113, 204, 122));
 			this.jbtPlus8.setBackground(new Color(113, 204, 122));
@@ -1127,9 +1178,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 		--number9;
 		
 		this.jtfContador9.setText("" + number9);
-		System.out.println("");
-		System.out.println("Voce removeu a figurinha: " + Database.getQAT4().getSigla() + " " + Database.getQAT4().getCodigo() + ", do Album: " + ControleProprietario.proprietario.getAlbumFigurinha().get(i).getNome());
-		
+
 		if(number9 == 0){
 			this.jpnFigurinha9.setBackground(new Color(175, 175, 175));
 			this.jbtMinus9.setBackground(new Color(175, 175, 175));
@@ -1138,7 +1187,9 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 			this.jbtMinus9.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jbtPlus9.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jtfContador9.setBorder(new LineBorder(new Color(175, 175, 175)));
-		} else if (number9 >= 1) {
+			System.out.println("");
+			System.out.println("Voce removeu a figurinha: " + Database.getQAT4().getSigla() + " " + Database.getQAT4().getCodigo() + ", do Album: " + ControleProprietario.proprietario.getAlbumFigurinha().get(i).getNome());
+		} else if (number9 > 0) {
 			this.jpnFigurinha9.setBackground(new Color(113, 204, 122));
 			this.jbtMinus9.setBackground(new Color(113, 204, 122));
 			this.jbtPlus9.setBackground(new Color(113, 204, 122));
@@ -1146,6 +1197,11 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 			this.jbtMinus9.setBorder(new LineBorder(new Color(113, 204, 122)));
 			this.jbtPlus9.setBorder(new LineBorder(new Color(113, 204, 122)));
 			this.jtfContador9.setBorder(new LineBorder(new Color(113, 204, 122)));
+			System.out.println("");
+			System.out.println("Voce removeu a figurinha: " + Database.getQAT4().getSigla() + " " + Database.getQAT4().getCodigo() + ", do Album: " + ControleProprietario.proprietario.getAlbumFigurinha().get(i).getNome());
+		} else if (number9 < 0) {
+			number9 = 0;
+			this.jtfContador9.setText("0");
 		}
 	}
 	
@@ -1164,7 +1220,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 			this.jbtMinus9.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jbtPlus9.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jtfContador9.setBorder(new LineBorder(new Color(175, 175, 175)));
-		} else if (number9 >= 1) {
+		} else if (number9 > 0) {
 			this.jpnFigurinha9.setBackground(new Color(113, 204, 122));
 			this.jbtMinus9.setBackground(new Color(113, 204, 122));
 			this.jbtPlus9.setBackground(new Color(113, 204, 122));
@@ -1179,9 +1235,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 		--number10;
 		
 		this.jtfContador10.setText("" + number10);
-		System.out.println("");
-		System.out.println("Voce removeu a figurinha: " + Database.getQAT5().getSigla() + " " + Database.getQAT5().getCodigo() + ", do Album: " + ControleProprietario.proprietario.getAlbumFigurinha().get(i).getNome());
-		
+
 		if(number10 == 0){
 			this.jpnFigurinha10.setBackground(new Color(175, 175, 175));
 			this.jbtMinus10.setBackground(new Color(175, 175, 175));
@@ -1190,7 +1244,9 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 			this.jbtMinus10.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jbtPlus10.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jtfContador10.setBorder(new LineBorder(new Color(175, 175, 175)));
-		} else if (number10 >= 1) {
+			System.out.println("");
+			System.out.println("Voce removeu a figurinha: " + Database.getQAT5().getSigla() + " " + Database.getQAT5().getCodigo() + ", do Album: " + ControleProprietario.proprietario.getAlbumFigurinha().get(i).getNome());
+		} else if (number10 > 0) {
 			this.jpnFigurinha10.setBackground(new Color(113, 204, 122));
 			this.jbtMinus10.setBackground(new Color(113, 204, 122));
 			this.jbtPlus10.setBackground(new Color(113, 204, 122));
@@ -1198,6 +1254,11 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 			this.jbtMinus10.setBorder(new LineBorder(new Color(113, 204, 122)));
 			this.jbtPlus10.setBorder(new LineBorder(new Color(113, 204, 122)));
 			this.jtfContador10.setBorder(new LineBorder(new Color(113, 204, 122)));
+			System.out.println("");
+			System.out.println("Voce removeu a figurinha: " + Database.getQAT5().getSigla() + " " + Database.getQAT5().getCodigo() + ", do Album: " + ControleProprietario.proprietario.getAlbumFigurinha().get(i).getNome());
+		} else if (number10 < 0) {
+			number10 = 0;
+			this.jtfContador10.setText("0");
 		}
 	}
 	
@@ -1216,7 +1277,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 			this.jbtMinus10.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jbtPlus10.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jtfContador10.setBorder(new LineBorder(new Color(175, 175, 175)));
-		} else if (number10 >= 1) {
+		} else if (number10 > 0) {
 			this.jpnFigurinha10.setBackground(new Color(113, 204, 122));
 			this.jbtMinus10.setBackground(new Color(113, 204, 122));
 			this.jbtPlus10.setBackground(new Color(113, 204, 122));
