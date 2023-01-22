@@ -70,6 +70,12 @@ public class ControleProprietario {
 		}
 	}
 	
+	public void removerFigurinha(int i) {
+	}
+	
+	public void adicionarFigurinha() {
+	}
+	
 	public void editarAlbum(String nome, int k) {
 		proprietario.getAlbumFigurinha().get(k).setNome(nome);
 	}

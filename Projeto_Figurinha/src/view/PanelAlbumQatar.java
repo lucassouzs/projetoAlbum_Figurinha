@@ -718,6 +718,12 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 	
 	public void minus1(int i) {
 		
+		String quantidade = this.jtfContador1.getText();
+		int qtd = Integer.parseInt(quantidade);
+		
+		ControleProprietario removerFigurinha = new ControleProprietario();
+		removerFigurinha.removerFigurinha(qtd);
+		
 		--number1;
 		
 		this.jtfContador1.setText("" + number1);
@@ -1277,6 +1283,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 			this.jbtMinus10.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jbtPlus10.setBorder(new LineBorder(new Color(175, 175, 175)));
 			this.jtfContador10.setBorder(new LineBorder(new Color(175, 175, 175)));
+			
 		} else if (number10 > 0) {
 			this.jpnFigurinha10.setBackground(new Color(113, 204, 122));
 			this.jbtMinus10.setBackground(new Color(113, 204, 122));
