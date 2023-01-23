@@ -116,7 +116,7 @@ public class PanelMenu extends JFrame{
 	}
 	
 	public void sair() {
-		int r = JOptionPane.showConfirmDialog(null, "Desejar realmente sair?", "Atenção!", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+		int r = JOptionPane.showConfirmDialog(null, "Deseja realmente sair?", "Atenção!", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
 		if(r == JOptionPane.YES_OPTION){
 			System.exit(0);
 		} else if (r == JOptionPane.NO_OPTION) {

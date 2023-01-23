@@ -2,6 +2,8 @@ package database;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import controler.ControleProprietario;
 import model.Figurinha_FWC;
 import model.Figurinha_Seleção;
 

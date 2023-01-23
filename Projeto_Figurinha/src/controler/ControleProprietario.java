@@ -70,12 +70,6 @@ public class ControleProprietario {
 		}
 	}
 	
-	public void removerFigurinha(int i) {
-	}
-	
-	public void adicionarFigurinha() {
-	}
-	
 	public void editarAlbum(String nome, int k) {
 		proprietario.getAlbumFigurinha().get(k).setNome(nome);
 	}
@@ -99,4 +93,8 @@ public class ControleProprietario {
 	public void voltarMeusAlbuns() {
 		new PanelMeusAlbuns().setVisible(true);
 	}
+
+	/*public void alterarQuantidade(int qtd) {
+		proprietario.getAlbumFigurinha().get(i).getFigurinhaFWC().get(k).setQuantidade(qtd);		
+	}*/
 }
