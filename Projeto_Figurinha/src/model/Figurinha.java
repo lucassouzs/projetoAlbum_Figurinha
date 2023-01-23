@@ -6,15 +6,12 @@ public abstract class Figurinha {
 	
 	private String sigla;
 	private int codigo;
-	private int quantidade;
 	
 	// construtor
 	
 	public Figurinha(String sigla, int codigo) {
 		this.sigla = sigla;
 		this.codigo = codigo;
-		this.quantidade = 0;
-
 	}
 	
 	// gets sets
@@ -33,13 +30,5 @@ public abstract class Figurinha {
 	
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
-	}
-
-	public int getQuantidade() {
-		return quantidade;
-	}
-
-	public void setQuantidade(int quantidade) {
-		this.quantidade = quantidade;
 	}
 }

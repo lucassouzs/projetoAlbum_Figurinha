@@ -92,8 +92,4 @@ public class ControleProprietario {
 	public void voltarMeusAlbuns() {
 		new PanelMeusAlbuns().setVisible(true);
 	}
-
-	/*public void alterarQuantidade(int qtd) {
-		proprietario.getAlbumFigurinha().get(i).getFigurinhaFWC().get(k).setQuantidade(qtd);		
-	}*/
 }
