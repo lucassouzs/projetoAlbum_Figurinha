@@ -75,7 +75,6 @@ public class PanelCriarAlbum extends JFrame implements ActionListener{
 		
 		this.jcbCopaMundo = new JComboBox<Object>();
 		this.jcbCopaMundo.addItem("Qatar 2022");
-		this.jcbCopaMundo.addItem("Russia 2018");
 		this.jcbCopaMundo.setBackground(Color.white);
 		this.jcbCopaMundo.setBorder(new LineBorder(Color.white));
 		this.jcbCopaMundo.setBounds(190, 50, 306, 40);
@@ -141,7 +140,6 @@ public class PanelCriarAlbum extends JFrame implements ActionListener{
 			cadastrarAlbum.cadastrarAlbum(nome, copaMundo);
 		
 			ControleProprietario voltarMeusAlbuns = new ControleProprietario();
-		
 			voltarMeusAlbuns.voltarMeusAlbuns();
 		
 			PanelCriarAlbum.this.dispose();

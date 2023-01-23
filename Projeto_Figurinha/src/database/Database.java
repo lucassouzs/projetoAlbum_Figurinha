@@ -2,8 +2,6 @@ package database;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import controler.ControleProprietario;
 import model.Figurinha_FWC;
 import model.Figurinha_Seleção;
 
@@ -13,11 +11,11 @@ public class Database {
 
 	// Figurinhas FWC de ambos os Albuns
 	
-	private static Figurinha_FWC FWC00 = new Figurinha_FWC("FWC", 0, "PANINI", 0);
-	private static Figurinha_FWC FWC01 = new Figurinha_FWC("FWC", 1, "FIFA", 1);
-	private static Figurinha_FWC FWC02 = new Figurinha_FWC("FWC", 2, "TROFEU 1/2", 2);
-	private static Figurinha_FWC FWC03 = new Figurinha_FWC("FWC", 3, "TROFEU 2/2", 3);
-	private static Figurinha_FWC FWC04 = new Figurinha_FWC("FWC", 4, "MASCOTE 1/2", 3);
+	private static Figurinha_FWC FWC00 = new Figurinha_FWC("FWC", 0, "PANINI");
+	private static Figurinha_FWC FWC01 = new Figurinha_FWC("FWC", 1, "FIFA");
+	private static Figurinha_FWC FWC02 = new Figurinha_FWC("FWC", 2, "TROFEU 1/2");
+	private static Figurinha_FWC FWC03 = new Figurinha_FWC("FWC", 3, "TROFEU 2/2");
+	private static Figurinha_FWC FWC04 = new Figurinha_FWC("FWC", 4, "MASCOTE 1/2");
 	
 	// Figurinhas do Album do Qatar 2022
 	

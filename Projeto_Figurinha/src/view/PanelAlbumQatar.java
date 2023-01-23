@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -8,11 +9,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
+
 import controler.ControleProprietario;
 
 public class PanelAlbumQatar extends JFrame implements ActionListener{
@@ -20,20 +23,25 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 	private static final long serialVersionUID = 1L;
 
 	private JPanel jpnVermelho;
-	private JTabbedPane jtpBranco;
+	private JPanel jpnBranco;
+	private JPanel jpnListaFigurinha;
 	private JButton jbtBack;
 	private JLabel jlbCopaMundo;
 	private JTextField jtfNome;
 	private JButton jbtDell;
 	private JButton jbtEdit;
+	private JButton jbtCriarFigurinha;
+	public JList<String> jltListaFigurinhas;
+	private ControleProprietario controle = new ControleProprietario();
 		
 	public PanelAlbumQatar(int i){
 		super();
 		this.configurarFrame();
 		this.configurarPainelVermelho(i);
-		this.configurarJTabbedPane();
+		this.configurarPainelBranco();
+		this.configurarPainelLista();
 		this.add(this.jpnVermelho);
-		this.add(this.jtpBranco);
+		this.add(this.jpnBranco);
 	}
 	
 	private void configurarPainelVermelho(int i) {
@@ -47,20 +55,29 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 		this.jpnVermelho.add(this.jtfNome);
 		this.jpnVermelho.add(this.jbtDell);
 		this.jpnVermelho.add(this.jbtEdit);
+		this.jpnVermelho.add(this.jbtCriarFigurinha);
 	}
 	
-	private void configurarJTabbedPane() {
-		this.jtpBranco = new JTabbedPane();	 
-		this.jtpBranco.setBackground(new Color(123, 21, 51)); 
-		this.jtpBranco.setBounds(0, 155, 1366, 613);
-		this.jtpBranco.setForeground(Color.white);
+	private void configurarPainelBranco() {
+		this.jpnBranco = new JPanel();	 
+		this.jpnBranco.setBackground(new Color(240, 240, 240)); 
+		this.jpnBranco.setBounds(0, 155, 1366, 613);
+		this.jpnBranco.setLayout(null);		
+	}
+	
+	private void configurarPainelLista() {
 		
-		JPanel Todas = new JPanel();
-
-		this.jtpBranco.add("Figurinhas", Todas);
+		JScrollPane scrollPane1 = new JScrollPane(this.jltListaFigurinhas);
 		
-		Todas.setBackground(Color.white);
-		Todas.setLayout(null);
+		this.jpnListaFigurinha = new JPanel();
+		this.jpnListaFigurinha.setBounds(133, 240, 1100, 402);
+		this.jpnListaFigurinha.setLayout(new BorderLayout());		
+		this.jpnListaFigurinha.add(this.jltListaFigurinhas);
+		this.jpnListaFigurinha.setBorder(new LineBorder(new Color(240, 240, 240)));
+		this.jpnListaFigurinha.add(scrollPane1, BorderLayout.CENTER);
+		this.jpnListaFigurinha.add(new JScrollPane(this.jltListaFigurinhas));
+		
+		this.jpnBranco.add(this.jpnListaFigurinha);
 	}
 	
 	private void configurarDadosMenu(int i) {
@@ -73,6 +90,19 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource() == jbtBack) {
 					back();
+				}
+				}
+				});
+		
+		this.jbtCriarFigurinha = new JButton(new ImageIcon("add.png"));
+		this.jbtCriarFigurinha.setFont(new Font("Arial", Font.BOLD, 12));
+		this.jbtCriarFigurinha.setBackground(new Color(136, 22, 55));
+		this.jbtCriarFigurinha.setBorder(new LineBorder(new Color(136, 22, 55)));
+		this.jbtCriarFigurinha.setBounds(1230, 51, 50, 50);
+		this.jbtCriarFigurinha.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == jbtCriarFigurinha) {
+					criarFigurinha(i);
 				}
 				}
 				});
@@ -116,6 +146,12 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 		this.jtfNome.setFont(new Font("Verdana", Font.BOLD, 25));
 		this.jtfNome.setBorder(new LineBorder(new Color(136, 22, 55)));
 		this.jtfNome.setBounds(296, 90, 800, 30);
+		
+		this.jltListaFigurinhas = new JList<String>();
+		this.jltListaFigurinhas.setBackground(new Color(240, 240, 240));
+		this.jltListaFigurinhas.setBorder(new LineBorder(new Color(240, 240, 240)));
+		this.jltListaFigurinhas.setForeground(Color.black);
+		this.jltListaFigurinhas.setModel(controle.listarFigurinhas_FWC());
 	}
 	
 	private void configurarFrame() {
@@ -125,6 +161,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 		this.setSize(1366, 768); 
 		this.getContentPane().setBackground(Color.white); 
 		this.setLayout(null);
+		this.setLayout(new BorderLayout());
 		
 		ImageIcon logo = new ImageIcon("logo.png"); 
 		this.setIconImage(logo.getImage());
@@ -133,6 +170,11 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 	public void back() {
 		ControleProprietario voltarMeusAlbuns = new ControleProprietario();
 		voltarMeusAlbuns.voltarMeusAlbuns();
+		dispose();
+	}	
+	
+	public void criarFigurinha(int i) {
+		new PanelCriarFigurinha(i).setVisible(true);
 		dispose();
 	}	
 	

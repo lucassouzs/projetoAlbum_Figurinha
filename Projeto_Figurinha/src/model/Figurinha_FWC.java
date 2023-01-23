@@ -14,14 +14,12 @@ public class Figurinha_FWC extends Figurinha {
 	// atributos
 	
 	private String descricaoItens;
-	private int nivelRaridade;
 		
 	// construtor
 	
-	public Figurinha_FWC(String sigla, int codigo, String itensLimitados, int nivelRaridade) {
+	public Figurinha_FWC(String sigla, int codigo, String itensLimitados) {
 		super(sigla, codigo);
 		this.descricaoItens = itensLimitados;
-		this.nivelRaridade = nivelRaridade;
 	}
 	
 	//
@@ -39,13 +37,4 @@ public class Figurinha_FWC extends Figurinha {
 	public void setItensLimitados (String itensLimitados){
 		this.descricaoItens = itensLimitados;	
 	}
-	
-	public int getNivelRaridade() {
-		return nivelRaridade;
-	}
-	
-	public void setNivelRaridade (int nivelRaridade){
-		this.nivelRaridade = nivelRaridade;
-	}
-	
 }

@@ -63,5 +63,4 @@ public class Proprietario {
 	public void setAlbum_Figurinhas(ArrayList<Album_Figurinha>  albumFigurinha) {
 		this.albumFigurinha =  albumFigurinha;
 	}
-	
 }
