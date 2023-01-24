@@ -15,10 +15,12 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import controler.ControleProprietario;
 
-public class PanelAlbumQatar extends JFrame implements ActionListener{
+public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelectionListener{
 	
 	private static final long serialVersionUID = 1L;
 
@@ -33,6 +35,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 	private JButton jbtCriarFigurinha;
 	public JList<String> jltListaFigurinhas;
 	private ControleProprietario controle = new ControleProprietario();
+	public int i;
 		
 	public PanelAlbumQatar(int i){
 		super();
@@ -49,7 +52,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 		this.jpnVermelho.setBackground(new Color(136, 22, 55)); 
 		this.jpnVermelho.setBounds(0, 0, 1366, 155);
 		
-		this.configurarDadosMenu(i);
+		this.configurarDadosMenu();
 		this.jpnVermelho.add(this.jbtBack);
 		this.jpnVermelho.add(this.jlbCopaMundo); 
 		this.jpnVermelho.add(this.jtfNome);
@@ -80,7 +83,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 		this.jpnBranco.add(this.jpnListaFigurinha);
 	}
 	
-	private void configurarDadosMenu(int i) {
+	private void configurarDadosMenu() {
 		this.jbtBack = new JButton(new ImageIcon("back.png"));
 		this.jbtBack.setFont(new Font("Arial", Font.BOLD, 12));
 		this.jbtBack.setBackground(new Color(136, 22, 55));
@@ -152,6 +155,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 		this.jltListaFigurinhas.setBorder(new LineBorder(new Color(240, 240, 240)));
 		this.jltListaFigurinhas.setForeground(Color.black);
 		this.jltListaFigurinhas.setModel(controle.listarFigurinhas_FWC());
+		this.jltListaFigurinhas.addListSelectionListener(this);
 	}
 	
 	private void configurarFrame() {
@@ -199,5 +203,16 @@ public class PanelAlbumQatar extends JFrame implements ActionListener{
 	}	
 
 	public void actionPerformed(ActionEvent e) {
+	}
+
+	@Override
+	public void valueChanged(ListSelectionEvent e) {
+		Object src = e.getSource();
+			
+		if(e.getValueIsAdjusting() && src == this.jltListaFigurinhas) {
+			controle.abrirFigurinhaFWC(this.jltListaFigurinhas.getSelectedValue().toString(), i);
+				
+			dispose();
+		}
 	}
 }

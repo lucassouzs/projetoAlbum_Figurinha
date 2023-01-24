@@ -9,6 +9,7 @@ import view.PanelAlbumQatar;
 import view.PanelCadastro;
 import view.PanelCriarAlbum;
 import view.PanelCriarFigurinha;
+import view.PanelEditarFigurinhaFWC;
 import view.PanelMenu;
 import view.PanelMeusAlbuns;
 
@@ -47,12 +48,25 @@ public class ControleProprietario {
 		Figurinha_FWC figurinhaFWC = new Figurinha_FWC(sigla, cod, item);
 		proprietario.getAlbumFigurinha().get(i).cadastrarFigurinha_FWC(figurinhaFWC);
 		
+		System.out.println("");
+		System.out.println("Dados da Figurinha Fifa World Cup:");
+		System.out.println("Sigla: " + figurinhaFWC.getSigla());
+		System.out.println("Codigo: " + figurinhaFWC.getCodigo());
+		System.out.println("Item: " + figurinhaFWC.getItensLimitados());
+		
 	}
 	
 	public void cadastrarFigurinhaSelecao(String sigla, int cod, String selecao, String jogador, int i) {
 		
 		Figurinha_Seleção figurinhaSelecao = new Figurinha_Seleção(sigla, cod, selecao, jogador);
 		albumFigurinha.cadastrarFigurinha_Seleção(figurinhaSelecao);
+		
+		System.out.println("");
+		System.out.println("Dados da Figurinha Selecao:");
+		System.out.println("Sigla: " + figurinhaSelecao.getSigla());
+		System.out.println("Codigo: " + figurinhaSelecao.getCodigo());
+		System.out.println("Selecao: " + figurinhaSelecao.getSeleção());
+		System.out.println("Jogador: " + figurinhaSelecao.getJogador());
 		
 	}
 	
@@ -70,7 +84,7 @@ public class ControleProprietario {
 		DefaultListModel<String> figurinhas = new DefaultListModel<>();
 		int size = proprietario.getAlbumFigurinha().get(i).getFigurinhaFWC().size();
 		for(int k = 0; k < size ; k++) {
-			String figurinha = proprietario.getAlbumFigurinha().get(i).getFigurinhaFWC().get(k).getItensLimitados();
+			String figurinha = proprietario.getAlbumFigurinha().get(i).getFigurinhaFWC().get(k).getSigla();
 			figurinhas.addElement(figurinha);
 			}
 		return figurinhas;
@@ -82,6 +96,15 @@ public class ControleProprietario {
 				if(proprietario.getAlbumFigurinha().get(i).getCopaMundo() == "Qatar 2022") {
 					new PanelAlbumQatar(i).setVisible(true);
 				}
+			}
+		}
+	}
+	
+	public void abrirFigurinhaFWC(String nome, int i) {
+		for (int k = 0; k < proprietario.getAlbumFigurinha().get(i).getFigurinhaFWC().size(); k++) {
+			if(proprietario.getAlbumFigurinha().get(i).getFigurinhaFWC().get(k).getSigla().equals(nome)) {
+				System.out.println(proprietario.getAlbumFigurinha().get(i).getFigurinhaFWC().get(k).getSigla());
+				new PanelEditarFigurinhaFWC(i, k).setVisible(true);
 			}
 		}
 	}
@@ -102,6 +125,15 @@ public class ControleProprietario {
 	
 	public void deletarAlbum(Album_Figurinha nome) {
 		proprietario.excluirAlbum_Figurinha(nome);
+	}
+	
+	public void excluirFigurinha_FWC(Figurinha_FWC nome, int i) {
+		proprietario.getAlbumFigurinha().get(i).excluirFigurinha_FWC(nome);
+	}
+	
+	public void editarFigurinha_FWC(int i, int k, int codigo, String item) {
+		proprietario.getAlbumFigurinha().get(i).getFigurinhaFWC().get(k).setCodigo(codigo);
+		proprietario.getAlbumFigurinha().get(i).getFigurinhaFWC().get(k).setItensLimitados(item);;
 	}
 	
 	public void controlePerfil() {

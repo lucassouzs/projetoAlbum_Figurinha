@@ -15,50 +15,49 @@ import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
 import controler.ControleProprietario;
-import controler.ControleProprietario.ControleInformacoesPessoais;
 
-public class PanelFigurinhaFWC extends JFrame implements ActionListener{
+public class PanelEditarFigurinhaFWC extends JFrame implements ActionListener{
 	
 	private static final long serialVersionUID = 1L;
 	
 	private JPanel jpnVermelho;
 	private JPanel jpnBranco;
 	private JLabel jlbCriarFigurinha;
-	private JButton jbtCriar;
+	private JButton jbtSalvar;
+	private JButton jbtExcluir;
 	private JLabel jlbSigla;
 	private JTextField jtfSigla;
 	private JLabel jlbCodigo;
 	private JTextField jtfCodigo;
 	private JLabel jlb1;
 	private JTextField jtf1;
-	private JButton jbtBack;
 
-	public PanelFigurinhaFWC(int i){
-		super();
+	public PanelEditarFigurinhaFWC(int i, int k){
+		super(); 
 		this.configurarFrame();
-		this.configurarPainelVermelho(i);
-		this.configurarPainelBranco(i);
+		this.configurarPainelVermelho(i, k);
+		this.configurarPainelBranco(i, k);
 		this.add(this.jpnVermelho);
 		this.add(this.jpnBranco);
 	}
-	
-	private void configurarPainelVermelho(int i) {
+
+	private void configurarPainelVermelho(int i, int k) {
 		this.jpnVermelho = new JPanel(null);	
 		this.jpnVermelho.setBackground(new Color(136, 22, 55)); 
 		this.jpnVermelho.setBounds(0, 0, 700, 100);
 		
-		this.configurarDadosMenu(i);
+		this.configurarDadosMenu(i, k);
 		this.jpnVermelho.add(this.jlbCriarFigurinha); 
-		this.jpnVermelho.add(this.jbtBack);
 		}
 	
-	private void configurarPainelBranco(int i) {
+	private void configurarPainelBranco(int i, int k) {
 		this.jpnBranco = new JPanel(null);	 
 		this.jpnBranco.setBounds(0, 100, 700, 300);
 		this.jpnBranco.setBackground(new Color(240, 240, 240));
 		
-		this.configurarDadosMenu(i);
-		this.jpnBranco.add(this.jbtCriar);
+		this.configurarDadosMenu(i, k);
+		this.jpnBranco.add(this.jbtSalvar);
+		this.jpnBranco.add(this.jbtExcluir);
 		
 		this.jpnBranco.add(this.jlbSigla);
 		this.jpnBranco.add(this.jtfSigla);
@@ -70,25 +69,11 @@ public class PanelFigurinhaFWC extends JFrame implements ActionListener{
 		this.jpnBranco.add(this.jtf1);
 	}
 	
-	private void configurarDadosMenu(int i) {
+	private void configurarDadosMenu(int i, int k) {
 		this.jlbCriarFigurinha = new JLabel("Figurinha FWC");
 		this.jlbCriarFigurinha.setForeground(Color.white);
 		this.jlbCriarFigurinha.setFont(new Font("Verdana",Font.BOLD,35));
 		this.jlbCriarFigurinha.setBounds(195, 24, 500, 51);
-		
-		this.jbtBack = new JButton(new ImageIcon("backmenor.png"));
-		this.jbtBack.setFont(new Font("Arial", Font.BOLD, 12));
-		this.jbtBack.setBackground(new Color(136, 22, 55));
-		this.jbtBack.setBorder(new LineBorder(new Color(136, 22, 55)));
-		this.jbtBack.setBounds(75, 32, 40, 40);
-		this.jbtBack.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent evt) {
-				new PanelCriarFigurinha(i).setVisible(true);
-				
-				PanelFigurinhaFWC.this.dispose();
-			}	
-		});
 		
 		this.jlbSigla = new JLabel("Sigla:");
 		this.jlbSigla.setFont(new Font("Arial",Font.BOLD,15));
@@ -98,7 +83,7 @@ public class PanelFigurinhaFWC extends JFrame implements ActionListener{
 		this.jtfSigla = new JTextField();
 		this.jtfSigla.setText("FWC");
 		this.jtfSigla.setEnabled(false);
-		this.jtfSigla.setToolTipText("Sigla da Figurinha Fifa World Cup");
+		this.jtfSigla.setToolTipText("Insira um nome para o album");
 		this.jtfSigla.setPreferredSize(new Dimension(306, 40));
 		this.jtfSigla.setBorder(new LineBorder(Color.white));
 		this.jtfSigla.setBounds(197, 53, 130, 40);
@@ -108,8 +93,8 @@ public class PanelFigurinhaFWC extends JFrame implements ActionListener{
 		this.jlbCodigo.setBounds(373, 13, 500, 40);
 		this.jlbCodigo.setForeground(new Color(71, 71, 71));
 		
-		this.jtfCodigo = new JTextField();
-		this.jtfCodigo.setToolTipText("Insira o código da Figurinha!");
+		this.jtfCodigo = new JTextField(ControleProprietario.proprietario.getAlbumFigurinha().get(i).getFigurinhaFWC().get(k).getCodigo());
+		this.jtfCodigo.setToolTipText("Insira o código da figurinha!");
 		this.jtfCodigo.setPreferredSize(new Dimension(306, 40));
 		this.jtfCodigo.setBorder(new LineBorder(Color.white));
 		this.jtfCodigo.setBounds(373, 53, 130, 40);
@@ -119,22 +104,36 @@ public class PanelFigurinhaFWC extends JFrame implements ActionListener{
 		this.jlb1.setBounds(197, 95, 500, 40);
 		this.jlb1.setForeground(new Color(71, 71, 71));
 		
-		this.jtf1 = new JTextField();
-		this.jtf1.setToolTipText("Insira o item da Figurinha!");
+		this.jtf1 = new JTextField(ControleProprietario.proprietario.getAlbumFigurinha().get(i).getFigurinhaFWC().get(k).getItensLimitados());
+		this.jtf1.setToolTipText("Insira o item apresentado na figurinha!");
 		this.jtf1.setPreferredSize(new Dimension(306, 40));
 		this.jtf1.setBorder(new LineBorder(Color.white));
 		this.jtf1.setBounds(197, 135, 306, 40);
 		
-		this.jbtCriar = new JButton("Criar");
-		this.jbtCriar.setFont(new Font("Arial", Font.BOLD, 20));
-		this.jbtCriar.setForeground(Color.white);
-		this.jbtCriar.setBackground(new Color(136, 22, 55));
-		this.jbtCriar.setBorder(new LineBorder(new Color(136, 22, 55)));
-		this.jbtCriar.setBounds(197, 195, 306, 40);
-		this.jbtCriar.addActionListener(new ActionListener() {
+		this.jbtSalvar = new JButton("Salvar");
+		this.jbtSalvar.setFont(new Font("Arial", Font.BOLD, 15));
+		this.jbtSalvar.setForeground(Color.white);
+		this.jbtSalvar.setBackground(new Color(136, 22, 55));
+		this.jbtSalvar.setBorder(new LineBorder(new Color(136, 22, 55)));
+		this.jbtSalvar.setBounds(197, 195, 130, 40);
+		this.jbtSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(e.getSource() == jbtCriar) {
-					criar(i);
+				if(e.getSource() == jbtSalvar) {
+					edit(i, k);
+				}
+				}
+				});
+		
+		this.jbtExcluir = new JButton("Excluir");
+		this.jbtExcluir.setFont(new Font("Arial", Font.BOLD, 15));
+		this.jbtExcluir.setForeground(Color.white);
+		this.jbtExcluir.setBackground(new Color(136, 22, 55));
+		this.jbtExcluir.setBorder(new LineBorder(new Color(136, 22, 55)));
+		this.jbtExcluir.setBounds(373, 195, 130, 40);
+		this.jbtExcluir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == jbtExcluir) {
+					excluir(i, k);
 				}
 				}
 				});
@@ -152,33 +151,28 @@ public class PanelFigurinhaFWC extends JFrame implements ActionListener{
 		this.setIconImage(logo.getImage());
 	}
 	
-	public void criar(int i) {
+	public void excluir(int i, int k) {	
+		int r = JOptionPane.showConfirmDialog(null, "Deseja realmente excluir a figurinha?", "Atenção!", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+		if(r == JOptionPane.YES_OPTION){
+			ControleProprietario excluir = new ControleProprietario();
+			excluir.excluirFigurinha_FWC(ControleProprietario.proprietario.getAlbumFigurinha().get(i).getFigurinhaFWC().get(k), i);
 		
-		if(this.jtfCodigo.getText().isEmpty() && this.jtf1.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Coloque os dados da Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
-	 	} else if(this.jtfCodigo.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Coloque o código da Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
-		} else if(this.jtf1.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Informe o item descrito na Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
-		} if(ControleInformacoesPessoais.checkIdade(jtfCodigo.getText())) {
-			JOptionPane.showMessageDialog(null, "Figurinha criada com sucesso!", "Parabéns!", JOptionPane.DEFAULT_OPTION);
-			
-			String sigla = this.jtfSigla.getText();
-			String codigo = this.jtfCodigo.getText();
-			String item = this.jtf1.getText();
-			int cod = Integer.parseInt(codigo);	
-		
-			ControleProprietario cadastrarFigurinhaFWC= new ControleProprietario();
-			cadastrarFigurinhaFWC.cadastrarFigurinhaFWC(sigla, cod, item, i);
-			
 			new PanelAlbumQatar(i).setVisible(true);
-			
-			PanelFigurinhaFWC.this.dispose();
-							
-		} else {
-			JOptionPane.showMessageDialog(null, "Digite apenas números no Código da Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+			PanelEditarFigurinhaFWC.this.dispose();
+		} else if (r == JOptionPane.NO_OPTION) {
 		}
-	}
+	}	
+	
+	public void edit(int i, int k) {	
+		
+		ControleProprietario album = new ControleProprietario();
+	    String item = this.jtf1.getText().toString();
+
+	    album.editarFigurinha_FWC(i, k, i, item);
+	    
+	    new PanelAlbumQatar(i).setVisible(true);
+	    dispose();
+	}	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {

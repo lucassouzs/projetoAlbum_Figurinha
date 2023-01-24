@@ -26,8 +26,16 @@ public class Album_Figurinha {
 		figurinhaSeleção.add(figurinhaSeleção1);
 	}
 	
+	public void excluirFigurinha_Seleção(Figurinha_Seleção nome) {
+		figurinhaSeleção.remove(nome);
+	}
+	
 	public void cadastrarFigurinha_FWC(Figurinha_FWC figurinhaFWC1) {
 		figurinhaFWC.add(figurinhaFWC1);
+	}
+	
+	public void excluirFigurinha_FWC(Figurinha_FWC nome) {
+		figurinhaFWC.remove(nome);
 	}
 	
 	public String toString() {

@@ -20,6 +20,7 @@ public class PanelCriarFigurinha extends JFrame implements ActionListener{
 	private JLabel jlbCriarFigurinha;
 	private JButton jbtFWC;
 	private JButton jbtSelecao;
+	private JButton jbtBack;
 
 	public PanelCriarFigurinha(int i){
 		super();
@@ -37,6 +38,7 @@ public class PanelCriarFigurinha extends JFrame implements ActionListener{
 		
 		this.configurarDadosMenu(i);
 		this.jpnVermelho.add(this.jlbCriarFigurinha); 
+		this.jpnVermelho.add(this.jbtBack);
 		}
 	
 	private void configurarPainelBranco(int i) {
@@ -53,7 +55,7 @@ public class PanelCriarFigurinha extends JFrame implements ActionListener{
 		this.jlbCriarFigurinha = new JLabel("Criar Figurinha");
 		this.jlbCriarFigurinha.setForeground(Color.white);
 		this.jlbCriarFigurinha.setFont(new Font("Verdana",Font.BOLD,35));
-		this.jlbCriarFigurinha.setBounds(195, 24, 500, 51);
+		this.jlbCriarFigurinha.setBounds(203, 24, 500, 51);
 		
 		this.jbtFWC = new JButton("Figurinha FWC");
 		this.jbtFWC.setForeground(Color.white);
@@ -80,6 +82,21 @@ public class PanelCriarFigurinha extends JFrame implements ActionListener{
 			@Override
 			public void actionPerformed(ActionEvent evt) {
 				new PanelFigurinhaSelecao(i).setVisible(true);
+				
+				PanelCriarFigurinha.this.dispose();
+			}	
+		});
+		
+		this.jbtBack = new JButton(new ImageIcon("backmenor.png"));
+		this.jbtBack.setFont(new Font("Arial", Font.BOLD, 12));
+		this.jbtBack.setBackground(new Color(136, 22, 55));
+		this.jbtBack.setBorder(new LineBorder(new Color(136, 22, 55)));
+		this.jbtBack.setBounds(75, 32, 40, 40);
+		this.jbtBack.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent evt) {
+				
+				new PanelAlbumQatar(i).setVisible(true);
 				
 				PanelCriarFigurinha.this.dispose();
 			}	
