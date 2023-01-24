@@ -70,10 +70,10 @@ public class PanelEditarFigurinhaFWC extends JFrame implements ActionListener{
 	}
 	
 	private void configurarDadosMenu(int i, int k) {
-		this.jlbCriarFigurinha = new JLabel("Figurinha FWC");
+		this.jlbCriarFigurinha = new JLabel("Editar Figurinha FWC");
 		this.jlbCriarFigurinha.setForeground(Color.white);
 		this.jlbCriarFigurinha.setFont(new Font("Verdana",Font.BOLD,35));
-		this.jlbCriarFigurinha.setBounds(195, 24, 500, 51);
+		this.jlbCriarFigurinha.setBounds(140, 24, 500, 51);
 		
 		this.jlbSigla = new JLabel("Sigla:");
 		this.jlbSigla.setFont(new Font("Arial",Font.BOLD,15));
@@ -111,7 +111,7 @@ public class PanelEditarFigurinhaFWC extends JFrame implements ActionListener{
 		this.jtf1.setBounds(197, 135, 306, 40);
 		
 		this.jbtSalvar = new JButton("Salvar");
-		this.jbtSalvar.setFont(new Font("Arial", Font.BOLD, 15));
+		this.jbtSalvar.setFont(new Font("Arial", Font.BOLD, 18));
 		this.jbtSalvar.setForeground(Color.white);
 		this.jbtSalvar.setBackground(new Color(136, 22, 55));
 		this.jbtSalvar.setBorder(new LineBorder(new Color(136, 22, 55)));
@@ -125,7 +125,7 @@ public class PanelEditarFigurinhaFWC extends JFrame implements ActionListener{
 				});
 		
 		this.jbtExcluir = new JButton("Excluir");
-		this.jbtExcluir.setFont(new Font("Arial", Font.BOLD, 15));
+		this.jbtExcluir.setFont(new Font("Arial", Font.BOLD, 18));
 		this.jbtExcluir.setForeground(Color.white);
 		this.jbtExcluir.setBackground(new Color(136, 22, 55));
 		this.jbtExcluir.setBorder(new LineBorder(new Color(136, 22, 55)));
