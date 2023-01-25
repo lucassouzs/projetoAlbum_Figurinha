@@ -75,7 +75,7 @@ public class PanelCadastro extends JFrame implements ActionListener{
 	}
 	
 	private void configurarDadosPropietario() {
-		this.jlbCadastro = new JLabel("MyCup");
+		this.jlbCadastro = new JLabel("Cadastro");
 		this.jlbCadastro.setForeground(Color.white);
 		this.jlbCadastro.setFont(new Font("Verdana",Font.BOLD,35));
 		
@@ -115,7 +115,7 @@ public class PanelCadastro extends JFrame implements ActionListener{
 	}
 	
 	private void configurarFrame() {
-		this.setTitle("O sucesso não acontece por acaso..."); 
+		this.setTitle("MyCup"); 
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false); 
 		this.setSize(1366, 768); 

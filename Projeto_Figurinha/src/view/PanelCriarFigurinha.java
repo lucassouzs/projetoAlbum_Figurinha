@@ -104,7 +104,7 @@ public class PanelCriarFigurinha extends JFrame implements ActionListener{
 	}
 	
 	private void configurarFrame() {
-		this.setTitle("estudo, sacrifício"); 
+		this.setTitle("MyCup"); 
 		this.setResizable(false); 
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(700, 400); 

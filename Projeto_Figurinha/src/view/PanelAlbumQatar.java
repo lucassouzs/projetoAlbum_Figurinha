@@ -197,7 +197,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelec
 	}
 	
 	private void configurarFrame() {
-		this.setTitle("e, acima de tudo,"); 
+		this.setTitle("MyCup"); 
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false); 
 		this.setSize(1366, 768); 

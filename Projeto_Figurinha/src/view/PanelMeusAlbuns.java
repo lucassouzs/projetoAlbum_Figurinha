@@ -115,7 +115,7 @@ public class PanelMeusAlbuns extends JFrame implements ActionListener, ListSelec
 	}
 	
 	private void configurarFrame() {
-		this.setTitle("É trabalho duro,"); 
+		this.setTitle("MyCup"); 
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false); 
 		this.setSize(1366, 768); 

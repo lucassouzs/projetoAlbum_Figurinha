@@ -101,7 +101,7 @@ public class PanelMenu extends JFrame{
 	}
 
 	private void configurarFrame() {
-		this.setTitle("perseverança, aprendizado,"); 
+		this.setTitle("MyCup"); 
 		this.setResizable(false); 
 		this.setSize(429, 768); 
 		this.getContentPane().setBackground(new Color(136, 22, 55)); 

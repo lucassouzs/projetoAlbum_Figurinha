@@ -76,7 +76,7 @@ public class PanelEntrada extends JFrame implements ActionListener{
 		ImageIcon logo = new ImageIcon("logo.png"); 
 		this.setIconImage(logo.getImage());
 	}
-
+ 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		new PanelCadastro().setVisible(true);
