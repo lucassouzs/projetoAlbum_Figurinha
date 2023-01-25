@@ -6,12 +6,8 @@ import model.Figurinha_FWC;
 import model.Figurinha_Seleção;
 import model.Proprietario;
 import view.PanelAlbumQatar;
-import view.PanelCadastro;
-import view.PanelCriarAlbum;
-import view.PanelCriarFigurinha;
 import view.PanelEditarFigurinhaFWC;
 import view.PanelEditarFigurinhaSelecao;
-import view.PanelMenu;
 import view.PanelMeusAlbuns;
 
 public class ControleProprietario {
@@ -163,29 +159,5 @@ public class ControleProprietario {
 		proprietario.getAlbumFigurinha().get(posAlbum).getFigurinhaSeleção().get(posFig).atualizarSelecao(codigo);
 		proprietario.getAlbumFigurinha().get(posAlbum).getFigurinhaSeleção().get(posFig).setSeleção(selecao);;
 		proprietario.getAlbumFigurinha().get(posAlbum).getFigurinhaSeleção().get(posFig).setJogador(jogador);;
-	}
-	
-	public void controlePerfil() {
-		new PanelMenu().setVisible(true);
-	}
-	
-	public void abrirCadastro() {
-		new PanelCadastro().setVisible(true);
-	}
-	
-	public void criarFigurinha() {
-		new PanelCriarFigurinha(i).setVisible(true);
-	}
-	
-	public void controleCriarAlbum() {
-		new PanelCriarAlbum().setVisible(true);
-	}
-	
-	public void voltarMeusAlbuns() {
-		new PanelMeusAlbuns().setVisible(true);
-	}
-	
-	public void voltarAlbumQatar(int i) {
-		new PanelAlbumQatar(i).setVisible(true);
 	}
 }

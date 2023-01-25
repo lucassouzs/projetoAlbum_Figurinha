@@ -128,13 +128,11 @@ public class PanelMeusAlbuns extends JFrame implements ActionListener, ListSelec
 	}
 	
 	public void menu() {	
-		ControleProprietario controlePerfil= new ControleProprietario();
-		controlePerfil.controlePerfil();
+		new PanelMenu().setVisible(true);
 	}	
 	
 	public void add() {
-		ControleProprietario controleCriarAlbum= new ControleProprietario();
-		controleCriarAlbum.controleCriarAlbum();
+		new PanelCriarAlbum().setVisible(true);
 		
 		PanelMeusAlbuns.this.dispose();
 	}

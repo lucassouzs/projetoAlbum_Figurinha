@@ -11,8 +11,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
-import controler.ControleProprietario;
-
 public class PanelEntrada extends JFrame implements ActionListener{
 	
 	private static final long serialVersionUID = 1L;
@@ -81,8 +79,7 @@ public class PanelEntrada extends JFrame implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		ControleProprietario abrirCadastro = new ControleProprietario();
-		abrirCadastro.abrirCadastro();
+		new PanelCadastro().setVisible(true);
 		
 		dispose();
 	}

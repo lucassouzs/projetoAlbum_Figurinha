@@ -210,8 +210,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelec
 	}
 	
 	public void back() {
-		ControleProprietario voltarMeusAlbuns = new ControleProprietario();
-		voltarMeusAlbuns.voltarMeusAlbuns();
+		new PanelMeusAlbuns().setVisible(true);
 		dispose();
 	}	
 	
@@ -225,8 +224,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelec
 		if(r == JOptionPane.YES_OPTION){
 			ControleProprietario excluir = new ControleProprietario();
 			excluir.deletarAlbum(ControleProprietario.proprietario.getAlbumFigurinha().get(i));
-			ControleProprietario voltarMeusAlbuns = new ControleProprietario();
-			voltarMeusAlbuns.voltarMeusAlbuns();
+			new PanelMeusAlbuns().setVisible(true);
 			
 			PanelAlbumQatar.this.dispose();
 		} else if (r == JOptionPane.NO_OPTION) {

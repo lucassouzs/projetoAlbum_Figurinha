@@ -106,8 +106,7 @@ public class PanelCriarAlbum extends JFrame implements ActionListener{
 		this.jbtBack.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent evt) {
-				ControleProprietario voltarMeusAlbuns= new ControleProprietario();
-				voltarMeusAlbuns.voltarMeusAlbuns();
+				new PanelMeusAlbuns().setVisible(true);
 				
 				PanelCriarAlbum.this.dispose();
 			}	
@@ -139,8 +138,7 @@ public class PanelCriarAlbum extends JFrame implements ActionListener{
 			ControleProprietario cadastrarAlbum= new ControleProprietario();
 			cadastrarAlbum.cadastrarAlbum(nome, copaMundo);
 		
-			ControleProprietario voltarMeusAlbuns = new ControleProprietario();
-			voltarMeusAlbuns.voltarMeusAlbuns();
+			new PanelMeusAlbuns().setVisible(true);
 		
 			PanelCriarAlbum.this.dispose();
 		}
