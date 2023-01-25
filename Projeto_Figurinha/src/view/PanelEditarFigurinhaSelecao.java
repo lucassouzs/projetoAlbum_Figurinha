@@ -9,11 +9,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
 import controler.ControleProprietario;
+import controler.ControleProprietario.ControleInformacoesPessoais;
 
 public class PanelEditarFigurinhaSelecao extends JFrame {
 	
@@ -23,7 +25,7 @@ public class PanelEditarFigurinhaSelecao extends JFrame {
 	private JPanel jpnBranco;
 	private JLabel jlbCriarFigurinha;
 	private JButton jbtSalvar;
-	private JButton jbtEditar;
+	private JButton jbtExcluir;
 	private JLabel jlbSigla;
 	private JTextField jtfSigla;
 	private JLabel jlbCodigo;
@@ -34,32 +36,32 @@ public class PanelEditarFigurinhaSelecao extends JFrame {
 	private JTextField jtf2;
 	private JButton jbtBack;
 
-	public PanelEditarFigurinhaSelecao(){
+	public PanelEditarFigurinhaSelecao(int i, int k){
 		super();
 		this.configurarFrame();
-		this.configurarPainelVermelho();
-		this.configurarPainelBranco();
+		this.configurarPainelVermelho(i, k);
+		this.configurarPainelBranco(i, k);
 		this.add(this.jpnVermelho);
 		this.add(this.jpnBranco);
 	}
 	
-	private void configurarPainelVermelho() {
+	private void configurarPainelVermelho(int i, int k) {
 		this.jpnVermelho = new JPanel(null);	
 		this.jpnVermelho.setBackground(new Color(136, 22, 55)); 
 		this.jpnVermelho.setBounds(0, 0, 700, 100);
 		
-		this.configurarDadosMenu();
+		this.configurarDadosMenu(i, k);
 		this.jpnVermelho.add(this.jlbCriarFigurinha); 
 		}
 	
-	private void configurarPainelBranco() {
+	private void configurarPainelBranco(int i, int k) {
 		this.jpnBranco = new JPanel(null);	 
 		this.jpnBranco.setBounds(0, 100, 700, 300);
 		this.jpnBranco.setBackground(new Color(240, 240, 240));
 		
-		this.configurarDadosMenu();
+		this.configurarDadosMenu(i, k);
 		this.jpnBranco.add(this.jbtSalvar);
-		this.jpnBranco.add(this.jbtEditar);
+		this.jpnBranco.add(this.jbtExcluir);
 		
 		this.jpnBranco.add(this.jlbSigla);
 		this.jpnBranco.add(this.jtfSigla);
@@ -74,7 +76,7 @@ public class PanelEditarFigurinhaSelecao extends JFrame {
 		this.jpnBranco.add(this.jtf2);
 	}
 	
-	private void configurarDadosMenu() {
+	private void configurarDadosMenu(int i, int k) {
 		this.jlbCriarFigurinha = new JLabel("Editar Figurinha Seleção");
 		this.jlbCriarFigurinha.setForeground(Color.white);
 		this.jlbCriarFigurinha.setFont(new Font("Verdana",Font.BOLD,35));
@@ -92,7 +94,7 @@ public class PanelEditarFigurinhaSelecao extends JFrame {
 		this.jlbSigla.setBounds(197, 13, 500, 40);
 		this.jlbSigla.setForeground(new Color(71, 71, 71));
 		
-		this.jtfSigla = new JTextField();
+		this.jtfSigla = new JTextField(ControleProprietario.proprietario.getAlbumFigurinha().get(i).getFigurinhaSeleção().get(k).getSigla());
 		this.jtfSigla.setToolTipText("Insira a sigla da figurinha");
 		this.jtfSigla.setPreferredSize(new Dimension(306, 40));
 		this.jtfSigla.setBorder(new LineBorder(Color.white));
@@ -103,7 +105,7 @@ public class PanelEditarFigurinhaSelecao extends JFrame {
 		this.jlbCodigo.setBounds(373, 13, 500, 40);
 		this.jlbCodigo.setForeground(new Color(71, 71, 71));
 		
-		this.jtfCodigo = new JTextField();
+		this.jtfCodigo = new JTextField(ControleProprietario.proprietario.getAlbumFigurinha().get(i).getFigurinhaSeleção().get(k).toString());
 		this.jtfCodigo.setToolTipText("Insira o código da figurinha");
 		this.jtfCodigo.setPreferredSize(new Dimension(306, 40));
 		this.jtfCodigo.setBorder(new LineBorder(Color.white));
@@ -114,7 +116,7 @@ public class PanelEditarFigurinhaSelecao extends JFrame {
 		this.jlb1.setBounds(197, 95, 500, 40);
 		this.jlb1.setForeground(new Color(71, 71, 71));
 		
-		this.jtf1 = new JTextField();
+		this.jtf1 = new JTextField(ControleProprietario.proprietario.getAlbumFigurinha().get(i).getFigurinhaSeleção().get(k).getSeleção());
 		this.jtf1.setToolTipText("Insira o nome da seleção");
 		this.jtf1.setPreferredSize(new Dimension(306, 40));
 		this.jtf1.setBorder(new LineBorder(Color.white));
@@ -125,7 +127,7 @@ public class PanelEditarFigurinhaSelecao extends JFrame {
 		this.jlb2.setBounds(373, 95, 500, 40);
 		this.jlb2.setForeground(new Color(71, 71, 71));
 		
-		this.jtf2 = new JTextField();
+		this.jtf2 = new JTextField(ControleProprietario.proprietario.getAlbumFigurinha().get(i).getFigurinhaSeleção().get(k).getJogador());
 		this.jtf2.setToolTipText("Insira o nome do jogador");
 		this.jtf2.setPreferredSize(new Dimension(306, 40));
 		this.jtf2.setBorder(new LineBorder(Color.white));
@@ -137,13 +139,27 @@ public class PanelEditarFigurinhaSelecao extends JFrame {
 		this.jbtSalvar.setBackground(new Color(136, 22, 55));
 		this.jbtSalvar.setBorder(new LineBorder(new Color(136, 22, 55)));
 		this.jbtSalvar.setBounds(195, 195, 130, 40);
+		this.jbtSalvar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == jbtSalvar) {
+					edit(i, k);
+				}
+				}
+				});
 		
-		this.jbtEditar = new JButton("Editar");
-		this.jbtEditar.setFont(new Font("Arial", Font.BOLD, 18));
-		this.jbtEditar.setForeground(Color.white);
-		this.jbtEditar.setBackground(new Color(136, 22, 55));
-		this.jbtEditar.setBorder(new LineBorder(new Color(136, 22, 55)));
-		this.jbtEditar.setBounds(373, 195, 130, 40);
+		this.jbtExcluir = new JButton("Excluir");
+		this.jbtExcluir.setFont(new Font("Arial", Font.BOLD, 18));
+		this.jbtExcluir.setForeground(Color.white);
+		this.jbtExcluir.setBackground(new Color(136, 22, 55));
+		this.jbtExcluir.setBorder(new LineBorder(new Color(136, 22, 55)));
+		this.jbtExcluir.setBounds(373, 195, 130, 40);
+		this.jbtExcluir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == jbtExcluir) {
+					excluir(i, k);
+				}
+				}
+				});
 	}
 	
 	private void configurarFrame() {
@@ -156,6 +172,74 @@ public class PanelEditarFigurinhaSelecao extends JFrame {
 		
 		ImageIcon logo = new ImageIcon("logo.png"); 
 		this.setIconImage(logo.getImage());
+	}
+	
+	public void edit(int i, int k) {
+		
+		if(this.jtfSigla.getText().isEmpty() && this.jtfCodigo.getText().isEmpty() && this.jtf1.getText().isEmpty() && this.jtf2.getText().isEmpty()){
+			JOptionPane.showMessageDialog(null, "Coloque os dados da Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+	 	} else if(this.jtfSigla.getText().isEmpty() && this.jtfCodigo.getText().isEmpty() && this.jtf1.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Coloque a sigla, o código e a seleção informada na Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+		} else if(this.jtfSigla.getText().isEmpty() && this.jtfCodigo.getText().isEmpty() && this.jtf2.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Coloque a sigla, o código e o nome do jogador informado na Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+		} else if(this.jtf1.getText().isEmpty() && this.jtfCodigo.getText().isEmpty() && this.jtf2.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Coloque o código, a seleção e o nome do jogador informado na Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+		} else if(this.jtf1.getText().isEmpty() && this.jtfSigla.getText().isEmpty() && this.jtf2.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Coloque a sigla, a seleção e o nome do jogador informado na Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+		} else if(this.jtfSigla.getText().isEmpty() && this.jtfCodigo.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Coloque a sigla e o código da Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+		} else if(this.jtfSigla.getText().isEmpty() && this.jtf1.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Coloque a sigla e informe a seleção informada na Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+		} else if(this.jtfSigla.getText().isEmpty() && this.jtf2.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Coloque a sigla e informe o nome do jogador presente na Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+		} else if(this.jtfCodigo.getText().isEmpty() && this.jtf1.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Coloque o codigo e a seleção informada na Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+		} else if(this.jtfCodigo.getText().isEmpty() && this.jtf2.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Coloque o codigo e informe o nome do jogador presente na Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+		} else if(this.jtf1.getText().isEmpty() && this.jtf2.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Coloque a seleção e informe o nome do jogador presente na Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+		} else if(this.jtfSigla.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Coloque a sigla da Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+		} else if(this.jtfCodigo.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Coloque o codigo Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+		} else if(this.jtf1.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Coloque a seleção informada na Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+		} else if(this.jtf2.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Coloque o nome do jogador presente na Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+		} else{
+			if(ControleInformacoesPessoais.checkIdade(jtfCodigo.getText())) {
+			
+			JOptionPane.showMessageDialog(null, "Figurinha editada com sucesso!", "Parabéns!", JOptionPane.DEFAULT_OPTION);
+		
+		ControleProprietario album = new ControleProprietario();
+	    String sigla = this.jtfSigla.getText();
+	    String codigo = this.jtfCodigo.getText();
+	    String selecao = this.jtf1.getText();
+	    String jogador = this.jtf2.getText();
+	    
+		int c = Integer.parseInt(codigo);	
+
+	    album.editarFigurinha_Selecao(i, k, sigla, c, selecao, jogador);
+	    
+	    new PanelAlbumQatar(i).setVisible(true);
+	    dispose();
+	    
+			} else {
+				JOptionPane.showMessageDialog(null, "Digite apenas números no Código da Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+			}
+			}
+	}	
+	
+	public void excluir(int i, int k) {	
+		int r = JOptionPane.showConfirmDialog(null, "Deseja realmente excluir a figurinha?", "Atenção!", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+		if(r == JOptionPane.YES_OPTION){
+			ControleProprietario excluir = new ControleProprietario();
+			excluir.excluirFigurinha_Selecao(ControleProprietario.proprietario.getAlbumFigurinha().get(i).getFigurinhaSeleção().get(k), i);
+		
+			new PanelAlbumQatar(i).setVisible(true);
+			PanelEditarFigurinhaSelecao.this.dispose();
+		} else if (r == JOptionPane.NO_OPTION) {
+		}
 	}
 
 }

@@ -22,10 +22,13 @@ public class Figurinha_FWC extends Figurinha {
 		this.descricaoItens = itensLimitados;
 	}
 	
-	//
-	
 	public String toString() {
-		return descricaoItens;
+		String cod = Integer.toString(getCodigo());
+		return cod;
+	}
+	
+	public void atualizar(int c) {
+		setCodigo(c);
 	}
 	
 	// gets e sets

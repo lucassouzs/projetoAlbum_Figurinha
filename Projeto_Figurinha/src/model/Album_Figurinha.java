@@ -21,7 +21,7 @@ public class Album_Figurinha {
 	}
 	
 	// metodos
-
+	
 	public void cadastrarFigurinha_Seleção(Figurinha_Seleção figurinhaSeleção1) {
 		figurinhaSeleção.add(figurinhaSeleção1);
 	}

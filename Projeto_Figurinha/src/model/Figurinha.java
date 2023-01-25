@@ -16,6 +16,8 @@ public abstract class Figurinha {
 	
 	// gets sets
 	
+	public abstract String toString();
+	
 	public String getSigla() {
 		return sigla;
 	}

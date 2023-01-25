@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
 import controler.ControleProprietario;
+import controler.ControleProprietario.ControleInformacoesPessoais;
 
 public class PanelEditarFigurinhaFWC extends JFrame implements ActionListener{
 	
@@ -83,7 +84,7 @@ public class PanelEditarFigurinhaFWC extends JFrame implements ActionListener{
 		this.jtfSigla = new JTextField();
 		this.jtfSigla.setText("FWC");
 		this.jtfSigla.setEnabled(false);
-		this.jtfSigla.setToolTipText("Insira um nome para o album");
+		this.jtfSigla.setToolTipText("Insira a sigla da Figurinha");
 		this.jtfSigla.setPreferredSize(new Dimension(306, 40));
 		this.jtfSigla.setBorder(new LineBorder(Color.white));
 		this.jtfSigla.setBounds(197, 53, 130, 40);
@@ -93,7 +94,7 @@ public class PanelEditarFigurinhaFWC extends JFrame implements ActionListener{
 		this.jlbCodigo.setBounds(373, 13, 500, 40);
 		this.jlbCodigo.setForeground(new Color(71, 71, 71));
 		
-		this.jtfCodigo = new JTextField(ControleProprietario.proprietario.getAlbumFigurinha().get(i).getFigurinhaFWC().get(k).getCodigo());
+		this.jtfCodigo = new JTextField(ControleProprietario.proprietario.getAlbumFigurinha().get(i).getFigurinhaFWC().get(k).toString());
 		this.jtfCodigo.setToolTipText("Insira o código da figurinha!");
 		this.jtfCodigo.setPreferredSize(new Dimension(306, 40));
 		this.jtfCodigo.setBorder(new LineBorder(Color.white));
@@ -161,21 +162,39 @@ public class PanelEditarFigurinhaFWC extends JFrame implements ActionListener{
 			PanelEditarFigurinhaFWC.this.dispose();
 		} else if (r == JOptionPane.NO_OPTION) {
 		}
-	}	
+	}
 	
-	public void edit(int i, int k) {	
+	public void edit(int i, int k) {
+		
+		if(this.jtfCodigo.getText().isEmpty() && this.jtf1.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Coloque os dados da Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+	 	} else if(this.jtfCodigo.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Coloque o código da Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+		} else if(this.jtf1.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Informe o item descrito na Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+		} else{
+			if(ControleInformacoesPessoais.checkIdade(jtfCodigo.getText())) {
+			
+			JOptionPane.showMessageDialog(null, "Figurinha editada com sucesso!", "Parabéns!", JOptionPane.DEFAULT_OPTION);
 		
 		ControleProprietario album = new ControleProprietario();
-	    String item = this.jtf1.getText().toString();
+	    String item = this.jtf1.getText();
+	    String codigo = this.jtfCodigo.getText();
+	    
+		int c = Integer.parseInt(codigo);	
 
-	    album.editarFigurinha_FWC(i, k, i, item);
+	    album.editarFigurinha_FWC(i, k, c, item);
 	    
 	    new PanelAlbumQatar(i).setVisible(true);
 	    dispose();
+	    
+			} else {
+				JOptionPane.showMessageDialog(null, "Digite apenas números no Código da Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+			}
+			}
 	}	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
 	}	
 }

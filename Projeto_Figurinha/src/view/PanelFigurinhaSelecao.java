@@ -9,11 +9,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
 import controler.ControleProprietario;
+import controler.ControleProprietario.ControleInformacoesPessoais;
 
 public class PanelFigurinhaSelecao extends JFrame implements ActionListener{
 	
@@ -99,7 +101,7 @@ public class PanelFigurinhaSelecao extends JFrame implements ActionListener{
 		this.jlbSigla.setForeground(new Color(71, 71, 71));
 		
 		this.jtfSigla = new JTextField();
-		this.jtfSigla.setToolTipText("Insira um nome para o album");
+		this.jtfSigla.setToolTipText("Insira a sigla da figurinha");
 		this.jtfSigla.setPreferredSize(new Dimension(306, 40));
 		this.jtfSigla.setBorder(new LineBorder(Color.white));
 		this.jtfSigla.setBounds(197, 53, 130, 40);
@@ -110,7 +112,7 @@ public class PanelFigurinhaSelecao extends JFrame implements ActionListener{
 		this.jlbCodigo.setForeground(new Color(71, 71, 71));
 		
 		this.jtfCodigo = new JTextField();
-		this.jtfCodigo.setToolTipText("Insira um nome para o album");
+		this.jtfCodigo.setToolTipText("Insira o codigo da figurinha");
 		this.jtfCodigo.setPreferredSize(new Dimension(306, 40));
 		this.jtfCodigo.setBorder(new LineBorder(Color.white));
 		this.jtfCodigo.setBounds(373, 53, 130, 40);
@@ -121,7 +123,7 @@ public class PanelFigurinhaSelecao extends JFrame implements ActionListener{
 		this.jlb1.setForeground(new Color(71, 71, 71));
 		
 		this.jtf1 = new JTextField();
-		this.jtf1.setToolTipText("Insira um nome para o album");
+		this.jtf1.setToolTipText("Insira aseleção presente na figurinha");
 		this.jtf1.setPreferredSize(new Dimension(306, 40));
 		this.jtf1.setBorder(new LineBorder(Color.white));
 		this.jtf1.setBounds(197, 135, 130, 40);
@@ -132,7 +134,7 @@ public class PanelFigurinhaSelecao extends JFrame implements ActionListener{
 		this.jlb2.setForeground(new Color(71, 71, 71));
 		
 		this.jtf2 = new JTextField();
-		this.jtf2.setToolTipText("Insira um nome para o album");
+		this.jtf2.setToolTipText("Insira o jogador informado na figurinha");
 		this.jtf2.setPreferredSize(new Dimension(306, 40));
 		this.jtf2.setBorder(new LineBorder(Color.white));
 		this.jtf2.setBounds(373, 135, 130, 40);
@@ -143,7 +145,13 @@ public class PanelFigurinhaSelecao extends JFrame implements ActionListener{
 		this.jbtCriar.setBackground(new Color(136, 22, 55));
 		this.jbtCriar.setBorder(new LineBorder(new Color(136, 22, 55)));
 		this.jbtCriar.setBounds(190, 195, 306, 40);
-		this.jbtCriar.addActionListener(this);
+		this.jbtCriar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == jbtCriar) {
+					criar(i);
+				}
+				}
+				});
 	}
 	
 	private void configurarFrame() {
@@ -157,20 +165,60 @@ public class PanelFigurinhaSelecao extends JFrame implements ActionListener{
 		ImageIcon logo = new ImageIcon("logo.png"); 
 		this.setIconImage(logo.getImage());
 	}
-	
-	public void actionPerformed(ActionEvent e, int i) {
+
+	public void criar(int i) {
 		
-		String sigla = this.jtfSigla.getText();
-		String codigo = this.jtfCodigo.getText();
-		String selecao = this.jtf1.getText();
-		String jogador = this.jtf2.getText();
-		int cod = Integer.parseInt(codigo);	
-	
-		ControleProprietario cadastrarFigurinha_Selecao= new ControleProprietario();
-		cadastrarFigurinha_Selecao.cadastrarFigurinhaSelecao(sigla, cod, selecao, jogador, i);
-	
-		PanelFigurinhaSelecao.this.dispose();
+		if(this.jtfSigla.getText().isEmpty() && this.jtfCodigo.getText().isEmpty() && this.jtf1.getText().isEmpty() && this.jtf2.getText().isEmpty()){
+			JOptionPane.showMessageDialog(null, "Coloque os dados da Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+	 	} else if(this.jtfSigla.getText().isEmpty() && this.jtfCodigo.getText().isEmpty() && this.jtf1.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Coloque a sigla, o código e a seleção informada na Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+		} else if(this.jtfSigla.getText().isEmpty() && this.jtfCodigo.getText().isEmpty() && this.jtf2.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Coloque a sigla, o código e o nome do jogador informado na Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+		} else if(this.jtf1.getText().isEmpty() && this.jtfCodigo.getText().isEmpty() && this.jtf2.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Coloque o código, a seleção e o nome do jogador informado na Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+		} else if(this.jtf1.getText().isEmpty() && this.jtfSigla.getText().isEmpty() && this.jtf2.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Coloque a sigla, a seleção e o nome do jogador informado na Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+		} else if(this.jtfSigla.getText().isEmpty() && this.jtfCodigo.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Coloque a sigla e o código da Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+		} else if(this.jtfSigla.getText().isEmpty() && this.jtf1.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Coloque a sigla e informe a seleção informada na Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+		} else if(this.jtfSigla.getText().isEmpty() && this.jtf2.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Coloque a sigla e informe o nome do jogador presente na Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+		} else if(this.jtfCodigo.getText().isEmpty() && this.jtf1.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Coloque o codigo e a seleção informada na Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+		} else if(this.jtfCodigo.getText().isEmpty() && this.jtf2.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Coloque o codigo e informe o nome do jogador presente na Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+		} else if(this.jtf1.getText().isEmpty() && this.jtf2.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Coloque a seleção e informe o nome do jogador presente na Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+		} else if(this.jtfSigla.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Coloque a sigla da Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+		} else if(this.jtfCodigo.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Coloque o codigo Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+		} else if(this.jtf1.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Coloque a seleção informada na Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+		} else if(this.jtf2.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Coloque o nome do jogador presente na Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+		} else{
+			if(ControleInformacoesPessoais.checkIdade(jtfCodigo.getText())) {
+			
+			JOptionPane.showMessageDialog(null, "Figurinha criada com sucesso!", "Parabéns!", JOptionPane.DEFAULT_OPTION);
 		
+			String sigla = this.jtfSigla.getText();
+			String codigo = this.jtfCodigo.getText();
+			String selecao = this.jtf1.getText();
+			String jogador = this.jtf2.getText();
+			int cod = Integer.parseInt(codigo);	
+	
+			ControleProprietario cadastrarFigurinha_Selecao= new ControleProprietario();
+			cadastrarFigurinha_Selecao.cadastrarFigurinhaSelecao(sigla, cod, selecao, jogador, i);
+	
+			new PanelAlbumQatar(i).setVisible(true);
+		
+			PanelFigurinhaSelecao.this.dispose();
+			} else {
+				JOptionPane.showMessageDialog(null, "Digite apenas números no Código da Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+			}
+			}
 	}
 
 	@Override

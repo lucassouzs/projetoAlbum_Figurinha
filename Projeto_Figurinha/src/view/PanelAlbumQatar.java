@@ -26,14 +26,16 @@ public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelec
 
 	private JPanel jpnVermelho;
 	private JPanel jpnBranco;
-	private JPanel jpnListaFigurinha;
+	private JPanel jpnListaFigurinhaFWC;
+	private JPanel jpnListaFigurinhaSelecao;
 	private JButton jbtBack;
 	private JLabel jlbCopaMundo;
 	private JTextField jtfNome;
 	private JButton jbtDell;
 	private JButton jbtEdit;
 	private JButton jbtCriarFigurinha;
-	public JList<String> jltListaFigurinhas;
+	public JList<String> jltListaFigurinhasFWC;
+	public JList<String> jltListaFigurinhasSelecao;
 	private ControleProprietario controle = new ControleProprietario();
 	public int i;
 		
@@ -42,7 +44,8 @@ public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelec
 		this.configurarFrame();
 		this.configurarPainelVermelho(i);
 		this.configurarPainelBranco();
-		this.configurarPainelLista();
+		this.configurarPainelListaFWC();
+		this.configurarPainelListaSelecao();
 		this.add(this.jpnVermelho);
 		this.add(this.jpnBranco);
 	}
@@ -68,19 +71,34 @@ public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelec
 		this.jpnBranco.setLayout(null);		
 	}
 	
-	private void configurarPainelLista() {
+	private void configurarPainelListaFWC() {
 		
-		JScrollPane scrollPane1 = new JScrollPane(this.jltListaFigurinhas);
+		JScrollPane scrollPane1 = new JScrollPane(this.jltListaFigurinhasFWC);
 		
-		this.jpnListaFigurinha = new JPanel();
-		this.jpnListaFigurinha.setBounds(133, 240, 1100, 402);
-		this.jpnListaFigurinha.setLayout(new BorderLayout());		
-		this.jpnListaFigurinha.add(this.jltListaFigurinhas);
-		this.jpnListaFigurinha.setBorder(new LineBorder(new Color(240, 240, 240)));
-		this.jpnListaFigurinha.add(scrollPane1, BorderLayout.CENTER);
-		this.jpnListaFigurinha.add(new JScrollPane(this.jltListaFigurinhas));
+		this.jpnListaFigurinhaFWC = new JPanel();
+		this.jpnListaFigurinhaFWC.setBounds(133, 240, 500, 402);
+		this.jpnListaFigurinhaFWC.setLayout(new BorderLayout());		
+		this.jpnListaFigurinhaFWC.add(this.jltListaFigurinhasFWC);
+		this.jpnListaFigurinhaFWC.setBorder(new LineBorder(new Color(240, 240, 240)));
+		this.jpnListaFigurinhaFWC.add(scrollPane1, BorderLayout.CENTER);
+		this.jpnListaFigurinhaFWC.add(new JScrollPane(this.jltListaFigurinhasFWC));
 		
-		this.jpnBranco.add(this.jpnListaFigurinha);
+		this.jpnBranco.add(this.jpnListaFigurinhaFWC);
+	}
+	
+	private void configurarPainelListaSelecao() {
+		
+		JScrollPane scrollPane1 = new JScrollPane(this.jltListaFigurinhasSelecao);
+		
+		this.jpnListaFigurinhaSelecao = new JPanel();
+		this.jpnListaFigurinhaSelecao.setBounds(733, 240, 500, 402);
+		this.jpnListaFigurinhaSelecao.setLayout(new BorderLayout());		
+		this.jpnListaFigurinhaSelecao.add(this.jltListaFigurinhasSelecao);
+		this.jpnListaFigurinhaSelecao.setBorder(new LineBorder(new Color(240, 240, 240)));
+		this.jpnListaFigurinhaSelecao.add(scrollPane1, BorderLayout.CENTER);
+		this.jpnListaFigurinhaSelecao.add(new JScrollPane(this.jltListaFigurinhasSelecao));
+		
+		this.jpnBranco.add(this.jpnListaFigurinhaSelecao);
 	}
 	
 	private void configurarDadosMenu() {
@@ -150,12 +168,32 @@ public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelec
 		this.jtfNome.setBorder(new LineBorder(new Color(136, 22, 55)));
 		this.jtfNome.setBounds(296, 90, 800, 30);
 		
-		this.jltListaFigurinhas = new JList<String>();
-		this.jltListaFigurinhas.setBackground(new Color(240, 240, 240));
-		this.jltListaFigurinhas.setBorder(new LineBorder(new Color(240, 240, 240)));
-		this.jltListaFigurinhas.setForeground(Color.black);
-		this.jltListaFigurinhas.setModel(controle.listarFigurinhas_FWC());
-		this.jltListaFigurinhas.addListSelectionListener(this);
+		this.jltListaFigurinhasFWC = new JList<String>();
+		this.jltListaFigurinhasFWC.setBackground(new Color(240, 240, 240));
+		this.jltListaFigurinhasFWC.setBorder(new LineBorder(new Color(240, 240, 240)));
+		this.jltListaFigurinhasFWC.setForeground(Color.black);
+		this.jltListaFigurinhasFWC.setModel(controle.listarFigurinhas_FWC());
+		this.jltListaFigurinhasFWC.addListSelectionListener(new ListSelectionListener() {
+			public void valueChanged(ListSelectionEvent e) {
+				if(e.getSource() == jltListaFigurinhasFWC) {
+					abrirFWC(i, e);
+				}
+				}
+				});
+		
+		this.jltListaFigurinhasSelecao = new JList<String>();
+		this.jltListaFigurinhasSelecao.setBackground(new Color(240, 240, 240));
+		this.jltListaFigurinhasSelecao.setBorder(new LineBorder(new Color(240, 240, 240)));
+		this.jltListaFigurinhasSelecao.setForeground(Color.black);
+		this.jltListaFigurinhasSelecao.setModel(controle.listarFigurinhas_Selecao());
+		this.jltListaFigurinhasSelecao.addListSelectionListener(this);
+		this.jltListaFigurinhasSelecao.addListSelectionListener(new ListSelectionListener() {
+			public void valueChanged(ListSelectionEvent e) {
+				if(e.getSource() == jltListaFigurinhasSelecao) {
+					abrirSelecao(i, e);
+				}
+				}
+				});
 	}
 	
 	private void configurarFrame() {
@@ -201,18 +239,31 @@ public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelec
 	    String nome = this.jtfNome.getText().toString();
 	    proprietario.editarAlbum(nome, i);
 	}	
+	
+	public void abrirFWC(int i, ListSelectionEvent e) {
+		Object src = e.getSource();
+		
+		if(e.getValueIsAdjusting() && src == this.jltListaFigurinhasFWC) {
+			controle.abrirFigurinhaFWC(this.jltListaFigurinhasFWC.getSelectedValue().toString(), i);
+				
+			dispose();
+		}
+	}
+	
+	public void abrirSelecao(int j, ListSelectionEvent e){
+		Object src = e.getSource();
+
+		if(e.getValueIsAdjusting() && src == this.jltListaFigurinhasSelecao) {
+			controle.abrirFigurinhaSelecao(this.jltListaFigurinhasSelecao.getSelectedValue().toString(), j);
+
+			dispose();
+		}
+	}
 
 	public void actionPerformed(ActionEvent e) {
 	}
 
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
-		Object src = e.getSource();
-			
-		if(e.getValueIsAdjusting() && src == this.jltListaFigurinhas) {
-			controle.abrirFigurinhaFWC(this.jltListaFigurinhas.getSelectedValue().toString(), i);
-				
-			dispose();
-		}
 	}
 }

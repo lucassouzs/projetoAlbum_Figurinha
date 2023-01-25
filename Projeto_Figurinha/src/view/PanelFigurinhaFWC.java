@@ -160,7 +160,9 @@ public class PanelFigurinhaFWC extends JFrame implements ActionListener{
 			JOptionPane.showMessageDialog(null, "Coloque o código da Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
 		} else if(this.jtf1.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Informe o item descrito na Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
-		} if(ControleInformacoesPessoais.checkIdade(jtfCodigo.getText())) {
+		} else{
+			if(ControleInformacoesPessoais.checkIdade(jtfCodigo.getText())) {
+			
 			JOptionPane.showMessageDialog(null, "Figurinha criada com sucesso!", "Parabéns!", JOptionPane.DEFAULT_OPTION);
 			
 			String sigla = this.jtfSigla.getText();
@@ -177,6 +179,7 @@ public class PanelFigurinhaFWC extends JFrame implements ActionListener{
 							
 		} else {
 			JOptionPane.showMessageDialog(null, "Digite apenas números no Código da Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
+		}
 		}
 	}
 

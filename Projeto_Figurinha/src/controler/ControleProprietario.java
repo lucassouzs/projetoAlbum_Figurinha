@@ -10,6 +10,7 @@ import view.PanelCadastro;
 import view.PanelCriarAlbum;
 import view.PanelCriarFigurinha;
 import view.PanelEditarFigurinhaFWC;
+import view.PanelEditarFigurinhaSelecao;
 import view.PanelMenu;
 import view.PanelMeusAlbuns;
 
@@ -59,7 +60,7 @@ public class ControleProprietario {
 	public void cadastrarFigurinhaSelecao(String sigla, int cod, String selecao, String jogador, int i) {
 		
 		Figurinha_Seleção figurinhaSelecao = new Figurinha_Seleção(sigla, cod, selecao, jogador);
-		albumFigurinha.cadastrarFigurinha_Seleção(figurinhaSelecao);
+		proprietario.getAlbumFigurinha().get(i).cadastrarFigurinha_Seleção(figurinhaSelecao);
 		
 		System.out.println("");
 		System.out.println("Dados da Figurinha Selecao:");
@@ -84,8 +85,18 @@ public class ControleProprietario {
 		DefaultListModel<String> figurinhas = new DefaultListModel<>();
 		int size = proprietario.getAlbumFigurinha().get(i).getFigurinhaFWC().size();
 		for(int k = 0; k < size ; k++) {
-			String figurinha = proprietario.getAlbumFigurinha().get(i).getFigurinhaFWC().get(k).getSigla();
+			String figurinha = proprietario.getAlbumFigurinha().get(i).getFigurinhaFWC().get(k).getItensLimitados();
 			figurinhas.addElement(figurinha);
+			}
+		return figurinhas;
+	}
+	
+	public DefaultListModel<String> listarFigurinhas_Selecao(){
+		DefaultListModel<String> figurinhas = new DefaultListModel<>();
+		int size = proprietario.getAlbumFigurinha().get(i).getFigurinhaSeleção().size();
+		for(int k = 0; k < size ; k++) {
+			String jogador = proprietario.getAlbumFigurinha().get(i).getFigurinhaSeleção().get(k).getJogador();
+			figurinhas.addElement(jogador);
 			}
 		return figurinhas;
 	}
@@ -102,9 +113,16 @@ public class ControleProprietario {
 	
 	public void abrirFigurinhaFWC(String nome, int i) {
 		for (int k = 0; k < proprietario.getAlbumFigurinha().get(i).getFigurinhaFWC().size(); k++) {
-			if(proprietario.getAlbumFigurinha().get(i).getFigurinhaFWC().get(k).getSigla().equals(nome)) {
-				System.out.println(proprietario.getAlbumFigurinha().get(i).getFigurinhaFWC().get(k).getSigla());
+			if(proprietario.getAlbumFigurinha().get(i).getFigurinhaFWC().get(k).getItensLimitados().equals(nome)) {
 				new PanelEditarFigurinhaFWC(i, k).setVisible(true);
+			}
+		}
+	}
+	
+	public void abrirFigurinhaSelecao(String nome, int j) {
+		for (int k = 0; k < proprietario.getAlbumFigurinha().get(i).getFigurinhaSeleção().size(); k++) {
+			if(proprietario.getAlbumFigurinha().get(i).getFigurinhaSeleção().get(k).getJogador().equals(nome)) {
+				new PanelEditarFigurinhaSelecao(i, k).setVisible(true);
 			}
 		}
 	}
@@ -131,9 +149,20 @@ public class ControleProprietario {
 		proprietario.getAlbumFigurinha().get(i).excluirFigurinha_FWC(nome);
 	}
 	
-	public void editarFigurinha_FWC(int i, int k, int codigo, String item) {
-		proprietario.getAlbumFigurinha().get(i).getFigurinhaFWC().get(k).setCodigo(codigo);
-		proprietario.getAlbumFigurinha().get(i).getFigurinhaFWC().get(k).setItensLimitados(item);;
+	public void excluirFigurinha_Selecao(Figurinha_Seleção nome, int i) {
+		proprietario.getAlbumFigurinha().get(i).excluirFigurinha_Seleção(nome);
+	}
+	
+	public void editarFigurinha_FWC(int posAlbum, int posFig, int codigo, String item) {
+		proprietario.getAlbumFigurinha().get(posAlbum).getFigurinhaFWC().get(posFig).atualizar(codigo);
+		proprietario.getAlbumFigurinha().get(posAlbum).getFigurinhaFWC().get(posFig).setItensLimitados(item);;
+	}
+	
+	public void editarFigurinha_Selecao(int posAlbum, int posFig, String sigla, int codigo, String selecao, String jogador) {
+		proprietario.getAlbumFigurinha().get(posAlbum).getFigurinhaSeleção().get(posFig).setSigla(sigla);;
+		proprietario.getAlbumFigurinha().get(posAlbum).getFigurinhaSeleção().get(posFig).atualizarSelecao(codigo);
+		proprietario.getAlbumFigurinha().get(posAlbum).getFigurinhaSeleção().get(posFig).setSeleção(selecao);;
+		proprietario.getAlbumFigurinha().get(posAlbum).getFigurinhaSeleção().get(posFig).setJogador(jogador);;
 	}
 	
 	public void controlePerfil() {
