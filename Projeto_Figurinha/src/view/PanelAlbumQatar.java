@@ -26,6 +26,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelec
 
 	private JPanel jpnVermelho;
 	private JPanel jpnBranco;
+	private JTextField jtfPesquisar;
 	private JPanel jpnListaFigurinhaFWC;
 	private JPanel jpnListaFigurinhaSelecao;
 	private JButton jbtBack;
@@ -61,6 +62,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelec
 		this.jpnVermelho.add(this.jtfNome);
 		this.jpnVermelho.add(this.jbtDell);
 		this.jpnVermelho.add(this.jbtEdit);
+		this.jpnVermelho.add(this.jtfPesquisar);
 		this.jpnVermelho.add(this.jbtCriarFigurinha);
 	}
 	
@@ -115,6 +117,13 @@ public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelec
 				}
 				});
 		
+		this.jtfPesquisar = new JTextField("Pesquisar");
+		this.jtfPesquisar.setBackground(Color.white);
+		this.jtfPesquisar.setToolTipText("Pesquisar Figurinha");
+		this.jtfPesquisar.setFont(new Font("Verdana", Font.BOLD, 13));
+		this.jtfPesquisar.setBorder(new LineBorder(Color.white));
+		this.jtfPesquisar.setBounds(950, 65, 200, 30);
+		
 		this.jbtCriarFigurinha = new JButton(new ImageIcon("add.png"));
 		this.jbtCriarFigurinha.setFont(new Font("Arial", Font.BOLD, 12));
 		this.jbtCriarFigurinha.setBackground(new Color(136, 22, 55));
@@ -166,7 +175,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelec
 		this.jtfNome.setForeground(Color.white);
 		this.jtfNome.setFont(new Font("Verdana", Font.BOLD, 25));
 		this.jtfNome.setBorder(new LineBorder(new Color(136, 22, 55)));
-		this.jtfNome.setBounds(296, 90, 800, 30);
+		this.jtfNome.setBounds(296, 90, 600, 30);
 		
 		this.jltListaFigurinhasFWC = new JList<String>();
 		this.jltListaFigurinhasFWC.setBackground(new Color(240, 240, 240));
