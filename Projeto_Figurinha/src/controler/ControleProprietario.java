@@ -1,6 +1,8 @@
 package controler;
 
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+
 import model.Album_Figurinha;
 import model.Figurinha_FWC;
 import model.Figurinha_Seleção;
@@ -132,6 +134,23 @@ public class ControleProprietario {
 				return false ;
 		}
 	}
+	
+	public void buscarFigurinha(String string, int k) {
+
+		for (k = 0; k < proprietario.getAlbumFigurinha().get(i).getFigurinhaFWC().size(); k++) {
+			if(proprietario.getAlbumFigurinha().get(i).getFigurinhaFWC().get(k).getItensLimitados().equals(string)) {
+					new PanelEditarFigurinhaFWC(i, k).setVisible(true);;
+			}
+		} 
+		for (k = 0; k < proprietario.getAlbumFigurinha().get(i).getFigurinhaSeleção().size(); k++) {
+			if(proprietario.getAlbumFigurinha().get(i).getFigurinhaSeleção().get(k).getJogador().equals(string)) {
+					new PanelEditarFigurinhaSelecao(i, k).setVisible(true);;
+				} else {
+					JOptionPane.showMessageDialog(null, "Nenhuma figurinha encontrada");
+					new PanelAlbumQatar(i).setVisible(true);;
+				}
+			} 
+		}
 	
 	public void editarAlbum(String nome, int k) {
 		proprietario.getAlbumFigurinha().get(k).setNome(nome);
