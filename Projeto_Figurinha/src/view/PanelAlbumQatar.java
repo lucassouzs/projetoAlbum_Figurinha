@@ -36,8 +36,6 @@ public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelec
 	private JButton jbtDell;
 	private JButton jbtEdit;
 	private JButton jbtCriarFigurinha;
-	private JLabel jlbFWC;
-	private JLabel jlbSeleção;
 	public JList<String> jltListaFigurinhasFWC;
 	public JList<String> jltListaFigurinhasSelecao;
 	private ControleProprietario controle = new ControleProprietario();
@@ -136,8 +134,11 @@ public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelec
 			new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					controle.buscarFigurinha(jtfPesquisar.getText().toString(), i);
-					dispose();
+					if(controle.buscarFigurinha(jtfPesquisar.getText().toString(), i)) {
+						PanelAlbumQatar.this.dispose();
+					} else {
+						JOptionPane.showMessageDialog(null, "Nenhuma figurinha encontrada.");
+					}
 				}
 				}
 				);
@@ -194,8 +195,6 @@ public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelec
 		this.jtfNome.setFont(new Font("Verdana", Font.BOLD, 25));
 		this.jtfNome.setBorder(new LineBorder(new Color(136, 22, 55)));
 		this.jtfNome.setBounds(296, 90, 600, 30);
-		
-
 		
 		this.jltListaFigurinhasFWC = new JList<String>();
 		this.jltListaFigurinhasFWC.setBackground(new Color(240, 240, 240));
