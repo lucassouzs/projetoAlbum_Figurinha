@@ -6,8 +6,8 @@ public class Album_Figurinha {
 	
 	// atributos
 	
-	private String copaMundo;
 	private String nome;
+	private String copaMundo;
 	private ArrayList<Figurinha_FWC> figurinhaFWC;
 	private ArrayList<Figurinha_Seleção> figurinhaSeleção;
 	

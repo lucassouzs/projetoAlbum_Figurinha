@@ -1,14 +1,5 @@
 package model;
 
-/*Fifa World Cup (FWC):
-- Fifa
-- Trofeu
-- Bola
-- Mascote
-- Estadio
-- Legends
- */
-
 public class Figurinha_FWC extends Figurinha {
 	
 	// atributos
@@ -27,7 +18,7 @@ public class Figurinha_FWC extends Figurinha {
 		return cod;
 	}
 	
-	public void atualizar(int c) {
+	public void atualizarFWC(int c) {
 		setCodigo(c);
 	}
 	

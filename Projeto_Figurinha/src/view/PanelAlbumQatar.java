@@ -206,8 +206,8 @@ public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelec
 				if(e.getSource() == jltListaFigurinhasFWC) {
 					abrirFWC(i, e);
 				}
-				}
-				});
+			}
+		});
 		
 		this.jltListaFigurinhasSelecao = new JList<String>();
 		this.jltListaFigurinhasSelecao.setBackground(new Color(240, 240, 240));
@@ -220,8 +220,8 @@ public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelec
 				if(e.getSource() == jltListaFigurinhasSelecao) {
 					abrirSelecao(i, e);
 				}
-				}
-				});
+			}
+		});
 	}
 	
 	private void configurarFrame() {
@@ -257,7 +257,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelec
 			PanelAlbumQatar.this.dispose();
 		} else if (r == JOptionPane.NO_OPTION) {
 		}
-	}	
+	}
 	
 	public void edit(int i) {	
 		JOptionPane.showMessageDialog(null, "Nome alterado com sucesso!");	

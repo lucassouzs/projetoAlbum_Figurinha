@@ -53,9 +53,7 @@ public class ControleProprietario {
 	public void abrirAlbum(String nome) {
 		for(i = 0; i < proprietario.getAlbumFigurinha().size(); i++) {
 			if(proprietario.getAlbumFigurinha().get(i).getNome().equals(nome)) {
-				if(proprietario.getAlbumFigurinha().get(i).getCopaMundo() == "Qatar 2022") {
-					new PanelAlbumQatar(i).setVisible(true);
-				}
+				new PanelAlbumQatar(i).setVisible(true);
 			}
 		}
 	}
@@ -99,7 +97,7 @@ public class ControleProprietario {
 	}
 	
 	public void editarFigurinha_FWC(int posAlbum, int posFig, int codigo, String item) {
-		proprietario.getAlbumFigurinha().get(posAlbum).getFigurinhaFWC().get(posFig).atualizar(codigo);
+		proprietario.getAlbumFigurinha().get(posAlbum).getFigurinhaFWC().get(posFig).atualizarFWC(codigo);
 		proprietario.getAlbumFigurinha().get(posAlbum).getFigurinhaFWC().get(posFig).setItensLimitados(item);;
 	}
 	
