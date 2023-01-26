@@ -168,7 +168,7 @@ public class PanelFigurinhaFWC extends JFrame implements ActionListener{
 			String sigla = this.jtfSigla.getText();
 			String codigo = this.jtfCodigo.getText();
 			String item = this.jtf1.getText();
-			int cod = Integer.parseInt(codigo);	
+			int cod = Integer.parseInt(codigo);
 		
 			ControleProprietario cadastrarFigurinhaFWC= new ControleProprietario();
 			cadastrarFigurinhaFWC.cadastrarFigurinhaFWC(sigla, cod, item, i);

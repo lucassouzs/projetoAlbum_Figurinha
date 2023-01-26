@@ -57,7 +57,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelec
 		this.jpnVermelho.setBackground(new Color(136, 22, 55)); 
 		this.jpnVermelho.setBounds(0, 0, 1366, 155);
 		
-		this.configurarDadosMenu();
+		this.configurarDadosMenu(i);
 		this.jpnVermelho.add(this.jbtBack);
 		this.jpnVermelho.add(this.jlbCopaMundo); 
 		this.jpnVermelho.add(this.jtfNome);
@@ -106,7 +106,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelec
 		this.jpnBranco.add(this.jpnListaFigurinhaSelecao);
 	}
 	
-	private void configurarDadosMenu() {
+	private void configurarDadosMenu(int i) {
 		this.jbtBack = new JButton(new ImageIcon("back.png"));
 		this.jbtBack.setBackground(new Color(136, 22, 55));
 		this.jbtBack.setBorder(new LineBorder(new Color(136, 22, 55)));
