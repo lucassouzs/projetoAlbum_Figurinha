@@ -199,7 +199,7 @@ public class PanelFigurinhaSelecao extends JFrame implements ActionListener{
 		} else if(this.jtf2.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Coloque o nome do jogador presente na Figurinha!", "Atenção!", JOptionPane.ERROR_MESSAGE);
 		} else{
-			if(ControleInformacoesPessoais.checkIdade(jtfCodigo.getText())) {
+			if(ControleInformacoesPessoais.checkNumero(jtfCodigo.getText())) {
 			
 			JOptionPane.showMessageDialog(null, "Figurinha criada com sucesso!", "Parabéns!", JOptionPane.DEFAULT_OPTION);
 		

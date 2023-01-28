@@ -161,7 +161,7 @@ public class PanelCadastro extends JFrame implements ActionListener{
 			} else if (jtfSexoProprietario.getText().isEmpty()) {
 				JOptionPane.showMessageDialog(null, "Preencha o sexo para prosseguir!", "Atenção!", JOptionPane.ERROR_MESSAGE);
 			} else {
-				if(ControleInformacoesPessoais.checkIdade(jtfIdadeProprietario.getText())) {
+				if(ControleInformacoesPessoais.checkNumero(jtfIdadeProprietario.getText())) {
 					JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!", "Parabéns!", JOptionPane.DEFAULT_OPTION);	
 				
 					String nome = this.jtfNomeProprietario.getText();

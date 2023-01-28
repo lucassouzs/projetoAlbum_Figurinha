@@ -146,9 +146,7 @@ public class ControleProprietario {
 	public void excluirFigurinha_Selecao(Figurinha_Seleção nome, int i) {
 		proprietario.getAlbumFigurinha().get(i).excluirFigurinha_Seleção(nome);
 	}
-	
-	// Busca de Figurinha
-	
+		
 	public boolean buscarFigurinha(String string, int k) {
 		for (k = 0; k < proprietario.getAlbumFigurinha().get(i).getFigurinhaFWC().size(); k++) {
 			if(proprietario.getAlbumFigurinha().get(i).getFigurinhaFWC().get(k).getItensLimitados().equals(string)) {
@@ -164,11 +162,9 @@ public class ControleProprietario {
 		}
 		return false;
 	}
-	
-	// Check de número
-	
+		
 	public class ControleInformacoesPessoais {
-		public static boolean checkIdade(String valor) {
+		public static boolean checkNumero(String valor) {
 			if(valor.matches("[0-9]+"))
 				return true ;
 			else
