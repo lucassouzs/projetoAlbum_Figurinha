@@ -147,7 +147,6 @@ public class PanelMeusAlbuns extends JFrame implements ActionListener, ListSelec
 		if(e.getValueIsAdjusting() && src == this.jltLista) {
 			controle.abrirAlbum(this.jltLista.getSelectedValue().toString());
 			dispose();
-			System.out.println(this.jltLista.getSelectedValue().toString());
 		}
 	}
 }

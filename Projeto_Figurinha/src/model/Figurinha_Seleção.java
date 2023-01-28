@@ -15,13 +15,13 @@ public class Figurinha_Seleção extends Figurinha{
 		this.nomesjogador = jogador;
 	}
 	
+	public void atualizarSelecao(int b) {
+		setCodigo(b);
+	}
+	
 	public String toString() {
 		String codS = Integer.toString(getCodigo());
 		return codS;
-	}
-	
-	public void atualizarSelecao(int b) {
-		setCodigo(b);
 	}
 	
 	//gets e sets

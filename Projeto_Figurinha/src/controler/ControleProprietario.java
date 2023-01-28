@@ -16,7 +16,7 @@ public class ControleProprietario {
 	public static Album_Figurinha albumFigurinha;
 	public static Figurinha_FWC figurinhaFWC;
 	public static Figurinha_Seleção figurinhaSelecao;
-	public int i;
+	public static int i;
 	
 	// Cadastro = Proprietario
 	
@@ -70,7 +70,7 @@ public class ControleProprietario {
 	
 	public void cadastrarFigurinhaFWC(String sigla, int cod, String item, int i) {
 		Figurinha_FWC figurinhaFWC = new Figurinha_FWC(sigla, cod, item);
-		proprietario.getAlbumFigurinha().get(i).cadastrarFigurinha_FWC(figurinhaFWC);
+		proprietario.getAlbumFigurinha().get(i).getFigurinhaFWC().add(figurinhaFWC);
 		System.out.println("");
 		System.out.println("Dados da Figurinha Fifa World Cup:");
 		System.out.println("Sigla: " + figurinhaFWC.getSigla());
@@ -78,7 +78,7 @@ public class ControleProprietario {
 		System.out.println("Item: " + figurinhaFWC.getItensLimitados());
 	}
 	
-	public DefaultListModel<String> listarFigurinhas_FWC(){
+	public DefaultListModel<String> listarFigurinhas_FWC(int i){
 		DefaultListModel<String> figurinhas = new DefaultListModel<>();
 		int size = proprietario.getAlbumFigurinha().get(i).getFigurinhaFWC().size();
 		for(int k = 0; k < size ; k++) {
@@ -109,7 +109,7 @@ public class ControleProprietario {
 	
 	public void cadastrarFigurinhaSelecao(String sigla, int cod, String selecao, String jogador, int i) {
 		Figurinha_Seleção figurinhaSelecao = new Figurinha_Seleção(sigla, cod, selecao, jogador);
-		proprietario.getAlbumFigurinha().get(i).cadastrarFigurinha_Seleção(figurinhaSelecao);
+		proprietario.getAlbumFigurinha().get(i).getFigurinhaSeleção().add(figurinhaSelecao);
 		System.out.println("");
 		System.out.println("Dados da Figurinha Selecao:");
 		System.out.println("Sigla: " + figurinhaSelecao.getSigla());
@@ -118,7 +118,7 @@ public class ControleProprietario {
 		System.out.println("Jogador: " + figurinhaSelecao.getJogador());
 	}
 	
-	public DefaultListModel<String> listarFigurinhas_Selecao(){
+	public DefaultListModel<String> listarFigurinhas_Selecao(int i){
 		DefaultListModel<String> figurinhas = new DefaultListModel<>();
 		int size = proprietario.getAlbumFigurinha().get(i).getFigurinhaSeleção().size();
 		for(int k = 0; k < size ; k++) {
@@ -128,7 +128,7 @@ public class ControleProprietario {
 		return figurinhas;
 	}
 	
-	public void abrirFigurinhaSelecao(String nome, int j) {
+	public void abrirFigurinhaSelecao(String nome, int i) {
 		for (int k = 0; k < proprietario.getAlbumFigurinha().get(i).getFigurinhaSeleção().size(); k++) {
 			if(proprietario.getAlbumFigurinha().get(i).getFigurinhaSeleção().get(k).getJogador().equals(nome)) {
 				new PanelEditarFigurinhaSelecao(i, k).setVisible(true);
@@ -147,14 +147,14 @@ public class ControleProprietario {
 		proprietario.getAlbumFigurinha().get(i).excluirFigurinha_Seleção(nome);
 	}
 		
-	public boolean buscarFigurinha(String string, int k) {
-		for (k = 0; k < proprietario.getAlbumFigurinha().get(i).getFigurinhaFWC().size(); k++) {
+	public boolean buscarFigurinha(String string, int i) {
+		for (int k = 0; k < proprietario.getAlbumFigurinha().get(i).getFigurinhaFWC().size(); k++) {
 			if(proprietario.getAlbumFigurinha().get(i).getFigurinhaFWC().get(k).getItensLimitados().equals(string)) {
 				new PanelEditarFigurinhaFWC(i, k).setVisible(true);
 				return true;
 			} 
 		} 
-		for (k = 0; k < proprietario.getAlbumFigurinha().get(i).getFigurinhaSeleção().size(); k++) {
+		for (int k = 0; k < proprietario.getAlbumFigurinha().get(i).getFigurinhaSeleção().size(); k++) {
 			if(proprietario.getAlbumFigurinha().get(i).getFigurinhaSeleção().get(k).getJogador().equals(string)) {
 				new PanelEditarFigurinhaSelecao(i, k).setVisible(true);
 				return true;

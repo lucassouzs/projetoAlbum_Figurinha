@@ -50,6 +50,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelec
 		this.configurarPainelListaSelecao();
 		this.add(this.jpnVermelho);
 		this.add(this.jpnBranco);
+		this.i=i;
 	}
 	
 	private void configurarPainelVermelho(int i) {
@@ -200,7 +201,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelec
 		this.jltListaFigurinhasFWC.setBackground(new Color(240, 240, 240));
 		this.jltListaFigurinhasFWC.setBorder(new LineBorder(new Color(240, 240, 240)));
 		this.jltListaFigurinhasFWC.setForeground(Color.black);
-		this.jltListaFigurinhasFWC.setModel(controle.listarFigurinhas_FWC());
+		this.jltListaFigurinhasFWC.setModel(controle.listarFigurinhas_FWC(i));
 		this.jltListaFigurinhasFWC.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent e) {
 				if(e.getSource() == jltListaFigurinhasFWC) {
@@ -213,7 +214,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelec
 		this.jltListaFigurinhasSelecao.setBackground(new Color(240, 240, 240));
 		this.jltListaFigurinhasSelecao.setBorder(new LineBorder(new Color(240, 240, 240)));
 		this.jltListaFigurinhasSelecao.setForeground(Color.black);
-		this.jltListaFigurinhasSelecao.setModel(controle.listarFigurinhas_Selecao());
+		this.jltListaFigurinhasSelecao.setModel(controle.listarFigurinhas_Selecao(i));
 		this.jltListaFigurinhasSelecao.addListSelectionListener(this);
 		this.jltListaFigurinhasSelecao.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent e) {
@@ -276,11 +277,11 @@ public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelec
 		}
 	}
 	
-	public void abrirSelecao(int j, ListSelectionEvent e){
+	public void abrirSelecao(int i, ListSelectionEvent e){
 		Object src = e.getSource();
 
 		if(e.getValueIsAdjusting() && src == this.jltListaFigurinhasSelecao) {
-			controle.abrirFigurinhaSelecao(this.jltListaFigurinhasSelecao.getSelectedValue().toString(), j);
+			controle.abrirFigurinhaSelecao(this.jltListaFigurinhasSelecao.getSelectedValue().toString(), i);
 
 			dispose();
 		}

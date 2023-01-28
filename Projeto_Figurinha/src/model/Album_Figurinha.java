@@ -2,6 +2,10 @@ package model;
 
 import java.util.ArrayList;
 
+import javax.swing.DefaultListModel;
+
+import controler.ControleProprietario;
+
 public class Album_Figurinha {
 	
 	// atributos
@@ -30,12 +34,50 @@ public class Album_Figurinha {
 		figurinhaSeleção.remove(nome);
 	}
 	
+	public DefaultListModel<String> listarFigurinhas_Selecao(int i){
+		DefaultListModel<String> figurinhas = new DefaultListModel<>();
+		int size = ControleProprietario.proprietario.getAlbumFigurinha().get(i).getFigurinhaSeleção().size();
+		for(int k = 0; k < size ; k++) {
+			String jogador = ControleProprietario.proprietario.getAlbumFigurinha().get(i).getFigurinhaSeleção().get(k).getJogador();
+			figurinhas.addElement(jogador);
+		}
+		return figurinhas;
+	}
+	
 	public void cadastrarFigurinha_FWC(Figurinha_FWC figurinhaFWC1) {
 		figurinhaFWC.add(figurinhaFWC1);
 	}
 	
 	public void excluirFigurinha_FWC(Figurinha_FWC nome) {
 		figurinhaFWC.remove(nome);
+	}
+	
+	public DefaultListModel<String> listarFigurinhas_FWC(int i){
+		DefaultListModel<String> figurinhas = new DefaultListModel<>();
+		int size = ControleProprietario.proprietario.getAlbumFigurinha().get(i).getFigurinhaFWC().size();
+		for(int k = 0; k < size ; k++) {
+			String figurinha = ControleProprietario.proprietario.getAlbumFigurinha().get(i).getFigurinhaFWC().get(k).getItensLimitados();
+			figurinhas.addElement(figurinha);
+		}
+		return figurinhas;
+	}
+	
+	public void buscarFigurinha(String nome) {
+		for (int i = 0; i < figurinhaFWC.size(); i++) {
+			if(figurinhaFWC.get(i).getItensLimitados().equals(nome)) {
+				System.out.println(figurinhaFWC.get(i).getItensLimitados() + " || " 
+					+ figurinhaFWC.get(i).getSigla() + " || " 
+					+ figurinhaFWC.get(i).getCodigo());
+			}
+		}
+		for (int i = 0; i < figurinhaSeleção.size(); i++) {
+			if(figurinhaSeleção.get(i).getJogador().equals(nome)) {
+				System.out.println(figurinhaSeleção.get(i).getJogador() + " || " 
+					+ figurinhaSeleção.get(i).getSeleção() + " || " 
+					+ figurinhaSeleção.get(i).getSigla() + " || " 
+					+ figurinhaSeleção.get(i).getCodigo());
+			}
+		}
 	}
 	
 	public String toString() {
@@ -75,5 +117,4 @@ public class Album_Figurinha {
 	public void setFigurinha_FWC(ArrayList<Figurinha_FWC> figurinhaFWC) {
 		this.figurinhaFWC = figurinhaFWC;
 	}
-	
 }

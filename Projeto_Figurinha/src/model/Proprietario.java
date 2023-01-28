@@ -2,6 +2,10 @@ package model;
 
 import java.util.ArrayList;
 
+import javax.swing.DefaultListModel;
+
+import controler.ControleProprietario;
+
 public class Proprietario {
 	
 	// atributos
@@ -28,6 +32,16 @@ public class Proprietario {
 	
 	public void excluirAlbum_Figurinha(Album_Figurinha nome) {
 		albumFigurinha.remove(nome);
+	}
+	
+	public DefaultListModel<String> listarAlbum_Figurinha(){
+		DefaultListModel<String> nomes = new DefaultListModel<>();
+		int size = ControleProprietario.proprietario.getAlbumFigurinha().size();
+		for(int i = 0; i < size ; i++) {
+			String nome = ControleProprietario.proprietario.getAlbumFigurinha().get(i).getNome();
+			nomes.addElement(nome);
+		}
+		return nomes;
 	}
 	
 	// gets e sets 
