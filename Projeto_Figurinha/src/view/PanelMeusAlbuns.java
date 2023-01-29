@@ -17,6 +17,15 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import controler.ControleProprietario;
 
+/**
+ * Classe responsavel por inicializar a tela em que sera 
+ * possivel ir para o PanelCriarAlbum, PanelMenu e
+ * também ver todos albuns criados.
+ * @author Lucas Ribeiro de Souza 
+ * @author Lucas Victor Ferreira de Araujo
+ * @since 2022
+ * @version 1.0
+ */
 public class PanelMeusAlbuns extends JFrame implements ActionListener, ListSelectionListener{
 	
 	private static final long serialVersionUID = 1L;
@@ -30,7 +39,11 @@ public class PanelMeusAlbuns extends JFrame implements ActionListener, ListSelec
 	public JList<String> jltLista;
 	private ControleProprietario controle = new ControleProprietario();
 	public int i;
-
+	
+	/**
+	 * Metodo construtor no qual recebe os metodos 
+	 * e exibe atraves da interface grafica.
+	 */
 	public PanelMeusAlbuns(){
 		super();
 		this.configurarFrame();
@@ -41,6 +54,10 @@ public class PanelMeusAlbuns extends JFrame implements ActionListener, ListSelec
 		this.add(this.jpnBranco);
 	}
 	
+	/**
+	 * Metodo que cria, estilizar e recebe os componentes
+	 * presentes no painel vermelho.
+	 */
 	private void configurarPainelVermelho() {
 		this.jpnVermelho = new JPanel(null);	
 		this.jpnVermelho.setBackground(new Color(136, 22, 55)); 
@@ -52,13 +69,20 @@ public class PanelMeusAlbuns extends JFrame implements ActionListener, ListSelec
 		this.jpnVermelho.add(this.jbtAdd);
 	}
 	
+	/**
+	 * Metodo que cria, estilizar e recebe os componentes presentes 
+	 * no painel branco.
+	 */
 	private void configurarPainelBranco() {
 		this.jpnBranco = new JPanel();	 
 		this.jpnBranco.setBackground(new Color(240, 240, 240)); 
 		this.jpnBranco.setBounds(0, 155, 1366, 613);
 		this.jpnBranco.setLayout(null);		
 	}
-
+	
+	/**
+	 * Metodo que cria e estilizar o painel de exibição da lista de albuns.
+	 */
 	private void configurarPainelLista() {
 		
 		JScrollPane scrollPane1 = new JScrollPane(this.jltLista);
@@ -74,6 +98,9 @@ public class PanelMeusAlbuns extends JFrame implements ActionListener, ListSelec
 		this.jpnBranco.add(this.jpnLista);
 	}
 	
+	/**
+	 * Metodo que cria e estilizar os componente presente no Painel vermelho.
+	 */
 	private void configurarDadosMenu() {
 		this.jbtMenu = new JButton(new ImageIcon("menu.png"));
 		this.jbtMenu.setFont(new Font("Arial", Font.BOLD, 12));
@@ -114,6 +141,9 @@ public class PanelMeusAlbuns extends JFrame implements ActionListener, ListSelec
 		this.jltLista.setForeground(Color.black);
 	}
 	
+	/**
+	 * Metodo que cria estiliza o frame "MyCup".
+	 */
 	private void configurarFrame() {
 		this.setTitle("MyCup"); 
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -127,19 +157,31 @@ public class PanelMeusAlbuns extends JFrame implements ActionListener, ListSelec
 		this.setIconImage(logo.getImage());
 	}
 	
+	/**
+	 * Metodo para abrir o PainelMenu.
+	 */
 	public void menu() {	
 		new PanelMenu().setVisible(true);
 	}	
 	
+	/**
+	 * Metodo para abrir o PanelCriarAlbum.
+	 */
 	public void add() {
 		new PanelCriarAlbum().setVisible(true);
 		
 		PanelMeusAlbuns.this.dispose();
 	}
 
+	/**
+	 * Metodo que dispara quando uma acao de clique e executada.
+	 */
 	public void actionPerformed(ActionEvent e) {
 	}
 
+	/**
+	 * 
+	 */
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
 		Object src = e.getSource();

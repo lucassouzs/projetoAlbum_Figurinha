@@ -7,6 +7,13 @@ import model.Album_Figurinha;
 import model.Figurinha_FWC;
 import model.Figurinha_Seleção;
 
+/**
+ * Classe responsavel por realizar o armazenamento de todo o projeto.
+ * @author Lucas Ribeiro de Souza 
+ * @author Lucas Victor Ferreira de Araujo
+ * @since 2022
+ * @version 1.0
+ */
 public class Database {
 	private static final List<Album_Figurinha> albumFigurinha = new ArrayList<Album_Figurinha>();
 	private static final List<Figurinha_FWC> Figurinhas_FWC = new ArrayList<Figurinha_FWC>();

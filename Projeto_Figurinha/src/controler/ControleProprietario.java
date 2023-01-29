@@ -10,6 +10,14 @@ import view.PanelEditarFigurinhaFWC;
 import view.PanelEditarFigurinhaSelecao;
 import view.PanelMeusAlbuns;
 
+/**
+ * Classe intermediaria que servira para ligar as telas disponiveis no 
+ * package view com as classes disponiveis na package controller.
+ * @author Lucas Ribeiro de Souza 
+ * @author Lucas Victor Ferreira de Araujo
+ * @since 2022
+ * @version 1.0
+ */
 public class ControleProprietario {
 	
 	public static Proprietario proprietario;

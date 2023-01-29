@@ -16,6 +16,14 @@ import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import controler.ControleProprietario;
 
+/**
+ * Classe responsavel por inicializar a tela em que sera 
+ * possivel criar o album.
+ * @author Lucas Ribeiro de Souza 
+ * @author Lucas Victor Ferreira de Araujo
+ * @since 2022
+ * @version 1.0
+ */
 public class PanelCriarAlbum extends JFrame implements ActionListener{
 	
 	private static final long serialVersionUID = 1L;
@@ -30,6 +38,10 @@ public class PanelCriarAlbum extends JFrame implements ActionListener{
 	private JTextField jtfNomeAlbum;
 	private JButton jbtCriar;
 
+	/**
+	 * Metodo construtor no qual recebe os metodos 
+	 * e exibe atraves da interface grafica.
+	 */
 	public PanelCriarAlbum(){
 		super();
 		this.configurarFrame();
@@ -39,6 +51,10 @@ public class PanelCriarAlbum extends JFrame implements ActionListener{
 		this.add(this.jpnBranco);
 	}
 	
+	/**
+	 * Metodo que cria, estiliza e recebe os componentes
+	 * presentes no painel vermelho.
+	 */
 	private void configurarPainelVermelho() {
 		this.jpnVermelho = new JPanel(null);	
 		this.jpnVermelho.setBackground(new Color(136, 22, 55)); 
@@ -49,6 +65,10 @@ public class PanelCriarAlbum extends JFrame implements ActionListener{
 		this.jpnVermelho.add(this.jbtBack);
 		}
 	
+	/**
+	 * Metodo que cria, estiliza e recebe os componentes
+	 * presentes no painel branco.
+	 */
 	private void configurarPainelBranco() {
 		this.jpnBranco = new JPanel(null);	 
 		this.jpnBranco.setBackground(new Color(240, 240, 240)); 
@@ -62,6 +82,10 @@ public class PanelCriarAlbum extends JFrame implements ActionListener{
 		this.jpnBranco.add(this.jbtCriar); 
 	}
 	
+	/**
+	 * Metodo que cria e estilizar o painel de exibição do 
+	 * PanelCriarAlbum.
+	 */
 	private void configurarDadosMenu() {
 		this.jlbCriarAlbum = new JLabel("Criar Album");
 		this.jlbCriarAlbum.setForeground(Color.white);
@@ -113,6 +137,9 @@ public class PanelCriarAlbum extends JFrame implements ActionListener{
 		});
 	}
 	
+	/**
+	 * Metodo que cria estilizar o frame "MyCup".
+	 */
 	private void configurarFrame() {
 		this.setTitle("MyCup"); 
 		this.setResizable(false); 
@@ -125,6 +152,9 @@ public class PanelCriarAlbum extends JFrame implements ActionListener{
 		this.setIconImage(logo.getImage());
 	}
 	
+	/**
+	 * Metodo que dispara quando uma acao de clique e executada.
+	 */
 	public void actionPerformed(ActionEvent e) {
 		
 		if(this.jtfNomeAlbum.getText().isEmpty()) {

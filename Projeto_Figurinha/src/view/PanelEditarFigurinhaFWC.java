@@ -17,6 +17,14 @@ import javax.swing.border.LineBorder;
 import controler.ControleProprietario;
 import controler.ControleProprietario.ControleInformacoesPessoais;
 
+/**
+ * Classe responsavel por inicializar a tela em que sera 
+ * possivel edtar ou excluir a FigurinhaFWC.
+ * @author Lucas Ribeiro de Souza 
+ * @author Lucas Victor Ferreira de Araujo
+ * @since 2022
+ * @version 1.0
+ */
 public class PanelEditarFigurinhaFWC extends JFrame implements ActionListener{
 	
 	private static final long serialVersionUID = 1L;
@@ -33,6 +41,12 @@ public class PanelEditarFigurinhaFWC extends JFrame implements ActionListener{
 	private JLabel jlb1;
 	private JTextField jtf1;
 
+	/**
+	 * Metodo construtor no qual recebe os metodos 
+	 * e exibe atraves da interface grafica.
+	 * @param i
+	 * @param k
+	 */
 	public PanelEditarFigurinhaFWC(int i, int k){
 		super(); 
 		this.configurarFrame();
@@ -42,6 +56,12 @@ public class PanelEditarFigurinhaFWC extends JFrame implements ActionListener{
 		this.add(this.jpnBranco);
 	}
 
+	/**
+	 * Metodo que cria, estiliza e recebe os componentes
+	 * presentes no painel vermelho.
+	 * @param i
+	 * @param k
+	 */
 	private void configurarPainelVermelho(int i, int k) {
 		this.jpnVermelho = new JPanel(null);	
 		this.jpnVermelho.setBackground(new Color(136, 22, 55)); 
@@ -51,6 +71,12 @@ public class PanelEditarFigurinhaFWC extends JFrame implements ActionListener{
 		this.jpnVermelho.add(this.jlbCriarFigurinha); 
 		}
 	
+	/**
+	 * Metodo que cria, estiliza e recebe os componentes presentes 
+	 * no painel branco.
+	 * @param i
+	 * @param k
+	 */
 	private void configurarPainelBranco(int i, int k) {
 		this.jpnBranco = new JPanel(null);	 
 		this.jpnBranco.setBounds(0, 100, 700, 300);
@@ -70,6 +96,12 @@ public class PanelEditarFigurinhaFWC extends JFrame implements ActionListener{
 		this.jpnBranco.add(this.jtf1);
 	}
 	
+	/**
+	 * Metodo que cria e estilizar o painel de exibição da edicao
+	 * ou exclusao da FigurinhaFWC.
+	 * @param i
+	 * @param k
+	 */
 	private void configurarDadosMenu(int i, int k) {
 		this.jlbCriarFigurinha = new JLabel("Editar Figurinha FWC");
 		this.jlbCriarFigurinha.setForeground(Color.white);
@@ -139,7 +171,9 @@ public class PanelEditarFigurinhaFWC extends JFrame implements ActionListener{
 				}
 				});
 	}
-	
+	/**
+	 * Metodo que cria estilizar o frame "MyCup".
+	 */
 	private void configurarFrame() {
 		this.setTitle("MyCup"); 
 		this.setResizable(false); 
@@ -152,6 +186,11 @@ public class PanelEditarFigurinhaFWC extends JFrame implements ActionListener{
 		this.setIconImage(logo.getImage());
 	}
 	
+	/**
+	 * Metodo para excluir FigurinhaFWC.
+	 * @param i
+	 * @param k
+	 */
 	public void excluir(int i, int k) {	
 		int r = JOptionPane.showConfirmDialog(null, "Deseja realmente excluir a figurinha?", "Atenção!", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
 		if(r == JOptionPane.YES_OPTION){
@@ -164,6 +203,11 @@ public class PanelEditarFigurinhaFWC extends JFrame implements ActionListener{
 		}
 	}
 	
+	/**
+	 * Metodo para edtitar FigurinhaFWC.
+	 * @param i
+	 * @param k
+	 */
 	public void edit(int i, int k) {
 		
 		if(this.jtfCodigo.getText().isEmpty() && this.jtf1.getText().isEmpty()) {
@@ -194,6 +238,9 @@ public class PanelEditarFigurinhaFWC extends JFrame implements ActionListener{
 			}
 	}	
 
+	/**
+	 * Metodo que dispara quando uma acao de clique e executada.
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 	}	

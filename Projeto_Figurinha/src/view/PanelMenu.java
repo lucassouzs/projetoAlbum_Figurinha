@@ -15,6 +15,14 @@ import javax.swing.border.LineBorder;
 import controler.ControleProprietario;
 import model.Proprietario;
 
+/**
+ * Classe responsavel por inicializar a tela em que sera 
+ * possivel ver todos os dados realiza no Cadastro.
+ * @author Lucas Ribeiro de Souza 
+ * @author Lucas Victor Ferreira de Araujo
+ * @since 2022
+ * @version 1.0
+ */
 public class PanelMenu extends JFrame{
 	
 	private static final long serialVersionUID = 1L;
@@ -27,14 +35,22 @@ public class PanelMenu extends JFrame{
 	private JLabel jlbSexo;
 	private JButton jbtMeusAlbuns;
 	private JButton jbtSair;
-
+	
+	
+	/**
+	 * Metodo construtor no qual recebe os metodos 
+	 * e exibe atraves da interface grafica.
+	 */
 	public PanelMenu(){
 		super();
 		this.configurarFrame();
 		this.configurarPainelBranco();
 		this.add(this.jpnBranco);
 	}
-	
+	/**
+	 * Metodo que cria, estiliza e recebe os componentes
+	 * presentes no painel branco.
+	 */
 	private void configurarPainelBranco() {
 		this.jpnBranco = new JPanel(null);	 
 		this.jpnBranco.setBackground(new Color(240, 240, 240)); 
@@ -49,6 +65,10 @@ public class PanelMenu extends JFrame{
 		this.jpnBranco.add(this.jbtSair);
 	}
 	
+	/**
+	 * Metodo para estilizar e puxar os dados dados do cadastro
+	 *  e exibir no PanelMenu.
+	 */
 	private void configurarDadosMenu() {
 		
 		ImageIcon perfil = new ImageIcon("perfil.png");
@@ -100,6 +120,9 @@ public class PanelMenu extends JFrame{
 				});
 	}
 
+	/**
+	 * Metodo que cria e estiliza os componente presentes no frame.
+	 */
 	private void configurarFrame() {
 		this.setTitle("MyCup"); 
 		this.setResizable(false); 
@@ -111,10 +134,16 @@ public class PanelMenu extends JFrame{
 		this.setIconImage(logo.getImage());
 	}
 	
+	/**
+	 * Metodo para feixar o PanelMeusAlbuns.
+	 */
 	public void meusAlbuns() {
 		PanelMenu.this.dispose();
 	}
 	
+	/*
+	 * Metodo para encerrar o programa.
+	 */
 	public void sair() {
 		int r = JOptionPane.showConfirmDialog(null, "Deseja realmente sair?", "Atenção!", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
 		if(r == JOptionPane.YES_OPTION){

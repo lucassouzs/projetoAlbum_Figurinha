@@ -17,6 +17,14 @@ import javax.swing.border.LineBorder;
 import controler.ControleProprietario;
 import controler.ControleProprietario.ControleInformacoesPessoais;
 
+/**
+ * Classe responsavel por inicializar a tela em que sera 
+ * possivel edtar ou excluir a FigurinhaSelecao.
+ * @author Lucas Ribeiro de Souza 
+ * @author Lucas Victor Ferreira de Araujo
+ * @since 2022
+ * @version 1.0
+ */
 public class PanelEditarFigurinhaSelecao extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
@@ -36,6 +44,12 @@ public class PanelEditarFigurinhaSelecao extends JFrame {
 	private JTextField jtf2;
 	private JButton jbtBack;
 
+	/**
+	 * Metodo construtor no qual recebe os metodos 
+	 * e exibe atraves da interface grafica.
+	 * @param i
+	 * @param k
+	 */
 	public PanelEditarFigurinhaSelecao(int i, int k){
 		super();
 		this.configurarFrame();
@@ -45,6 +59,12 @@ public class PanelEditarFigurinhaSelecao extends JFrame {
 		this.add(this.jpnBranco);
 	}
 	
+	/**
+	 * Metodo que cria, estiliza e recebe os componentes
+	 * presentes no painel vermelho.
+	 * @param i
+	 * @param k
+	 */
 	private void configurarPainelVermelho(int i, int k) {
 		this.jpnVermelho = new JPanel(null);	
 		this.jpnVermelho.setBackground(new Color(136, 22, 55)); 
@@ -54,6 +74,12 @@ public class PanelEditarFigurinhaSelecao extends JFrame {
 		this.jpnVermelho.add(this.jlbCriarFigurinha); 
 		}
 	
+	/**
+	 * Metodo que cria, estiliza e recebe os componentes presentes 
+	 * no painel branco.
+	 * @param i
+	 * @param k
+	 */
 	private void configurarPainelBranco(int i, int k) {
 		this.jpnBranco = new JPanel(null);	 
 		this.jpnBranco.setBounds(0, 100, 700, 300);
@@ -76,6 +102,12 @@ public class PanelEditarFigurinhaSelecao extends JFrame {
 		this.jpnBranco.add(this.jtf2);
 	}
 	
+	/**
+	 * Metodo que cria e estilizar o painel de exibição da edicao
+	 * ou exclusao da FigurinhaSelecao.
+	 * @param i
+	 * @param k
+	 */
 	private void configurarDadosMenu(int i, int k) {
 		this.jlbCriarFigurinha = new JLabel("Editar Figurinha Seleção");
 		this.jlbCriarFigurinha.setForeground(Color.white);
@@ -162,6 +194,9 @@ public class PanelEditarFigurinhaSelecao extends JFrame {
 				});
 	}
 	
+/**
+ * Metodo que cria estilizar o frame "MyCup".
+ */
 	private void configurarFrame() {
 		this.setTitle("MyCup"); 
 		this.setResizable(false); 
@@ -174,6 +209,11 @@ public class PanelEditarFigurinhaSelecao extends JFrame {
 		this.setIconImage(logo.getImage());
 	}
 	
+	/**
+	 * Metodo para excluir FigurinhaSelecao.
+	 * @param i
+	 * @param k
+	 */
 	public void edit(int i, int k) {
 		
 		if(this.jtfSigla.getText().isEmpty() && this.jtfCodigo.getText().isEmpty() && this.jtf1.getText().isEmpty() && this.jtf2.getText().isEmpty()){
@@ -230,6 +270,9 @@ public class PanelEditarFigurinhaSelecao extends JFrame {
 			}
 	}	
 	
+	/*
+	 * Metodo para edtitar FigurinhaSelecao.
+	 */
 	public void excluir(int i, int k) {	
 		int r = JOptionPane.showConfirmDialog(null, "Deseja realmente excluir a figurinha?", "Atenção!", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
 		if(r == JOptionPane.YES_OPTION){

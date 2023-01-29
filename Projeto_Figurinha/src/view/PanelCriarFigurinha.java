@@ -11,6 +11,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
+/**
+ * Classe responsavel por inicializar a tela em que sera 
+ * possivel selecionar o tipo e criar a figurinha.
+ * @author Lucas Ribeiro de Souza 
+ * @author Lucas Victor Ferreira de Araujo
+ * @since 2022
+ * @version 1.0
+ */
 public class PanelCriarFigurinha extends JFrame implements ActionListener{
 	
 	private static final long serialVersionUID = 1L;
@@ -22,6 +30,11 @@ public class PanelCriarFigurinha extends JFrame implements ActionListener{
 	private JButton jbtSelecao;
 	private JButton jbtBack;
 
+	/**
+	 * Metodo construtor no qual recebe os metodos 
+	 * e exibe atraves da interface grafica.
+	 * @param i
+	 */
 	public PanelCriarFigurinha(int i){
 		super();
 		this.configurarFrame();
@@ -31,6 +44,10 @@ public class PanelCriarFigurinha extends JFrame implements ActionListener{
 		this.add(this.jpnBranco);
 	}
 	
+	/*
+	 * Metodo que cria, estiliza e recebe os componentes
+	 * presentes no painel vermelho.
+	 */
 	private void configurarPainelVermelho(int i) {
 		this.jpnVermelho = new JPanel(null);	
 		this.jpnVermelho.setBackground(new Color(136, 22, 55)); 
@@ -41,6 +58,12 @@ public class PanelCriarFigurinha extends JFrame implements ActionListener{
 		this.jpnVermelho.add(this.jbtBack);
 		}
 	
+	/**
+	 * /**
+	 * Metodo que cria, estiliza e recebe os componentes presentes 
+	 * no painel branco.
+	 * @param i
+	 */
 	private void configurarPainelBranco(int i) {
 		this.jpnBranco = new JPanel(null);	 
 		this.jpnBranco.setBounds(0, 100, 700, 300);
@@ -51,6 +74,11 @@ public class PanelCriarFigurinha extends JFrame implements ActionListener{
 		this.jpnBranco.add(this.jbtSelecao);
 	}
 	
+	/**
+	 * Metodo que cria e estilizar o painel de exibição selecao
+	 * da FigurinhaFWC ou FigurinhaSelecao.
+	 * @param i
+	 */
 	private void configurarDadosMenu(int i) {
 		this.jlbCriarFigurinha = new JLabel("Criar Figurinha");
 		this.jlbCriarFigurinha.setForeground(Color.white);
@@ -103,6 +131,9 @@ public class PanelCriarFigurinha extends JFrame implements ActionListener{
 		});
 	}
 	
+	/**
+	 * Metodo que cria estilizar o frame "MyCup".
+	 */
 	private void configurarFrame() {
 		this.setTitle("MyCup"); 
 		this.setResizable(false); 
@@ -115,6 +146,9 @@ public class PanelCriarFigurinha extends JFrame implements ActionListener{
 		this.setIconImage(logo.getImage());
 	}
 	
+	/**
+	 * Metodo que dispara quando uma acao de clique e executada.
+	 */
 	public void actionPerformed(ActionEvent e) {
 		
 	}		

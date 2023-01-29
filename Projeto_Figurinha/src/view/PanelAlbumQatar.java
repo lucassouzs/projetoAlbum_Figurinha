@@ -17,9 +17,16 @@ import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-
 import controler.ControleProprietario;
 
+/**
+ * Classe responsavel por inicializar a tela em que sera 
+ * possivel ver todas as listas de figurinhas do propietario.
+ * @author Lucas Ribeiro de Souza 
+ * @author Lucas Victor Ferreira de Araujo
+ * @since 2022
+ * @version 1.0
+ */
 public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelectionListener{
 	
 	private static final long serialVersionUID = 1L;
@@ -40,6 +47,11 @@ public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelec
 	public JList<String> jltListaFigurinhasSelecao;
 	private ControleProprietario controle = new ControleProprietario();
 	public int i;
+	
+	/**
+	 * Metodo construtor no qual recebe os metodos 
+	 * e exibe atraves da interface grafica.
+	 */
 		
 	public PanelAlbumQatar(int i){
 		super();
@@ -53,6 +65,11 @@ public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelec
 		this.i=i;
 	}
 	
+	/**
+	 * Metodo que cria, estiliza e recebe os componentes
+	 * presentes no painel vermelho.
+	 * @param i
+	 */
 	private void configurarPainelVermelho(int i) {
 		this.jpnVermelho = new JPanel(null);	
 		this.jpnVermelho.setBackground(new Color(136, 22, 55)); 
@@ -69,6 +86,9 @@ public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelec
 		this.jpnVermelho.add(this.jbtCriarFigurinha);
 	}
 	
+	/**
+	 * Metodo que cria e estiliza o painel branco.
+	 */
 	private void configurarPainelBranco() {
 		this.jpnBranco = new JPanel();	 
 		this.jpnBranco.setBackground(new Color(240, 240, 240)); 
@@ -76,6 +96,9 @@ public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelec
 		this.jpnBranco.setLayout(null);	
 	}
 	
+	/*
+	 * Metodo que cria e estilizar o painel de exibição da lista de figurinhas FWC.
+	 */
 	private void configurarPainelListaFWC() {
 		
 		JScrollPane scrollPane1 = new JScrollPane(this.jltListaFigurinhasFWC);
@@ -92,6 +115,9 @@ public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelec
 		
 	}
 	
+	/*
+	 * Metodo que cria e estilizar o painel de exibição da lista de figurinhas Selecao.
+	 */
 	private void configurarPainelListaSelecao() {
 		
 		JScrollPane scrollPane1 = new JScrollPane(this.jltListaFigurinhasSelecao);
@@ -107,6 +133,9 @@ public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelec
 		this.jpnBranco.add(this.jpnListaFigurinhaSelecao);
 	}
 	
+	/**
+	 * Metodo que cria e estiliza os componente presentes no frame.
+	 */
 	private void configurarDadosMenu(int i) {
 		this.jbtBack = new JButton(new ImageIcon("back.png"));
 		this.jbtBack.setBackground(new Color(136, 22, 55));
@@ -225,6 +254,9 @@ public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelec
 		});
 	}
 	
+	/**
+	 * Metodo que cria estilizar o frame "MyCup".
+	 */
 	private void configurarFrame() {
 		this.setTitle("MyCup"); 
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -238,16 +270,27 @@ public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelec
 		this.setIconImage(logo.getImage());
 	}
 	
+	/**
+	 * Metodo para retorna a tela PanelMeusAlbuns.
+	 */
 	public void back() {
 		new PanelMeusAlbuns().setVisible(true);
 		dispose();
 	}	
 	
+	/**
+	 * Metodo para abrir a tela PanelCriarFigurinha.
+	 * @param i
+	 */
 	public void criarFigurinha(int i) {
 		new PanelCriarFigurinha(i).setVisible(true);
 		dispose();
 	}	
 	
+	/**
+	 * Metodo para excluir o album de figurinhas selecionado.
+	 * @param i
+	 */
 	public void dell(int i) {	
 		int r = JOptionPane.showConfirmDialog(null, "Deseja realmente excluir o album?", "Atenção!", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
 		if(r == JOptionPane.YES_OPTION){
@@ -260,6 +303,10 @@ public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelec
 		}
 	}
 	
+	/**
+	 * Metodo para editar o nome do album de figurinhas selecionado.
+	 * @param i
+	 */
 	public void edit(int i) {	
 		JOptionPane.showMessageDialog(null, "Nome alterado com sucesso!");	
 		ControleProprietario proprietario = new ControleProprietario();
@@ -267,6 +314,12 @@ public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelec
 	    proprietario.editarAlbum(nome, i);
 	}	
 	
+	/**
+	 * Metodo para abrir a figurinha FWC dentro da lista e retorna para o metodo
+	 * abrirFigurinhaFWC disponivel em {@link controle.ControleProprietario}.
+	 * @param i
+	 * @param e
+	 */
 	public void abrirFWC(int i, ListSelectionEvent e) {
 		Object src = e.getSource();
 		
@@ -277,6 +330,12 @@ public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelec
 		}
 	}
 	
+	/**
+	 * Metodo para abrir a figurinha Selecao dentro da lista e retorna para o metodo
+	 * abrirFigurinhaSelecao disponivel em {@link controle.ControleProprietario}.
+	 * @param i
+	 * @param e
+	 */
 	public void abrirSelecao(int i, ListSelectionEvent e){
 		Object src = e.getSource();
 
@@ -286,10 +345,16 @@ public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelec
 			dispose();
 		}
 	}
-
+	
+	/**
+	 * Metodo que dispara quando uma acao de clique e executada.
+	 */
 	public void actionPerformed(ActionEvent e) {
 	}
-
+	
+	/**
+	 * Metodo que dispara quando uma lista e selecionada.
+	 */
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
 	}
