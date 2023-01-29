@@ -52,7 +52,6 @@ public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelec
 	 * Metodo construtor no qual recebe os metodos 
 	 * e exibe atraves da interface grafica.
 	 */
-		
 	public PanelAlbumQatar(int i){
 		super();
 		this.configurarFrame();
@@ -316,7 +315,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelec
 	
 	/**
 	 * Metodo para abrir a figurinha FWC dentro da lista e retorna para o metodo
-	 * abrirFigurinhaFWC disponivel em {@link controle.ControleProprietario}.
+	 * abrirFigurinhaFWC disponivel em {@link controler.ControleProprietario}.
 	 * @param i
 	 * @param e
 	 */
@@ -332,7 +331,7 @@ public class PanelAlbumQatar extends JFrame implements ActionListener, ListSelec
 	
 	/**
 	 * Metodo para abrir a figurinha Selecao dentro da lista e retorna para o metodo
-	 * abrirFigurinhaSelecao disponivel em {@link controle.ControleProprietario}.
+	 * abrirFigurinhaSelecao disponivel em {@link controler.ControleProprietario}.
 	 * @param i
 	 * @param e
 	 */

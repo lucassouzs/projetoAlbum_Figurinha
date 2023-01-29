@@ -180,7 +180,8 @@ public class PanelMeusAlbuns extends JFrame implements ActionListener, ListSelec
 	}
 
 	/**
-	 * 
+	 * Metodo para abrir o album dentro da lista e retorna para o metodo
+	 * abrirAlbum disponivel em {@link controler.ControleProprietario}.
 	 */
 	@Override
 	public void valueChanged(ListSelectionEvent e) {

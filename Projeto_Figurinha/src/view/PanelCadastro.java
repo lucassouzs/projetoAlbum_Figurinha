@@ -19,6 +19,14 @@ import javax.swing.border.LineBorder;
 import controler.ControleProprietario;
 import controler.ControleProprietario.ControleInformacoesPessoais;
 
+/**
+ * Classe responsavel por inicializar a tela em que sera 
+ * possivel realizar o cadastro inserindo os dados do proprietario.
+ * @author Lucas Ribeiro de Souza 
+ * @author Lucas Victor Ferreira de Araujo
+ * @since 2022
+ * @version 1.0
+ */
 public class PanelCadastro extends JFrame implements ActionListener{
 	
 	private static final long serialVersionUID = 1L;
@@ -36,6 +44,10 @@ public class PanelCadastro extends JFrame implements ActionListener{
 	public JTextField jtfSexoProprietario;
 	private JButton jbtCadastrar;
 
+	/**
+	 * Metodo construtor no qual recebe os metodos 
+	 * e exibe atraves da interface grafica.
+	 */
 	public PanelCadastro(){
 		super();
 		this.configurarFrame();
@@ -43,6 +55,11 @@ public class PanelCadastro extends JFrame implements ActionListener{
 		this.add(this.jpnProprietario);
 	}
 	
+	/**
+	 * Metodo que cria, estiliza e recebe os componentes
+	 * presentes no painel do proprietario.
+	 * @param i
+	 */
 	private void configurarPainelPropietario() {
 		this.jpnProprietario = new JPanel(new GridBagLayout());
 		this.jpnProprietario.setPreferredSize(new Dimension(1166, 568));  
@@ -74,6 +91,9 @@ public class PanelCadastro extends JFrame implements ActionListener{
 		configurarGBC(NOVA_LINHA);
 	}
 	
+	/**
+	 * Metodo que cria e estiliza os componente presentes no frame.
+	 */
 	private void configurarDadosPropietario() {
 		this.jlbCadastro = new JLabel("Cadastro");
 		this.jlbCadastro.setForeground(Color.white);
@@ -114,6 +134,9 @@ public class PanelCadastro extends JFrame implements ActionListener{
 		this.jbtCadastrar.addActionListener(this);
 	}
 	
+	/**
+	 * Metodo que cria estilizar o frame "MyCup".
+	 */
 	private void configurarFrame() {
 		this.setTitle("MyCup"); 
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -133,6 +156,10 @@ public class PanelCadastro extends JFrame implements ActionListener{
 		this.setIconImage(logo.getImage());
 	}
 	
+	/**
+	 * Metodo responsavel por organizar os componentes em linha e coluna no painel do proprietario.
+	 * @param posicao Nova linha.
+	 */
 	private void configurarGBC(int posicao) {
 		if(posicao == NOVA_LINHA) {
 			gbc.gridy = gbc.gridy +1;
@@ -143,6 +170,9 @@ public class PanelCadastro extends JFrame implements ActionListener{
 		}
 	}
 	
+	/**
+	 * Metodo que dispara quando uma acao de clique e executada.
+	 */
 	public void actionPerformed(ActionEvent e) {
 		
 		if(jtfNomeProprietario.getText().isEmpty() && jtfIdadeProprietario.getText().isEmpty() 

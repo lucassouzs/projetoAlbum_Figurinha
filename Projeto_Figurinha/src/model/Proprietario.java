@@ -6,34 +6,54 @@ import javax.swing.DefaultListModel;
 
 import controler.ControleProprietario;
 
+/**
+ * Classe que define o proprietario pelo album, o proprietario
+ *  cadastrado controlara as outras classes.
+ * @author Lucas Ribeiro de Souza 
+ * @author Lucas Victor Ferreira de Araújo
+ * @since 2022
+ * @version 1.0
+ */
 public class Proprietario {
-	
-	// atributos
-	
+		
 	private String nome;
 	private int idade;
 	private String sexo;
 	private ArrayList<Album_Figurinha> albumFigurinha;
-	
-	// construtor
-	
+		
+	/**
+	 * Metodo construtor padrao para registrar um proprietario.
+	 * @param nome String Nome do proprietario.
+	 * @param idade int Idade do proprietario.
+	 * @param sexo	String sexo do proprietario.
+	 */
 	public Proprietario(String nome, int idade, String sexo){
 		this.nome = nome;
 		this.idade = idade;
 		this.sexo = sexo;
 		this.albumFigurinha = new ArrayList<>();
 	}
-	
-	// metodos
-	
+		
+	/**
+	 * Metodo para cadastrar um album para um proprietario.
+	 * @param album1 Album que sera cadastrado.
+	 */
 	public void cadastrarAlbum_Figurinha(Album_Figurinha album1){
 		albumFigurinha.add(album1);
 	}
 	
+	/**
+	 * Metodo para excluir um album de um proprietario.
+	 * @param nome Album que sera excluido.
+	 */
 	public void excluirAlbum_Figurinha(Album_Figurinha nome) {
 		albumFigurinha.remove(nome);
 	}
 	
+	/**
+	 * Metodo para listar os albuns do proprietario.
+	 * @return Retorna os nomes criados para os abuns.
+	 */
 	public DefaultListModel<String> listarAlbum_Figurinha(){
 		DefaultListModel<String> nomes = new DefaultListModel<>();
 		int size = ControleProprietario.proprietario.getAlbumFigurinha().size();
@@ -43,9 +63,7 @@ public class Proprietario {
 		}
 		return nomes;
 	}
-	
-	// gets e sets 
-	
+		
 	public String getNome() {
 		return nome;
 	}

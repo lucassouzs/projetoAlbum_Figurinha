@@ -1,45 +1,26 @@
 package junitTests;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
-
-import java.util.ArrayList;
-
 import controler.*;
-import database.Database;
-import model.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Classe designada para testar o metodo utilizado para criar um album e 
+ * adicionar este album no ArrayList de albuns do proprietario.
+ * 
+ * @author Lucas Ribeiro de Souza
+ * @author Lucas Victor Ferreira de Araujo
+ */
 public class TestCriarAlbum {
 
-	public void cadastrarFigurinha_Seleção() {
-		Figurinha_Seleção figurinhaSelecao = new Figurinha_Seleção("Bra", 0, "Brasil", "Neymar");
+	@Test
+	public void testeCadastrarAlbum() {
+		ControleProprietario controle = new ControleProprietario();
 		
-		Database.getFigurinhasSelecao().add(figurinhaSelecao);
-		Database.setQAT3(figurinhaSelecao);
-		
+		controle.cadastrarProprietario("Lucas", 18, "Masculino");
+		controle.cadastrarAlbum("Meu Album", "Qatar 2022");
+	
+		boolean resultado = ControleProprietario.proprietario.getAlbumFigurinha().isEmpty();
+		assertFalse(resultado);
 	}
-
-@Test
-public void testeCadastrarAlbum() {
-	ControleProprietario controler= new ControleProprietario();
-	controler.cadastrarProprietario("Lucas", 18, "Masculino");
-	controler.cadastrarAlbum("Qatar", "Brasa");
-	
-	boolean resultado= controler.proprietario.getAlbumFigurinha().isEmpty();
-	assertFalse(resultado);
-
-	
-	
-	
-	
-	
-    
-	
-	
-	
-
 }
-}
-
-
