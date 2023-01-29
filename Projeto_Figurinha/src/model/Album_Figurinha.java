@@ -10,6 +10,7 @@ public class Album_Figurinha {
 	
 	// atributos
 	
+	public static Object albumFigurinha;
 	private String nome;
 	private String copaMundo;
 	private ArrayList<Figurinha_FWC> figurinhaFWC;
@@ -116,5 +117,10 @@ public class Album_Figurinha {
 	
 	public void setFigurinha_FWC(ArrayList<Figurinha_FWC> figurinhaFWC) {
 		this.figurinhaFWC = figurinhaFWC;
+	}
+
+	public static String getAlbumFigurinha() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

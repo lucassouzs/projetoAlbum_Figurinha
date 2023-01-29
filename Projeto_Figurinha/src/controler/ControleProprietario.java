@@ -21,10 +21,11 @@ import view.PanelMeusAlbuns;
 public class ControleProprietario {
 	
 	public static Proprietario proprietario;
-	public static Album_Figurinha albumFigurinha;
+	public Album_Figurinha albumFigurinha;
 	public static Figurinha_FWC figurinhaFWC;
 	public static Figurinha_Seleção figurinhaSelecao;
 	public static int i;
+	
 	
 	// Cadastro = Proprietario
 	
@@ -118,7 +119,7 @@ public class ControleProprietario {
 	public void cadastrarFigurinhaSelecao(String sigla, int cod, String selecao, String jogador, int i) {
 		Figurinha_Seleção figurinhaSelecao = new Figurinha_Seleção(sigla, cod, selecao, jogador);
 		proprietario.getAlbumFigurinha().get(i).getFigurinhaSeleção().add(figurinhaSelecao);
-		System.out.println("");
+
 		System.out.println("Dados da Figurinha Selecao:");
 		System.out.println("Sigla: " + figurinhaSelecao.getSigla());
 		System.out.println("Codigo: " + figurinhaSelecao.getCodigo());
