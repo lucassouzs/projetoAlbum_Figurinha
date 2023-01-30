@@ -11,7 +11,7 @@ package view;
  * Metodo Main que instancia a classe Panel Entrada e a torna visivel;
  * 
  */
-public class Main { 
+public class Main {  
 
 	public static void main(String[] args) {
 		new PanelEntrada().setVisible(true);
