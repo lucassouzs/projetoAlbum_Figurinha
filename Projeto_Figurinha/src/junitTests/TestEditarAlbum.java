@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import controler.ControleProprietario;
 
 /**
- * Classe designada para testar o metodo utilzado para editar e atualizar o nome do album.
+ * Classe designada para testar o metodo utilzado para editar e atualizar o nome do album no ArrayList de albuns do proprietario.
  * @author Lucas Ribeiro de Souza
  * @author Lucas Victor Ferreira de Araujo
  */
