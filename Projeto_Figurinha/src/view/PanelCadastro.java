@@ -201,7 +201,9 @@ public class PanelCadastro extends JFrame implements ActionListener{
 					
 					ControleProprietario controleProprietario = new ControleProprietario();
 					controleProprietario.cadastrarProprietario(nome, id, sexo);
-					PanelCadastro.this.dispose();					
+					controleProprietario.preCadastroObjetos();
+					new PanelMeusAlbuns().setVisible(true);
+					PanelCadastro.this.dispose();			
 			} else {
 					JOptionPane.showMessageDialog(null, "Digite apenas numeros em Idade!", "Atenção!", JOptionPane.ERROR_MESSAGE);
 			}

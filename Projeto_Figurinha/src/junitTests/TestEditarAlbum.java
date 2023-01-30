@@ -6,28 +6,20 @@ import controler.ControleProprietario;
 
 /**
  * Classe designada para testar o metodo utilzado para editar e atualizar o nome do album.
- * 
  * @author Lucas Ribeiro de Souza
  * @author Lucas Victor Ferreira de Araujo
  */
-class TestAtualizarAlbum {
+class TestEditarAlbum {
 
-	ControleProprietario controle = new ControleProprietario();
-
-	void infos() {
-	
-		controle.cadastrarProprietario("Lucas", 18, "Masculino");
-				
-		String Nome = "Meu Album";
-		String CopaMundo = "Qatar 2022";
-		
-		controle.cadastrarAlbum(Nome, CopaMundo);	
-	}
-
+	/**
+	 * Metodo para editar o nome do album cadastrado 
+	 */
 	@Test
-	void testeCadastrarAlbum() {
+	public void testeCadastrarAlbum() {
+		ControleProprietario controle = new ControleProprietario();
 		
-		infos();
+		controle.cadastrarProprietario("Lucas", 18, "Masculino");
+		controle.cadastrarAlbum("Meu Album", "Qatar 2022");	
 		
 		controle.editarAlbum("Nome editado", 0);
 		
@@ -36,5 +28,4 @@ class TestAtualizarAlbum {
 		
 		assertEquals(v, r);
 	}
-
 }

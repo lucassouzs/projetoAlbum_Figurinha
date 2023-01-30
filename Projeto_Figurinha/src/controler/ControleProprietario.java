@@ -8,7 +8,6 @@ import model.Proprietario;
 import view.PanelAlbumQatar;
 import view.PanelEditarFigurinhaFWC;
 import view.PanelEditarFigurinhaSelecao;
-import view.PanelMeusAlbuns;
 
 /**
  * Classe intermediaria que servira para ligar as telas disponiveis no 
@@ -38,7 +37,23 @@ public class ControleProprietario {
 		System.out.println("Nome: " + proprietario.getNome());
 		System.out.println("Idade: " + proprietario.getIdade());
 		System.out.println("Sexo: " + proprietario.getSexo());
-		new PanelMeusAlbuns().setVisible(true);
+	}
+	
+	/**
+	 * Metodo responsavel por pre cadastrar dados pro usuario.
+	 */
+	public void preCadastroObjetos() {
+		cadastrarAlbum("album0", "Qatar 2022");
+		cadastrarAlbum("album1", "Qatar 2022");
+		cadastrarAlbum("album2", "Qatar 2022");
+		
+		cadastrarFigurinhaFWC("FWC", 0, "PANINI", 0);
+		cadastrarFigurinhaFWC("FWC", 1, "FIFA", 1);
+		cadastrarFigurinhaFWC("FWC", 2, "TROFEU 1/2", 2);
+		
+		cadastrarFigurinhaSelecao("BRA", 16, "BRASIL", "GABRIEL JESUS", 0);
+		cadastrarFigurinhaSelecao("BRA", 17, "BRASIL", "NEYMAR JR", 1);
+		cadastrarFigurinhaSelecao("BRA", 18, "BRASIL", "RAPHINHA", 2);
 	}
 	
 	/**
@@ -176,7 +191,7 @@ public class ControleProprietario {
 	public void cadastrarFigurinhaSelecao(String sigla, int cod, String selecao, String jogador, int i) {
 		Figurinha_Seleção figurinhaSelecao = new Figurinha_Seleção(sigla, cod, selecao, jogador);
 		proprietario.getAlbumFigurinha().get(i).getFigurinhaSeleção().add(figurinhaSelecao);
-
+		System.out.println("");
 		System.out.println("Dados da Figurinha Selecao:");
 		System.out.println("Sigla: " + figurinhaSelecao.getSigla());
 		System.out.println("Codigo: " + figurinhaSelecao.getCodigo());
