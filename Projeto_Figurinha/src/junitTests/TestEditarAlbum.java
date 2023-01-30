@@ -9,7 +9,7 @@ import controler.ControleProprietario;
  * @author Lucas Ribeiro de Souza
  * @author Lucas Victor Ferreira de Araujo
  */
-class TestEditarAlbum {
+public class TestEditarAlbum {
 
 	/**
 	 * Metodo para editar o nome do album cadastrado 

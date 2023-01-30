@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
  * @author Lucas Ribeiro de Souza
  * @author Lucas Victor Ferreira de Araujo
  */
-class TestDeletarAlbum {
+public class TestDeletarAlbum {
 	
 	/**
 	 * Metodo para testar se o album cadastrado esta sendo deletado ou nao
